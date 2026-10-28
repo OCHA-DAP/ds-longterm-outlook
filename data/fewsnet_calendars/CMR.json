@@ -1,0 +1,144 @@
+{
+  "iso3": "CMR",
+  "image_url": "https://fews.net/sites/default/files/2024-11/CM-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/west-africa/cameroon",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "northern",
+      "name": "Northern areas",
+      "where": "Extrême-Nord and Nord regions (purple on the locator map)",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 6,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season harvest",
+          "start": 9,
+          "end": 11,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season harvest",
+          "start": 2,
+          "end": 3,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 3,
+          "end": 6,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 5,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 10,
+          "end": 11,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy shading Jun to mid-Oct. Main planting mid-May to Jun. Off-season planting Oct to mid-Nov. Pastoral lean box Mar to mid-Jun. Green harvest (teal, Aug) excluded."
+    },
+    {
+      "id": "southern",
+      "name": "Southern areas",
+      "where": "Adamaoua and all regions to its south (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season (first)",
+          "start": 3,
+          "end": 7
+        },
+        {
+          "name": "Rainy Season (second)",
+          "start": 9,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season harvest",
+          "start": 6,
+          "end": 8,
+          "rainy": "Rainy Season (first)"
+        },
+        {
+          "name": "Off-season harvest",
+          "start": 11,
+          "end": 12,
+          "rainy": "Rainy Season (second)"
+        },
+        {
+          "name": "Cash crops harvest",
+          "start": 9,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 3,
+          "end": 5,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 3,
+          "end": 4,
+          "rainy": "Rainy Season (first)"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 9,
+          "end": 9,
+          "rainy": "Rainy Season (second)"
+        }
+      ],
+      "notes": "Both shaded blocks are labelled just 'Rainy Season'; I added (first)/(second). The second block runs mid-Sep to end Nov. Main harvest mid-Jun to Aug. The 'Off-Season' planting (Sep) and harvest (Nov-Dec) fall in the second rainy block, so I linked them to it. Green harvest (teal, mid-May to mid-Jun) excluded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "CM001": "southern",
+      "CM002": "southern",
+      "CM003": "southern",
+      "CM004": "northern",
+      "CM005": "southern",
+      "CM006": "northern",
+      "CM007": "southern",
+      "CM008": "southern",
+      "CM009": "southern",
+      "CM010": "southern"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Matched the purple locator maps: northern = Extrême-Nord and Nord; southern = Adamaoua (purple on the southern map) and every region south of it."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). Southern 'off-season' is tied to the second rainy block by timing only; the image does not name the link."
+}

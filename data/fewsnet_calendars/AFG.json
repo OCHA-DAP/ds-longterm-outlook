@@ -1,0 +1,194 @@
+{
+  "iso3": "AFG",
+  "image_url": "https://fews.net/sites/default/files/2024-11/AF-Seasonal-Calendar-202410_0.png",
+  "page_url": "https://fews.net/middle-east-and-asia/afghanistan",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "low-elevation",
+      "name": "Low Elevation Areas",
+      "where": "West, south-west, south and south-east lowlands: Hirat, Badghis, Faryab, Jawzjan, Farah, Nimroz, Hilmand, Kandahar, Zabul, plus Paktika, Paktya and Khost (purple on the locator map). The north (Balkh to Badakhshan) and the Kabul/Nangarhar east are grey on both maps.",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Winter Rains",
+          "start": 1,
+          "end": 3
+        },
+        {
+          "name": "Spring Rains",
+          "start": 3,
+          "end": 5
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Wheat, barley harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": "Winter Rains"
+        },
+        {
+          "name": "Rice, maize harvest (summer crop, outside any rainy season)",
+          "start": 9,
+          "end": 11,
+          "rainy": null
+        },
+        {
+          "name": "Poppy harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 12,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Winter wheat planting",
+          "start": 10,
+          "end": 12,
+          "rainy": "Winter Rains"
+        },
+        {
+          "name": "Spring wheat planting",
+          "start": 2,
+          "end": 4,
+          "rainy": "Spring Rains"
+        },
+        {
+          "name": "Rice, maize planting",
+          "start": 6,
+          "end": 7,
+          "rainy": null
+        }
+      ],
+      "notes": "Winter Rains shading runs Jan to mid-Mar and Spring Rains mid-Mar to end-May; a thin white line splits them at mid-Mar, so Mar is in both. The lean box is drawn in two pieces, mid-Dec to Dec and Jan to end-Mar, and is recorded as one 12-3. Wheat/barley harvest runs Apr to mid-Jun and poppy harvest mid-Apr to end-Jun. Rice/maize planting runs Jun to mid-Jul and harvest mid-Sep to mid-Nov. Spring wheat planting runs mid-Feb to Apr and winter wheat planting Oct to mid-Dec."
+    },
+    {
+      "id": "high-elevation",
+      "name": "High Elevation Areas",
+      "where": "Central highlands: Bamyan, Daykundi, central/southern Ghor, northern Uruzgan, western Wardak and southern Sar-e-Pul (purple on the locator map), plus one small separate purple patch north-east of Kabul",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Winter Rains",
+          "start": 1,
+          "end": 3
+        },
+        {
+          "name": "Spring Rains",
+          "start": 3,
+          "end": 6
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Wheat, barley harvest",
+          "start": 7,
+          "end": 10,
+          "rainy": "Spring Rains"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 4,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Spring wheat planting",
+          "start": 3,
+          "end": 4,
+          "rainy": "Spring Rains"
+        },
+        {
+          "name": "Winter wheat planting",
+          "start": 10,
+          "end": 12,
+          "rainy": "Winter Rains"
+        }
+      ],
+      "notes": "Winter Rains shading runs Jan to mid-Mar and Spring Rains mid-Mar to mid-Jun (Jun counted as half). Wheat/barley harvest runs mid-Jul to mid-Oct and winter wheat planting mid-Oct to mid-Dec, so half months are counted at both ends. Spring wheat planting runs Mar to end-Apr."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "AF01": "high-elevation",
+      "AF02": "high-elevation",
+      "AF03": "high-elevation",
+      "AF04": "high-elevation",
+      "AF05": "high-elevation",
+      "AF06": "low-elevation",
+      "AF07": "low-elevation",
+      "AF08": "high-elevation",
+      "AF09": "low-elevation",
+      "AF10": "high-elevation",
+      "AF11": "high-elevation",
+      "AF12": "low-elevation",
+      "AF13": "low-elevation",
+      "AF14": "low-elevation",
+      "AF15": "low-elevation",
+      "AF16": "high-elevation",
+      "AF17": "high-elevation",
+      "AF18": "low-elevation",
+      "AF19": "low-elevation",
+      "AF20": "low-elevation",
+      "AF21": "low-elevation",
+      "AF22": "high-elevation",
+      "AF23": "high-elevation",
+      "AF24": "high-elevation",
+      "AF25": "high-elevation",
+      "AF26": "low-elevation",
+      "AF27": "low-elevation",
+      "AF28": "low-elevation",
+      "AF29": "low-elevation",
+      "AF30": "low-elevation",
+      "AF31": "low-elevation",
+      "AF32": "low-elevation",
+      "AF33": "low-elevation",
+      "AF34": "low-elevation"
+    },
+    "adm2": {
+      "AF2201": "low-elevation",
+      "AF2202": "low-elevation",
+      "AF2205": "low-elevation",
+      "AF2206": "low-elevation"
+    },
+    "confidence": {
+      "AF01": "low",
+      "AF02": "low",
+      "AF03": "low",
+      "AF04": "medium",
+      "AF05": "medium",
+      "AF06": "medium",
+      "AF07": "low",
+      "AF08": "medium",
+      "AF09": "low",
+      "AF11": "medium",
+      "AF13": "medium",
+      "AF15": "low",
+      "AF16": "medium",
+      "AF17": "medium",
+      "AF18": "low",
+      "AF19": "medium",
+      "AF20": "low",
+      "AF21": "medium",
+      "AF22": "medium",
+      "AF23": "medium",
+      "AF25": "medium"
+    },
+    "method": "Provinces purple on a locator map take that block. Provinces grey on both maps take the block of similar elevation and timing: the northern plains and the Nangarhar/Laghman/Kunar valleys go to Low; Kabul, Kapisa, Parwan, Logar, Panjsher, Ghazni, Nuristan and Badakhshan go to High. Northern lowland Sar-e-Pul districts get Low adm2 overrides."
+  },
+  "transcriber_notes": "Both locator maps leave the north (Balkh, Kunduz, Takhar, Baghlan, Samangan, Badakhshan) and the east-central provinces (Kabul, Kapisa, Parwan, Panjsher, Logar, Ghazni, Nangarhar, Laghman, Kunar, Nuristan) grey, so those assignments are inferred from elevation (low/medium confidence). The small separate purple patch on the high map, north-east of Kabul (Kapisa or Panjsher?), could not be identified. Ghor and Uruzgan straddle the two maps; no district boundaries could be resolved from the small locator. Wheat/barley harvest links are judgement calls: Low is linked to Winter Rains because its harvest starts in Apr, while Spring Rains are still falling; High is linked to Spring Rains because its harvest starts after them."
+}

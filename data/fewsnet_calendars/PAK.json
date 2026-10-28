@@ -1,0 +1,55 @@
+{
+  "iso3": "PAK",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Pakistan_v3_Final.png",
+  "page_url": "https://fews.net/asia/pakistan",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (block titled NATIONAL; locator map shades all of Pakistan purple)",
+      "livelihood": "mixed",
+      "rainy": [
+        {"name": "Winter Precipitation", "start": 12, "end": 4},
+        {"name": "Monsoon Rainy Season", "start": 6, "end": 9}
+      ],
+      "harvest": [
+        {"name": "Wheat Season 1 (Rabi) harvest", "start": 3, "end": 6, "rainy": "Winter Precipitation"},
+        {"name": "Rice S2 harvest", "start": 9, "end": 11, "rainy": "Monsoon Rainy Season"},
+        {"name": "Maize S2 harvest", "start": 9, "end": 11, "rainy": "Monsoon Rainy Season"},
+        {"name": "Cotton S2 harvest", "start": 7, "end": 10, "rainy": "Monsoon Rainy Season"},
+        {"name": "Sugarcane S2 harvest", "start": 10, "end": 2, "rainy": "Monsoon Rainy Season"},
+        {"name": "Potato S1 harvest", "start": 1, "end": 3, "rainy": "Winter Precipitation"},
+        {"name": "Fruits harvest", "start": 1, "end": 12, "rainy": null}
+      ],
+      "lean": [
+        {"name": "Lean Season", "start": 1, "end": 3, "kind": "general"}
+      ],
+      "planting": [
+        {"name": "Wheat S1 land prep and planting", "start": 10, "end": 12, "rainy": "Winter Precipitation"},
+        {"name": "Rice Season 2 (Kharif) land prep and planting", "start": 4, "end": 7, "rainy": "Monsoon Rainy Season"},
+        {"name": "Maize S2 land prep and planting", "start": 5, "end": 7, "rainy": "Monsoon Rainy Season"},
+        {"name": "Cotton S2 prep and planting", "start": 4, "end": 5, "rainy": "Monsoon Rainy Season"},
+        {"name": "Sugarcane S2 prep and planting", "start": 3, "end": 4, "rainy": "Monsoon Rainy Season"},
+        {"name": "Potato S1 land prep and planting", "start": 9, "end": 10, "rainy": "Winter Precipitation"}
+      ],
+      "notes": "S1 = Season 1 (Rabi) and S2 = Season 2 (Kharif), per the bar labels; S1 is linked to Winter Precipitation and S2 to the Monsoon. Planting bars are combined 'Land Prep, Planting' bars. Half-month edges were counted: Winter Precipitation ends mid-Apr; the Monsoon runs mid-Jun to mid-Sep; wheat harvest starts mid-Mar; wheat planting starts mid-Oct; rice harvest ends mid-Nov; maize harvest starts mid-Sep; cotton harvest starts mid-Jul; sugarcane harvest runs mid-Oct to mid-Feb; sugarcane planting starts mid-Mar; potato harvest starts mid-Jan. The dark-green bars in the 'Agricultural Labor: Harvest' row (S1 Peak mid-Mar to May; S2 Peak Jun to Dec) show labour demand, not crop harvests, so they were not listed as harvests."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "PK1": "national",
+      "PK2": "national",
+      "PK3": "national",
+      "PK4": "national",
+      "PK5": "national",
+      "PK6": "national",
+      "PK7": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar, so every province or territory maps to national."
+  },
+  "transcriber_notes": "Winter Precipitation is shaded in two pieces at the year edge, Dec (labelled 'Winter Precip.') and Jan to mid-Apr; recorded as one season 12-4. The sugarcane S2 harvest is likewise drawn as mid-Oct to Dec plus Jan to mid-Feb; recorded as one harvest 10-2. Cotton and sugarcane are cash crops, but the image ties them to S2, so they are linked to the Monsoon. The fruits harvest runs all year with no season link."
+}

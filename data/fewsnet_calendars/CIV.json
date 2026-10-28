@@ -1,0 +1,223 @@
+{
+ "iso3": "CIV",
+ "image_url": "https://fews.net/sites/default/files/2026-07/CI%20SeasonalCalendar_Co%CC%82te%20d%27Ivoire_v7_Final.png",
+ "page_url": "https://fews.net/west-africa/cote-divoire",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "north-unimodal",
+   "name": "Northern unimodal areas",
+   "where": "Northern half of the country down to roughly 7.5-8 N (purple on the top locator map; dips further south around Bouake and along the Ghana border)",
+   "livelihood": "agropastoral",
+   "rainy": [
+    {
+     "name": "Rainy Season",
+     "start": 5,
+     "end": 10
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Maize, sorghum, millet harvest",
+     "start": 9,
+     "end": 11,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Yam harvest",
+     "start": 8,
+     "end": 12,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Vegetables harvest (outside the rainy season)",
+     "start": 1,
+     "end": 3,
+     "rainy": null
+    },
+    {
+     "name": "Cassava harvest",
+     "start": 1,
+     "end": 3,
+     "rainy": null
+    },
+    {
+     "name": "Cotton harvest",
+     "start": 11,
+     "end": 2,
+     "rainy": null
+    },
+    {
+     "name": "Cashew harvest",
+     "start": 2,
+     "end": 6,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 5,
+     "end": 8,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting",
+     "start": 5,
+     "end": 7,
+     "rainy": "Rainy Season"
+    }
+   ],
+   "notes": "Rainy shading ends mid-Oct. Maize/sorghum/millet harvest mid-Sep to mid-Nov; yam mid-Aug to mid-Dec; cassava Jan to mid-Mar; cotton Nov to mid-Feb (two pieces merged); cashew mid-Feb to Jun. Green harvest (mid-Aug-mid-Sep) skipped."
+  },
+  {
+   "id": "south-bimodal",
+   "name": "Southern bimodal areas",
+   "where": "Southern half of the country, forest and coastal zone (purple on the bottom locator map)",
+   "livelihood": "agricultural",
+   "rainy": [
+    {
+     "name": "Rainy Season (1st)",
+     "start": 3,
+     "end": 7
+    },
+    {
+     "name": "Rainy Season (2nd)",
+     "start": 9,
+     "end": 11
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Rice and maize harvest (S2)",
+     "start": 7,
+     "end": 9,
+     "rainy": "Rainy Season (1st)"
+    },
+    {
+     "name": "Rice and maize harvest (S1)",
+     "start": 10,
+     "end": 12,
+     "rainy": "Rainy Season (2nd)"
+    },
+    {
+     "name": "Cassava harvest",
+     "start": 12,
+     "end": 3,
+     "rainy": null
+    },
+    {
+     "name": "Vegetables harvest",
+     "start": 6,
+     "end": 9,
+     "rainy": "Rainy Season (1st)"
+    },
+    {
+     "name": "Cocoa harvest (S2)",
+     "start": 3,
+     "end": 3,
+     "rainy": null
+    },
+    {
+     "name": "Cocoa harvest (S1)",
+     "start": 9,
+     "end": 10,
+     "rainy": null
+    },
+    {
+     "name": "Coffee harvest",
+     "start": 10,
+     "end": 3,
+     "rainy": null
+    },
+    {
+     "name": "Palm nut harvest",
+     "start": 3,
+     "end": 5,
+     "rainy": null
+    },
+    {
+     "name": "Rubber harvest",
+     "start": 3,
+     "end": 12,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 4,
+     "end": 6,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting (S2)",
+     "start": 3,
+     "end": 4,
+     "rainy": "Rainy Season (1st)"
+    },
+    {
+     "name": "Planting (S1)",
+     "start": 8,
+     "end": 9,
+     "rainy": "Rainy Season (2nd)"
+    }
+   ],
+   "notes": "Both shaded blocks are labelled just \"Rainy Season\"; named 1st (Mar to mid-Jul) and 2nd (Sep to mid-Nov) here. The image labels the Mar-Jul crop season S2 and the Sep-Nov one S1; links follow timing. S2 harvest mid-Jul to mid-Sep, S1 harvest mid-Oct to mid-Dec. Lean Apr to mid-Jun."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "CI01": "south-bimodal",
+   "CI02": "south-bimodal",
+   "CI03": "south-bimodal",
+   "CI04": "north-unimodal",
+   "CI05": "north-unimodal",
+   "CI06": "south-bimodal",
+   "CI07": "north-unimodal",
+   "CI08": "north-unimodal",
+   "CI09": "south-bimodal",
+   "CI10": "north-unimodal",
+   "CI11": "north-unimodal",
+   "CI12": "south-bimodal",
+   "CI13": "south-bimodal",
+   "CI14": "north-unimodal",
+   "CI15": "south-bimodal",
+   "CI16": "south-bimodal",
+   "CI17": "north-unimodal",
+   "CI18": "south-bimodal",
+   "CI19": "south-bimodal",
+   "CI20": "south-bimodal",
+   "CI21": "north-unimodal",
+   "CI22": "south-bimodal",
+   "CI23": "south-bimodal",
+   "CI24": "south-bimodal",
+   "CI25": "south-bimodal",
+   "CI26": "south-bimodal",
+   "CI27": "south-bimodal",
+   "CI28": "north-unimodal",
+   "CI29": "south-bimodal",
+   "CI30": "south-bimodal",
+   "CI31": "north-unimodal",
+   "CI32": "south-bimodal",
+   "CI33": "north-unimodal"
+  },
+  "adm2": {},
+  "confidence": {
+   "CI04": "medium",
+   "CI11": "medium",
+   "CI14": "medium",
+   "CI19": "medium",
+   "CI23": "medium",
+   "CI32": "medium",
+   "CI18": "medium"
+  },
+  "method": "Traced the purple/grey boundary of the two locator maps (about 7.3-8.1 N, lowest near Bouake and on the Ghana border) and assigned each region by where most of its area lies."
+ },
+ "transcriber_notes": "2024+ template: element edges sit on a half-month grid; a month that is exactly half covered counts (>= half rule). Half months counted: north rainy Oct, planting May & Jul, harvest Sep & Nov, yam Aug & Dec, cassava Mar, cotton/cashew Feb; south rainy Jul and Nov, lean Jun, S2 harvest Jul & Sep, S1 harvest Oct & Dec, palm nut Mar & May, rubber Mar. Vegetables (south, Jun-Sep) linked to the 1st rains by timing; uncertain. Cocoa S1/S2 labels kept in names but left unlinked (tree crop). Boundary regions (Bafing, Gbeke, Gontougo north; Iffou, Marahoue, Haut-Sassandra, Tonkpi south) judged from a small locator map."
+}

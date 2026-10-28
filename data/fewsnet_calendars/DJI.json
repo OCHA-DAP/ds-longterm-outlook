@@ -1,0 +1,56 @@
+{
+  "iso3": "DJI",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Djibouti_v4_Final.png",
+  "page_url": "https://fews.net/east-africa/djibouti",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "pastoral",
+      "name": "Pastoral Areas",
+      "where": "Rural pastoral areas; the locator map shades the whole country purple",
+      "livelihood": "pastoral",
+      "rainy": [
+        {"name": "Coastal Rains (Xays/Dadaa)", "start": 10, "end": 2},
+        {"name": "Rainy Season (Diraac/Sougoum)", "start": 3, "end": 5},
+        {"name": "Rainy Season (Karan/Karma)", "start": 7, "end": 9}
+      ],
+      "harvest": [],
+      "lean": [
+        {"name": "Lean Season", "start": 5, "end": 8, "kind": "general"}
+      ],
+      "planting": [],
+      "notes": "No crop rows (no planting or harvest bars). Coastal Rains shaded in two pieces at the year edge (Oct-Dec and Jan-Feb), both labelled Coastal Rains (Xays/Dadaa); recorded as one season 10-2. June is unshaded. The shades of blue differ: Coastal Rains are darkest, Diraac/Sougoum (Mar-May) lighter and Karan/Karma (Jul-Sep) lightest. None is labelled showers, so none is flagged minor. Fishing (coastal areas) Mar-Sep; fruit and vegetable sales (green, a sales row, not harvest) Sep-Apr."
+    },
+    {
+      "id": "urban",
+      "name": "Urban Areas",
+      "where": "Urban areas, essentially Djibouti city (no locator map for this block)",
+      "livelihood": "other",
+      "rainy": [],
+      "harvest": [],
+      "lean": [
+        {"name": "Lean Season", "start": 5, "end": 8, "kind": "general"}
+      ],
+      "planting": [],
+      "notes": "The urban block has no rainy-season shading and no crop rows. Port labour demand Jul-Nov (peak); high temperatures May-Aug; seasonal flood risk Sep-Oct."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "DJ01": "pastoral",
+      "DJ02": "pastoral",
+      "DJ03": "pastoral",
+      "DJ04": "urban",
+      "DJ05": "pastoral",
+      "DJ06": "pastoral"
+    },
+    "adm2": {},
+    "confidence": {
+      "DJ05": "medium",
+      "DJ06": "medium"
+    },
+    "method": "Djibouti region (the capital city and Balbala) mapped to the urban block; the five interior regions, which are mostly rural and pastoral, mapped to the pastoral block."
+  },
+  "transcriber_notes": "All edges align with month boundaries. The urban block shows no rainfall shading, so its rainy list is empty rather than copied from the pastoral block. Ali Sabieh and Arta contain sizeable towns, but most of their area and livelihoods are pastoral, so confidence is medium."
+}

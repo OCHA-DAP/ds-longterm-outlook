@@ -1,0 +1,81 @@
+{
+  "iso3": "NPL",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Nepal_v3_FInal.png",
+  "page_url": "https://fews.net/asia/nepal",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "mountains",
+      "name": "Mountains Zone",
+      "where": "Northern Himalayan belt along the China border (purple on the locator map): widest in the north-west (Humla, Mugu, Dolpa, Mustang, Manang), narrower in the north-east (Rasuwa/Sindhupalchok/Dolakha to Taplejung)",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {"name": "Winter Precip.", "start": 1, "end": 2},
+        {"name": "Monsoon Rains", "start": 6, "end": 10}
+      ],
+      "harvest": [
+        {"name": "S2: Barley harvest", "start": 4, "end": 5, "rainy": "Winter Precip."},
+        {"name": "S2: Wheat harvest", "start": 6, "end": 6, "rainy": "Winter Precip."},
+        {"name": "S1: Bean, Millet, Potato harvest", "start": 9, "end": 11, "rainy": "Monsoon Rains"},
+        {"name": "Cash crops: Apple & Walnuts harvest", "start": 10, "end": 11, "rainy": null}
+      ],
+      "lean": [
+        {"name": "Primary Lean Season", "start": 7, "end": 9, "kind": "general"},
+        {"name": "Minor Lean Season", "start": 12, "end": 2, "kind": "general"}
+      ],
+      "planting": [
+        {"name": "Season 1 land preparation & planting", "start": 4, "end": 6, "rainy": "Monsoon Rains"},
+        {"name": "Season 2 land preparation & planting", "start": 10, "end": 12, "rainy": "Winter Precip."}
+      ],
+      "notes": "The Minor Lean box is drawn in two pieces at the year edge, Dec and Jan-Feb, open-sided where they meet; recorded as one 12-2. The Primary Lean box runs Jul to mid-Sep. The Monsoon runs mid-Jun to mid-Oct. The S2 barley bar runs mid-Apr to mid-May (both half months counted). Season 1 planting runs Apr to mid-Jun and Season 2 planting Oct to mid-Dec; both are combined land-prep and planting bars."
+    },
+    {
+      "id": "hills-terai",
+      "name": "Hills and Terai Zones",
+      "where": "Everything south of the Himalayan belt: the mid-hills and the southern Terai plains (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {"name": "Winter Rains", "start": 1, "end": 2},
+        {"name": "Pre-monsoon Rains", "start": 3, "end": 5},
+        {"name": "Monsoon Rains", "start": 6, "end": 10}
+      ],
+      "harvest": [
+        {"name": "S2: Maize, Wheat harvest", "start": 3, "end": 5, "rainy": "Winter Rains"},
+        {"name": "S3: Rice harvest", "start": 6, "end": 7, "rainy": "Pre-monsoon Rains"},
+        {"name": "S3: Maize harvest", "start": 8, "end": 9, "rainy": "Pre-monsoon Rains"},
+        {"name": "S1: Rice harvest", "start": 10, "end": 12, "rainy": "Monsoon Rains"}
+      ],
+      "lean": [
+        {"name": "Lean Season", "start": 7, "end": 9, "kind": "general"}
+      ],
+      "planting": [
+        {"name": "Season 3 land preparation & planting", "start": 3, "end": 4, "rainy": "Pre-monsoon Rains"},
+        {"name": "Season 1 land preparation & planting", "start": 5, "end": 7, "rainy": "Monsoon Rains"},
+        {"name": "Season 2 land preparation & planting", "start": 11, "end": 12, "rainy": "Winter Rains"}
+      ],
+      "notes": "Pre-monsoon Rains run mid-Mar to May and the Monsoon mid-Jun to mid-Oct. The lean box runs Jul to mid-Sep (Sep measured about 45%, counted as half). Several bars span half months and both ends were counted: S2 harvest mid-Mar to mid-May; S3 rice harvest mid-Jun to mid-Jul; S3 maize harvest mid-Aug to mid-Sep; S1 rice harvest Oct to mid-Dec; Season 2 planting mid-Nov to mid-Dec; Season 1 planting mid-May to Jul. Green-harvest (teal) maize bars were skipped."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "NP01": "hills-terai",
+      "NP02": "hills-terai",
+      "NP03": "hills-terai",
+      "NP04": "hills-terai",
+      "NP05": "hills-terai",
+      "NP06": "mountains",
+      "NP07": "hills-terai"
+    },
+    "adm2": {},
+    "confidence": {
+      "NP01": "medium",
+      "NP03": "medium",
+      "NP04": "medium",
+      "NP06": "low",
+      "NP07": "medium"
+    },
+    "method": "Each province went to the zone covering most of it on the two complementary locator maps. Koshi, Bagmati, Gandaki and Sudur Paschim have northern mountain districts but are mostly hills and Terai. Karnali is mostly mountain by area."
+  },
+  "transcriber_notes": "Karnali (NP06) is a judgement call: the Mountains purple covers most of its area (Humla, Mugu, Dolpa, Jumla, Kalikot), but most of its people live in the hill districts (Surkhet, Dailekh, Salyan, Jajarkot, Rukum West). It was set to mountains with low confidence. The file has no adm2 units, so no district overrides were possible."
+}

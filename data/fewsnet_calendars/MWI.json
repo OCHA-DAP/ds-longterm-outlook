@@ -1,0 +1,70 @@
+{
+  "iso3": "MWI",
+  "image_url": "https://fews.net/sites/default/files/2024-11/MW-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/malawi",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (calendar has no regional titles and no locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 4,
+          "end": 7,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Irrigated crops harvest",
+          "start": 9,
+          "end": 11,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 12,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 11,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Land prep., planting, weeding: irrigated crops",
+          "start": 5,
+          "end": 9,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy season shaded mid-Oct to mid-Apr. Lean box drawn in two pieces (Dec and Jan to mid-Mar), recorded as one Dec-Mar season. The irrigated-crops bar combines land preparation, planting and weeding (May to mid-Sep). Cotton sales (May-Aug) and tobacco sales (Apr-Sep) are sales bars, not harvest bars, so not recorded. Green harvest (mid-Mar to Apr), labour and milk bars not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Rainy Season (Apr 50%, Oct 50%); Lean Season (Mar 48%); Land prep., planting, weeding: irrigated crops (Sep 49%)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "MW1": "national",
+      "MW2": "national",
+      "MW3": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles; all three regions mapped to 'national'."
+  },
+  "transcriber_notes": "Rainy-season edges and the lean-season end sit on mid-month ticks and were counted (see notes)."
+}

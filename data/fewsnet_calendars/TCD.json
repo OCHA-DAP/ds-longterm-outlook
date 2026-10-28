@@ -1,0 +1,157 @@
+{
+  "iso3": "TCD",
+  "image_url": "https://fews.net/sites/default/files/2024-11/TD-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/west-africa/chad",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "northern-sahel",
+      "name": "Northern areas: Sahel",
+      "where": "The Sahelian belt of central Chad (no locator map on the image)",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 7,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 10,
+          "end": 10,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 3,
+          "end": 6,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 6,
+          "end": 7,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 12,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Lean box runs Jun to mid-Sep. Green harvest (teal, mid-Sep to Oct) excluded. Off-season land preparation (Oct-Nov) and weeding (mid-Oct to Dec) are shown, but no off-season harvest bar."
+    },
+    {
+      "id": "southern",
+      "name": "Southern areas",
+      "where": "The Sudanian south of Chad (no locator map on the image)",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 5,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 9,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Berbere harvest",
+          "start": 1,
+          "end": 2,
+          "rainy": null
+        },
+        {
+          "name": "Rice harvest",
+          "start": 6,
+          "end": 6,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 4,
+          "end": 6,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 5,
+          "end": 6,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Rainy shading mid-May to mid-Oct. Main harvest mid-Sep to mid-Dec. Lean box Jun to mid-Aug. Berbere (Jan-Feb) and Rice (Jun) bars share one 'Berbere and Rice Harvest' row with no season label, so rainy is null. Green harvest (teal, mid-Aug to Sep) excluded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "TD01": "northern-sahel",
+      "TD02": "northern-sahel",
+      "TD03": "northern-sahel",
+      "TD04": "northern-sahel",
+      "TD05": "northern-sahel",
+      "TD06": "northern-sahel",
+      "TD07": "northern-sahel",
+      "TD08": "southern",
+      "TD09": "southern",
+      "TD10": "southern",
+      "TD11": "southern",
+      "TD12": "southern",
+      "TD13": "southern",
+      "TD14": "northern-sahel",
+      "TD15": "southern",
+      "TD16": "southern",
+      "TD17": "northern-sahel",
+      "TD18": "northern-sahel",
+      "TD19": "northern-sahel",
+      "TD20": "northern-sahel",
+      "TD21": "northern-sahel",
+      "TD22": "northern-sahel",
+      "TD23": "northern-sahel"
+    },
+    "adm2": {},
+    "confidence": {
+      "TD02": "low",
+      "TD22": "low",
+      "TD20": "low",
+      "TD23": "low",
+      "TD15": "low",
+      "TD03": "medium",
+      "TD04": "medium",
+      "TD21": "medium",
+      "TD17": "medium",
+      "TD18": "medium"
+    },
+    "method": "No locator maps: assigned by geography. The 7 Sudanian southern provinces plus Salamat go to southern; the Sahelian belt goes to northern-sahel. The Saharan provinces (Borkou, Tibesti, Ennedi Est/Ouest) are in neither block and go to northern-sahel at low confidence."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). No locator maps, so the Sahel/south split is my own reading of the block titles. Salamat (Sudano-Sahelian, rains from about May) is placed in southern at low confidence. Chari-Baguirmi, Guéra and Sila straddle the transition and go to northern-sahel at medium."
+}

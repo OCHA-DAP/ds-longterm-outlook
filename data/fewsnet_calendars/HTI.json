@@ -1,0 +1,94 @@
+{
+  "iso3": "HTI",
+  "image_url": "https://fews.net/sites/default/files/2024-11/HT-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/haiti",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "All of Haiti (no regional titles or locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 3,
+          "end": 6
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main: Spring harvest",
+          "start": 6,
+          "end": 7,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Fall harvest",
+          "start": 10,
+          "end": 11,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Winter harvest (off-season; outside the shaded rainy seasons)",
+          "start": 12,
+          "end": 3,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 2,
+          "end": 6,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Spring planting",
+          "start": 3,
+          "end": 4,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Fall planting",
+          "start": 8,
+          "end": 9,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Winter planting (off-season; outside the shaded rainy seasons)",
+          "start": 12,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "First Rainy Season Mar 1 to mid-Jun; Second Rainy Season Aug 1 to mid-Nov. Lean box mid-Feb to mid-Jun. Winter harvest: unlabelled bar from mid-Dec plus the 'Winter' bar Jan to mid-Mar (one season, wrapping). Main: Spring harvest Jun-Jul; Fall harvest Oct to mid-Nov. Green-harvest (teal) row excluded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "HT01": "national",
+      "HT02": "national",
+      "HT03": "national",
+      "HT04": "national",
+      "HT05": "national",
+      "HT06": "national",
+      "HT07": "national",
+      "HT08": "national",
+      "HT09": "national",
+      "HT10": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles or locator map; every adm1 mapped to national."
+  },
+  "transcriber_notes": "Edges drawn at mid-month are counted (at-least-half rule); the lean box (mid-Feb, mid-Jun), the end of the First Rainy Season (mid-Jun), the end of the Second Rainy Season (mid-Nov), and the Winter and Fall harvest edges are at mid-month. The image does not say whether the Winter season is irrigated."
+}

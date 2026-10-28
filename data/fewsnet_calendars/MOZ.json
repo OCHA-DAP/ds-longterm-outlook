@@ -1,0 +1,142 @@
+{
+  "iso3": "MOZ",
+  "image_url": "https://fews.net/sites/default/files/2024-11/MZ-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/mozambique",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "north",
+      "name": "Northern Areas",
+      "where": "Northern Mozambique (purple on the locator map): Niassa and Cabo Delgado, north of the Lúrio river",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 12,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 5,
+          "end": 7,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 12,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 12,
+          "end": 1,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Lean box drawn in two pieces (Dec and Jan-Mar), recorded as one Dec-Mar season. Cyclone season, green harvest (Apr), labour and milk bars not recorded."
+    },
+    {
+      "id": "central",
+      "name": "Central Areas",
+      "where": "Central Mozambique (purple on the locator map): Tete, Manica, Sofala, Zambezia and Nampula, down to the Save river",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 11,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 11,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 11,
+          "end": 12,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Rainy season shaded Nov to mid-Apr. Lean box drawn in two pieces (Nov-Dec and Jan-Feb), recorded as one Nov-Feb season. Cyclone season, green harvest (Mar), labour, vegetable and milk bars not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Rainy Season (Apr 50%)."
+    },
+    {
+      "id": "south",
+      "name": "Southern Areas",
+      "where": "Southern Mozambique (purple on the locator map): Gaza, Inhambane, Maputo province and Maputo City, south of the Save river",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 3
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 3,
+          "end": 5,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 10,
+          "end": 1,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Lean box drawn in two pieces (Oct-Dec and Jan), recorded as one Oct-Jan season. Planting starts on the mid-Oct tick. Cyclone season, green harvest (Feb), labour, vegetable and milk bars not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Planting (Oct 49%)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "MZ01": "north",
+      "MZ02": "south",
+      "MZ03": "south",
+      "MZ04": "central",
+      "MZ05": "south",
+      "MZ06": "south",
+      "MZ07": "central",
+      "MZ08": "north",
+      "MZ09": "central",
+      "MZ10": "central",
+      "MZ11": "central"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Provinces read off the three locator maps, whose boundaries follow province lines (Lúrio river north/central, Save river central/south)."
+  },
+  "transcriber_notes": "The image is cut at the right edge, a few pixels short of the end of the Dec column (under 5% of Dec missing); bars and shading that reach the edge were taken to run to the end of Dec."
+}

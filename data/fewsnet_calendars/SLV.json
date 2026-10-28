@@ -1,0 +1,86 @@
+{
+  "iso3": "SLV",
+  "image_url": "https://fews.net/sites/default/files/2024-11/SV-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/el-salvador",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "All of El Salvador (no regional titles or locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "1st Rainy Season",
+          "start": 5,
+          "end": 7
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Primera harvest",
+          "start": 8,
+          "end": 9,
+          "rainy": "1st Rainy Season"
+        },
+        {
+          "name": "Postrera harvest",
+          "start": 12,
+          "end": 1,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 4,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Primera planting",
+          "start": 6,
+          "end": 6,
+          "rainy": "1st Rainy Season"
+        },
+        {
+          "name": "Postrera planting",
+          "start": 8,
+          "end": 9,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "notes": "1st Rainy Season shading runs mid-May to mid-Jul; Second Rainy Season mid-Aug to mid-Nov (gap = canícula, not labelled). Lean box mid-Apr to mid-Aug. Primera harvest mid-Aug to end-Sep. Postrera harvest bar covers Dec and continues as the unlabelled Jan bar (one season, wrapping). Primera planting is all of June; Postrera planting mid-Aug to end-Sep. Agricultural labour (cash crops Oct-Feb; maize/beans) and hurricane season (Jun-Nov) rows not transcribed."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "SV01": "national",
+      "SV02": "national",
+      "SV03": "national",
+      "SV04": "national",
+      "SV05": "national",
+      "SV06": "national",
+      "SV07": "national",
+      "SV08": "national",
+      "SV09": "national",
+      "SV10": "national",
+      "SV11": "national",
+      "SV12": "national",
+      "SV13": "national",
+      "SV14": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles or locator map; every adm1 mapped to national."
+  },
+  "transcriber_notes": "Edges drawn at mid-month are counted (at-least-half rule); in El Salvador both rainy seasons, the lean box, Primera harvest and Postrera planting all start or end exactly at mid-month, so each of those spans is one month longer than a strict >50% reading. Land-preparation label 'Postera' is a typo for Postrera on the image."
+}

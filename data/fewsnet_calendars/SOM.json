@@ -1,0 +1,209 @@
+{
+ "iso3": "SOM",
+ "image_url": "https://fews.net/sites/default/files/2025-11/2025-10%20SeasonalCalendarSomalia1_1.png",
+ "page_url": "https://fews.net/east-africa/somalia",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "south-central-northeast",
+   "name": "Southern, Central, and Northeastern",
+   "where": "All of Somalia except the far north-west: the south (Juba, Shabelle, Bay, Bakool, Gedo), central regions and the north-east including Sool, Sanaag, Bari and Nugaal (purple on the locator map)",
+   "livelihood": "mixed",
+   "rainy": [
+    {
+     "name": "Gu Rains (S1)",
+     "start": 4,
+     "end": 6
+    },
+    {
+     "name": "Xagaa Showers",
+     "start": 7,
+     "end": 8,
+     "minor": true
+    },
+    {
+     "name": "Deyr Rains (S2)",
+     "start": 10,
+     "end": 12
+    }
+   ],
+   "harvest": [
+    {
+     "name": "S2 (Deyr) harvest",
+     "start": 1,
+     "end": 1,
+     "rainy": "Deyr Rains (S2)"
+    },
+    {
+     "name": "Off-season harvest (Mar)",
+     "start": 3,
+     "end": 3,
+     "rainy": null
+    },
+    {
+     "name": "S1 (Gu) harvest",
+     "start": 7,
+     "end": 7,
+     "rainy": "Gu Rains (S1)"
+    },
+    {
+     "name": "Off-season harvest (Sep)",
+     "start": 9,
+     "end": 9,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Pastoral lean season (major)",
+     "start": 2,
+     "end": 4,
+     "kind": "pastoral"
+    },
+    {
+     "name": "Cropping lean season (major)",
+     "start": 4,
+     "end": 6,
+     "kind": "cropping"
+    },
+    {
+     "name": "Pastoral lean season (minor)",
+     "start": 8,
+     "end": 10,
+     "kind": "pastoral"
+    },
+    {
+     "name": "Cropping lean season (minor)",
+     "start": 10,
+     "end": 12,
+     "kind": "cropping"
+    }
+   ],
+   "planting": [
+    {
+     "name": "S1 (Gu) planting",
+     "start": 3,
+     "end": 4,
+     "rainy": "Gu Rains (S1)"
+    },
+    {
+     "name": "S2 (Deyr) planting",
+     "start": 9,
+     "end": 10,
+     "rainy": "Deyr Rains (S2)"
+    },
+    {
+     "name": "S2 planting (January bar)",
+     "start": 1,
+     "end": 1,
+     "rainy": "Deyr Rains (S2)"
+    },
+    {
+     "name": "Off-season planting (Jun-Jul)",
+     "start": 6,
+     "end": 7,
+     "rainy": null
+    },
+    {
+     "name": "Off-season planting (Dec)",
+     "start": 12,
+     "end": 12,
+     "rainy": null
+    }
+   ],
+   "notes": "Xagaa Showers are a lighter-blue band (Jul-Aug); the Dry Seasons row calls Jul-mid-Sep the Xagaa dry season. Exact edges: pastoral major lean Feb to mid-Apr; cropping major lean Apr to mid-Jun; pastoral minor lean mid-Aug to mid-Oct; cropping minor lean Oct to mid-Dec; S1 planting mid-Mar to end-Apr; S2 planting mid-Sep to end-Oct; off-season planting Jun to mid-Jul. The off-season harvests (Mar, Sep) are not tied to a rainy season on the image (riverine off-season). The planting row also has an S2 bar in January (flat left end) and an off-season bar in December (flat right end)."
+  },
+  {
+   "id": "northwest",
+   "name": "Northwest Somalia: Northwestern Agropastoral and West Golis Pastoral",
+   "where": "The far north-west: Awdal, Woqooyi Galbeed and the Sheikh/Burao area of Togdheer (purple on the locator map)",
+   "livelihood": "agropastoral",
+   "rainy": [
+    {
+     "name": "Gu Rains (S1)",
+     "start": 4,
+     "end": 6
+    },
+    {
+     "name": "Karan Rains (S2)",
+     "start": 7,
+     "end": 9
+    }
+   ],
+   "harvest": [
+    {
+     "name": "S1 harvest",
+     "start": 7,
+     "end": 7,
+     "rainy": "Gu Rains (S1)"
+    },
+    {
+     "name": "S2 harvest",
+     "start": 10,
+     "end": 11,
+     "rainy": "Karan Rains (S2)"
+    }
+   ],
+   "lean": [
+    {
+     "name": "West Golis Lean Season",
+     "start": 1,
+     "end": 3,
+     "kind": "pastoral"
+    },
+    {
+     "name": "NW Agropastoral Lean Season",
+     "start": 2,
+     "end": 6,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "S1 planting",
+     "start": 3,
+     "end": 4,
+     "rainy": "Gu Rains (S1)"
+    },
+    {
+     "name": "S2 planting",
+     "start": 5,
+     "end": 7,
+     "rainy": "Karan Rains (S2)"
+    }
+   ],
+   "notes": "Exact edges: Gu Rains Apr to mid-Jun; Karan Rains Jul to mid-Sep; NW Agropastoral lean mid-Feb to mid-Jun; S1 planting mid-Mar to mid-Apr; S2 planting mid-May to mid-Jul; S2 harvest mid-Oct to end-Nov. The two lean boxes belong to different livelihood zones in the same block (West Golis pastoral; NW agropastoral); their labels do not say 'pastoral' or 'cropping', so kind is general. West Golis lean set to pastoral on review (2026-10-28): the block title reads 'West Golis Pastoral'."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "SO11": "northwest",
+   "SO12": "northwest",
+   "SO13": "south-central-northeast",
+   "SO14": "south-central-northeast",
+   "SO15": "south-central-northeast",
+   "SO16": "south-central-northeast",
+   "SO17": "south-central-northeast",
+   "SO18": "south-central-northeast",
+   "SO19": "south-central-northeast",
+   "SO20": "south-central-northeast",
+   "SO21": "south-central-northeast",
+   "SO22": "south-central-northeast",
+   "SO23": "south-central-northeast",
+   "SO24": "south-central-northeast",
+   "SO25": "south-central-northeast",
+   "SO26": "south-central-northeast",
+   "SO27": "south-central-northeast",
+   "SO28": "south-central-northeast"
+  },
+  "adm2": {
+   "SO1304": "northwest"
+  },
+  "confidence": {
+   "SO13": "medium"
+  },
+  "method": "The north-west locator map covers Awdal, Woqooyi Galbeed and northern Togdheer (Sheikh, part of Burco); every other region is purple on the southern/central/north-eastern map."
+ },
+ "transcriber_notes": "Edges measured on the full-resolution image (only 2154 px wide); many are at mid-month and were counted (at-least-half rule). Burco district straddles the edge of the north-west map and was left with Togdheer in south-central-northeast. The block-1 region mixes riverine, agropastoral and pastoral zones in one calendar, so livelihood is 'mixed'."
+}

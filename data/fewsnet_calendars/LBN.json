@@ -1,0 +1,72 @@
+{
+  "iso3": "LBN",
+  "image_url": "https://fews.net/sites/default/files/2026-03/LB_Seasonal_Calendar_Web_0.png",
+  "page_url": "https://fews.net/middle-east-and-europe/lebanon",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "rural",
+      "name": "Rural Areas",
+      "where": "Rural and agricultural areas, chiefly the Bekaa Valley and Akkar Plain named in the rows (the single locator map shades all of Lebanon purple)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {"name": "Rainy Season", "start": 11, "end": 3}
+      ],
+      "harvest": [
+        {"name": "Wheat and barley harvest", "start": 6, "end": 7, "rainy": "Rainy Season"},
+        {"name": "Horticulture harvest (Bekaa Valley and Akkar Plain)", "start": 6, "end": 10, "rainy": null},
+        {"name": "Potatoes (Bekaa Valley) spring harvest", "start": 4, "end": 5, "rainy": "Rainy Season"},
+        {"name": "Potatoes (Bekaa Valley) summer harvest", "start": 8, "end": 11, "rainy": null},
+        {"name": "Potatoes (Akkar Plain) harvest", "start": 4, "end": 6, "rainy": "Rainy Season"},
+        {"name": "Citrus harvest", "start": 11, "end": 7, "rainy": null},
+        {"name": "Grape harvest", "start": 8, "end": 10, "rainy": null},
+        {"name": "Olive harvest", "start": 10, "end": 11, "rainy": null}
+      ],
+      "lean": [
+        {"name": "Lean Season", "start": 12, "end": 2, "kind": "general"}
+      ],
+      "planting": [
+        {"name": "Wheat and barley planting", "start": 11, "end": 12, "rainy": "Rainy Season"},
+        {"name": "Potatoes (Bekaa Valley) spring planting", "start": 2, "end": 3, "rainy": "Rainy Season"},
+        {"name": "Potatoes (Bekaa Valley) summer planting", "start": 6, "end": 7, "rainy": null},
+        {"name": "Potatoes (Akkar Plain) planting", "start": 12, "end": 1, "rainy": "Rainy Season"}
+      ],
+      "notes": "Rainy shading covers Nov-Dec (labelled Rainy Season) and Jan-Mar (unlabelled, the same shade, continuous across the year edge); recorded as one season 11-3. The lean box is drawn in two open-sided pieces, Dec and Jan-Feb; recorded as one 12-2. The citrus and grape row has an unlabelled Jan-Jul bar, a 'Grape' Aug-Oct bar and a 'Citrus' Nov-Dec bar; the Jan-Jul and Nov-Dec pieces are treated as one citrus harvest 11-7. The Akkar potato planting is a 'Planting' Dec bar plus an unlabelled brown Jan bar (12-1). Summer potato and horticulture crops grow outside the rainy season (rainy null). Wheat/barley land prep in Oct was skipped."
+    },
+    {
+      "id": "urban",
+      "name": "Urban Areas",
+      "where": "Urban areas: Beirut and the large coastal cities (no separate locator map)",
+      "livelihood": "other",
+      "rainy": [],
+      "harvest": [],
+      "lean": [],
+      "planting": [],
+      "notes": "The urban block has no rainy shading, no crop rows and no lean box. Peak food prices fall in Dec-Jan, peak energy expenses Nov-Mar and peak water expenses Jul-Oct; tourism labour peaks Jun-Sep and Dec-Feb."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "Conflict": "rural",
+      "LB1": "urban",
+      "LB2": "rural",
+      "LB3": "urban",
+      "LB4": "rural",
+      "LB5": "rural",
+      "LB6": "rural",
+      "LB7": "rural",
+      "LB8": "rural"
+    },
+    "adm2": {},
+    "confidence": {
+      "Conflict": "low",
+      "LB3": "low",
+      "LB4": "medium",
+      "LB5": "medium",
+      "LB6": "medium"
+    },
+    "method": "Beirut and Mount Lebanon, whose people live mostly in the Beirut metropolitan area, go to Urban. Bekaa, Baalbek-El Hermel, Akkar, North, South and El Nabatieh, which are agricultural by area and partly by people, go to Rural."
+  },
+  "transcriber_notes": "The admin file holds an adm1 unit with pcode and name 'Conflict', probably a boundary-file artefact or a disputed or contested polygon. It was set to rural with low confidence. Mount Lebanon is a toss-up: most of its people live in the urban Beirut suburbs (Baabda, Metn), but most of its land is rural mountain. North (Tripoli) and South (Saida, Tyre) also hold big cities but are mostly rural by area. The urban block has no lean season or rainy season on the image."
+}

@@ -1,0 +1,144 @@
+{
+  "iso3": "UKR",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Ukraine_v2_Final.png",
+  "page_url": "https://fews.net/middle-east-and-europe/ukraine",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "rural",
+      "name": "Rural Areas",
+      "where": "Rural areas nationwide (the locator map shades all of Ukraine)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Peak Rainfall",
+          "start": 6,
+          "end": 7
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Winter wheat, rye and rapeseed harvest (autumn-sown; no rainy season drawn for its growing period)",
+          "start": 6,
+          "end": 7,
+          "rainy": null
+        },
+        {
+          "name": "Cereals, legumes and pulses harvest",
+          "start": 7,
+          "end": 10,
+          "rainy": "Peak Rainfall"
+        },
+        {
+          "name": "Oil seeds (sunflower) harvest",
+          "start": 9,
+          "end": 9,
+          "rainy": "Peak Rainfall"
+        },
+        {
+          "name": "Vegetable harvest",
+          "start": 7,
+          "end": 10,
+          "rainy": "Peak Rainfall"
+        },
+        {
+          "name": "Fruit harvest",
+          "start": 6,
+          "end": 10,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 4,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Winter wheat, rye and rapeseed planting (autumn-sown)",
+          "start": 9,
+          "end": 10,
+          "rainy": null
+        },
+        {
+          "name": "Cereals, legumes and pulses planting",
+          "start": 3,
+          "end": 4,
+          "rainy": "Peak Rainfall"
+        },
+        {
+          "name": "Oil seeds (sunflower) planting",
+          "start": 5,
+          "end": 5,
+          "rainy": "Peak Rainfall"
+        }
+      ],
+      "notes": "Only 'Peak Rainfall' (Jun-Jul) is shaded; spring-sown crops are linked to it. Lean box Jan-Apr. Winter crops: land prep Aug, planting Sep-Oct, harvest Jun-Jul. Hazards: frost Jan-Feb and Dec, flooding Mar-May, drought & fire mid-Jul to Sep. Livestock sales mid-Sep to Dec."
+    },
+    {
+      "id": "urban",
+      "name": "Urban Areas",
+      "where": "Urban areas nationwide (Kyiv and other cities); no locator map for this block",
+      "livelihood": "other",
+      "rainy": [],
+      "harvest": [],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [],
+      "notes": "Urban lean box Jan-Mar, matching high staple food prices and health & electricity peak expenses Jan-Mar. Labour migration to the EU May-Sep; remittances year-round, high in Dec."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "UA01": "rural",
+      "UA05": "rural",
+      "UA07": "rural",
+      "UA12": "rural",
+      "UA14": "rural",
+      "UA18": "rural",
+      "UA21": "rural",
+      "UA23": "rural",
+      "UA26": "rural",
+      "UA32": "rural",
+      "UA35": "rural",
+      "UA44": "rural",
+      "UA46": "rural",
+      "UA48": "rural",
+      "UA51": "rural",
+      "UA53": "rural",
+      "UA56": "rural",
+      "UA59": "rural",
+      "UA61": "rural",
+      "UA63": "rural",
+      "UA65": "rural",
+      "UA68": "rural",
+      "UA71": "rural",
+      "UA73": "rural",
+      "UA74": "rural",
+      "UA80": "urban",
+      "UA85": "urban"
+    },
+    "adm2": {},
+    "confidence": {
+      "UA85": "medium",
+      "UA14": "medium",
+      "UA44": "medium",
+      "UA12": "medium",
+      "UA63": "medium",
+      "UA23": "medium",
+      "UA01": "medium"
+    },
+    "method": "Rural/urban blocks are livelihood types; every oblast was mapped to rural (the agricultural calendar covers its land) and only the city units Kyiv and Sevastopol to urban."
+  },
+  "transcriber_notes": "All edges fall on month boundaries. The rural/urban split cannot be mapped to oblasts from the image; strongly urbanised oblasts (Donetska, Luhanska, Dnipropetrovska, Kharkivska, Zaporizka) and Crimea kept rural with medium confidence. Rain in Ukraine is not limited to the shaded peak; autumn-sown winter crops and tree fruit are linked to no rainy season."
+}

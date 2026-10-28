@@ -1,0 +1,69 @@
+{
+ "iso3": "GIN",
+ "image_url": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-guinea.png",
+ "page_url": "https://fews.net/west-africa/guinea",
+ "axis_start_month": 10,
+ "template": "pre-2024 small template (Oct-Sep axis; coloured boxes: gold harvest, dark red lean, blue rainy, green land prep/planting)",
+ "regions": [
+  {
+   "id": "national",
+   "name": "National",
+   "where": "Whole country (no regional blocks or locator map)",
+   "livelihood": "agricultural",
+   "rainy": [
+    {
+     "name": "Rainy season",
+     "start": 5,
+     "end": 10
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Main harvest",
+     "start": 9,
+     "end": 1,
+     "rainy": "Rainy season"
+    },
+    {
+     "name": "Off-season cropping (gold harvest-coloured bar; whole off-season cycle)",
+     "start": 12,
+     "end": 4,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean season",
+     "start": 7,
+     "end": 9,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Land preparation, planting, and weeding (one bar)",
+     "start": 3,
+     "end": 8,
+     "rainy": "Rainy season"
+    }
+   ],
+   "notes": "Axis runs OCT to SEP. Rainy season drawn as Oct + May-Sep, merged. Main harvest drawn as Oct-Jan + Sep, merged."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "GN001": "national",
+   "GN002": "national",
+   "GN003": "national",
+   "GN004": "national",
+   "GN005": "national",
+   "GN006": "national",
+   "GN007": "national",
+   "GN008": "national"
+  },
+  "adm2": {},
+  "confidence": {},
+  "method": "Single-region calendar: every region mapped to national."
+ },
+ "transcriber_notes": "Old small template: 13 labels (OCT ... SEP, OCT) on the 13 dashed month-boundary lines, so the first column is OCT. Lean box ends about half-way through Sep (cover ~0.48, counted). Planting is one combined land prep/planting/weeding bar Mar to about three-quarters of Aug. \"Off-season cropping\" is not labelled as a harvest; included in harvest because it is gold, unlinked."
+}

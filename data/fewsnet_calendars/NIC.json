@@ -1,0 +1,101 @@
+{
+  "iso3": "NIC",
+  "image_url": "https://fews.net/sites/default/files/2024-11/NI-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/nicaragua",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "All of Nicaragua (no regional titles or locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "1st Rainy Season",
+          "start": 5,
+          "end": 7
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Primera harvest",
+          "start": 8,
+          "end": 9,
+          "rainy": "1st Rainy Season"
+        },
+        {
+          "name": "Postrera harvest",
+          "start": 11,
+          "end": 12,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Apante harvest (third season; no shaded rainy season for it)",
+          "start": 3,
+          "end": 4,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 4,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Primera planting",
+          "start": 5,
+          "end": 6,
+          "rainy": "1st Rainy Season"
+        },
+        {
+          "name": "Postrera planting",
+          "start": 9,
+          "end": 10,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Apante planting (third season; after the shaded rains end)",
+          "start": 11,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Rains: mid-May to mid-Jul and mid-Aug to mid-Nov. Lean box mid-Apr to mid-Aug. Harvests: Primera mid-Aug to mid-Sep; Postrera (spelt 'Postera' on the image) mid-Nov to end-Dec; Apante Mar to mid-Apr. Planting: Primera May to mid-Jun; Postrera Sep to mid-Oct; Apante mid-Nov to end-Dec. Apante weeding wraps into Jan."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "NI05": "national",
+      "NI10": "national",
+      "NI20": "national",
+      "NI25": "national",
+      "NI30": "national",
+      "NI35": "national",
+      "NI40": "national",
+      "NI50": "national",
+      "NI55": "national",
+      "NI60": "national",
+      "NI65": "national",
+      "NI70": "national",
+      "NI75": "national",
+      "NI80": "national",
+      "NI85": "national",
+      "NI91": "national",
+      "NI93": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles or locator map; every adm1 mapped to national."
+  },
+  "transcriber_notes": "Edges drawn at mid-month are counted (at-least-half rule); many Nicaraguan edges sit exactly at mid-month (rains, lean box, Primera harvest both ends, Postrera/Apante harvest and planting starts). Apante is linked to no rainy season because it is planted after the Second Rainy Season shading ends."
+}

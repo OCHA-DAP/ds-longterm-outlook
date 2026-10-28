@@ -1,0 +1,159 @@
+{
+  "iso3": "COD",
+  "image_url": "https://fews.net/sites/default/files/2024-11/DRC-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/democratic-republic-congo",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "bimodal-central-northeast",
+      "name": "Central and Northeastern Bimodal Areas",
+      "where": "North-east and centre of the country (purple on the locator map): the Uele provinces, Ituri, Tshopo, Nord- and Sud-Kivu, Maniema, Sankuru, Lomami and the Kasaï provinces",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 3,
+          "end": 6
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 1
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest (S1)",
+          "start": 6,
+          "end": 7,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Main harvest (S2)",
+          "start": 1,
+          "end": 2,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Cassava harvest",
+          "start": 1,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 8,
+          "end": 12,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting (S1)",
+          "start": 3,
+          "end": 4,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Planting (S2)",
+          "start": 9,
+          "end": 10,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "notes": "First rainy season shaded mid-Mar to end-Jun; second rainy season shaded mid-Aug through Dec and into the first half of Jan. Both planting bars are one month long, drawn mid-month to mid-month (S1 mid-Mar to mid-Apr, S2 mid-Sep to mid-Oct), so each is recorded as two months. Lean box runs from 1 Aug to just past mid-Dec (57% of Dec). Seasonal flooding bars (Season 1 Apr-May, Season 2 Oct-Nov), green harvest (S1 May-Jun, S2 late Dec-Jan) and livestock migration (highlands to lowlands, Jan-Mar) not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): First Rainy Season (Mar 50%); Second Rainy Season (Jan 50%, Aug 49%); Lean Season (Dec 57%); Planting (S1) (Mar 50%, Apr 50%); Planting (S2) (Sep 49%, Oct 50%)."
+    },
+    {
+      "id": "unimodal-south",
+      "name": "Southern Unimodal Areas",
+      "where": "South-east of the country (purple on the locator map): the former Katanga provinces Haut-Katanga, Lualaba, Haut-Lomami and Tanganyika",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 9,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Cassava harvest",
+          "start": 1,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 9,
+          "end": 11,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Rainy season shaded from 1 Sep through Dec and Jan to mid-Apr. Seasonal flooding Dec to mid-Jan and green harvest (Mar) not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Rainy Season (Apr 48%)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "CD10": "unimodal-south",
+      "CD20": "unimodal-south",
+      "CD31": "unimodal-south",
+      "CD32": "unimodal-south",
+      "CD33": "bimodal-central-northeast",
+      "CD41": "bimodal-central-northeast",
+      "CD42": "bimodal-central-northeast",
+      "CD43": "bimodal-central-northeast",
+      "CD44": "bimodal-central-northeast",
+      "CD45": "bimodal-central-northeast",
+      "CD51": "bimodal-central-northeast",
+      "CD52": "bimodal-central-northeast",
+      "CD53": "bimodal-central-northeast",
+      "CD54": "bimodal-central-northeast",
+      "CD61": "bimodal-central-northeast",
+      "CD62": "bimodal-central-northeast",
+      "CD63": "bimodal-central-northeast",
+      "CD71": "unimodal-south",
+      "CD72": "unimodal-south",
+      "CD73": "unimodal-south",
+      "CD74": "unimodal-south",
+      "CD81": "bimodal-central-northeast",
+      "CD82": "bimodal-central-northeast",
+      "CD83": "bimodal-central-northeast",
+      "CD91": "bimodal-central-northeast",
+      "CD92": "bimodal-central-northeast"
+    },
+    "adm2": {},
+    "confidence": {
+      "CD41": "low",
+      "CD42": "low",
+      "CD43": "low",
+      "CD44": "low",
+      "CD45": "low",
+      "CD33": "low",
+      "CD10": "low",
+      "CD20": "low",
+      "CD31": "low",
+      "CD32": "low"
+    },
+    "method": "Provinces read off the two locator maps (boundaries follow the 26 provinces); the ten western/north-western provinces left grey on both maps were given the nearer, climatically closer block with low confidence (equatorial and northern ones to bimodal, south-western ones with a Jun-Sep dry season to unimodal)."
+  },
+  "transcriber_notes": "Both locator maps leave the west and north-west grey, so these ten provinces are NOT covered by either calendar: Kinshasa, Kongo-Central, Kwango, Kwilu, Maï-Ndombe, Equateur, Sud-Ubangi, Nord-Ubangi, Mongala, Tshuapa. Their assignment is a judgement call (low confidence); Maï-Ndombe in particular could go either way. Many edges sit exactly on mid-month ticks and were counted (see region notes)."
+}

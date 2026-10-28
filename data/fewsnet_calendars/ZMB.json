@@ -1,0 +1,101 @@
+{
+  "iso3": "ZMB",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Zambia_v2_Final.png",
+  "page_url": "https://fews.net/southern-africa/zambia",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (titled NATIONAL; the locator map is fully purple)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 3
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest: maize & cassava",
+          "start": 4,
+          "end": 7,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Tobacco harvest & sales",
+          "start": 1,
+          "end": 4,
+          "rainy": null
+        },
+        {
+          "name": "Cotton harvest & sales",
+          "start": 5,
+          "end": 8,
+          "rainy": null
+        },
+        {
+          "name": "Irrigated wheat harvest",
+          "start": 9,
+          "end": 10,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 11,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: maize & cassava",
+          "start": 10,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Tobacco planting",
+          "start": 10,
+          "end": 11,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Cotton planting",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Irrigated wheat: land prep, planting",
+          "start": 5,
+          "end": 6,
+          "rainy": null
+        }
+      ],
+      "notes": "The rainy season is labelled twice ('Rainy Season' over Jan-Mar and over Oct-Dec); it is one season wrapping the year end. The lean season is drawn as two red brackets (Nov-Dec and Jan-Feb) rather than a closed box, recorded as one Nov-Feb season. Tobacco and cotton planting fall inside the rainy season and are linked to it. Green harvest of maize (Feb-Mar), vegetables, livestock, fishing, labour and mining bars not recorded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "ZM101": "national",
+      "ZM102": "national",
+      "ZM103": "national",
+      "ZM104": "national",
+      "ZM105": "national",
+      "ZM106": "national",
+      "ZM107": "national",
+      "ZM108": "national",
+      "ZM109": "national",
+      "ZM110": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single block titled NATIONAL with the whole country purple; every province mapped to 'national'."
+  },
+  "transcriber_notes": "Newer 2026 'v2' file in the same blue-shading/red-lean style; lean drawn as open brackets. No uncertain edges."
+}

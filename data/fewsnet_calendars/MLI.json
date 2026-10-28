@@ -1,0 +1,89 @@
+{
+  "iso3": "MLI",
+  "image_url": "https://fews.net/sites/default/files/2024-11/ML-Seasonal-Calendar-202410_0.png",
+  "page_url": "https://fews.net/west-africa/mali",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (no regional titles or locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 5,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season harvest",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season harvest",
+          "start": 1,
+          "end": 3,
+          "rainy": null
+        },
+        {
+          "name": "Flood-recession harvest",
+          "start": 6,
+          "end": 8,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 4,
+          "end": 7,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 5,
+          "end": 8,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 10,
+          "end": 3,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy shading mid-May to mid-Oct. Off-season planting mid-Oct to Mar (Oct-Dec 'Off-Season' bar plus an unlabelled Jan-Mar bar). Lean box Jun to mid-Sep. Pastoral lean box mid-Apr to mid-Jul. Green harvest (teal, mid-Sep) excluded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "ML01": "national",
+      "ML02": "national",
+      "ML03": "national",
+      "ML04": "national",
+      "ML05": "national",
+      "ML06": "national",
+      "ML07": "national",
+      "ML08": "national",
+      "ML09": "national",
+      "ML10": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single-region calendar: every adm1 mapped to national."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). The lean box's right edge is at about Sep+0.46 and the pastoral box's left edge at about Apr+0.53; both are read as mid-month and included."
+}

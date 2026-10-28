@@ -1,0 +1,86 @@
+{
+  "iso3": "SDN",
+  "image_url": "https://fews.net/sites/default/files/2024-11/SD-Seasonal-Calendar-082024.png",
+  "page_url": "https://fews.net/east-africa/sudan",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (single calendar, no regional titles or locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Harvest: Main Season Crops (Millet/Sorghum)",
+          "start": 11,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Irrigated winter wheat harvest",
+          "start": 3,
+          "end": 4,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 5,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: Rainfed/Irrigated Crops",
+          "start": 6,
+          "end": 8,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Planting: Irrigated Winter Wheat",
+          "start": 11,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Exact edges: main-season harvest from mid-November (labelled Millet/Sorghum) through December, continuing as an unlabelled January bar (one wrapping season); lean box mid-May to mid-September (both ends counted). Green harvest Oct to mid-Nov not counted. Other rows: livestock migration north, Red Sea fishing."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "SD01": "national",
+      "SD02": "national",
+      "SD03": "national",
+      "SD04": "national",
+      "SD05": "national",
+      "SD06": "national",
+      "SD07": "national",
+      "SD08": "national",
+      "SD09": "national",
+      "SD10": "national",
+      "SD11": "national",
+      "SD12": "national",
+      "SD13": "national",
+      "SD14": "national",
+      "SD15": "national",
+      "SD16": "national",
+      "SD17": "national",
+      "SD18": "national",
+      "SD19": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar, so every state is mapped to national."
+  },
+  "transcriber_notes": "Edges measured on the full-resolution image; the harvest start and both lean-box edges sit at mid-month and were counted under the at-least-half rule."
+}

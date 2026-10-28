@@ -1,0 +1,1426 @@
+{
+ "UGA": [
+  {
+   "title": "Uganda - Acute Food Insecurity Analysis – UG August 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165441/?iso3=UGA",
+   "created": "2026-10-21"
+  },
+  {
+   "title": "Uganda - Acute Food Insecurity Analysis Karamoja – UG August 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165441/?iso3=UGA",
+   "created": "2026-09-07"
+  },
+  {
+   "title": "Uganda - Acute Food Insecurity Analysis Karamoja – UG April 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1164409/?iso3=UGA",
+   "created": "2026-06-18"
+  },
+  {
+   "title": "Uganda - Uganda IPC AFI Refugee Analysis July 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159717/?iso3=UGA",
+   "created": "2025-09-02"
+  },
+  {
+   "title": "Uganda - Uganda IPC AFI Analysis June 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159709/?iso3=UGA",
+   "created": "2025-09-02"
+  },
+  {
+   "title": "Uganda - Acute Food Insecurity October 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159430/?iso3=UGA",
+   "created": "2024-12-17"
+  },
+  {
+   "title": "Uganda - Acute Food Insecurity April 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157053/?iso3=UGA",
+   "created": "2024-06-07"
+  },
+  {
+   "title": "Uganda - Acute Food Insecurity September 2023 (refugees)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156708/",
+   "created": "2023-10-13"
+  },
+  {
+   "title": "Uganda - Acute Food Insecurity May 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156423/?iso3=UGA",
+   "created": "2023-06-13"
+  }
+ ],
+ "AFG": [
+  {
+   "title": "Afghanistan - Acute Food Insecurity Analysis – AFI September 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165462/?iso3=AFG",
+   "created": "2026-10-15"
+  },
+  {
+   "title": "Afghanistan - Acute Food Insecurity Analysis– AF October 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159816/?iso3=AFG",
+   "created": "2026-01-30"
+  },
+  {
+   "title": "Afghanistan - Acute Food Insecurity March 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159622/?iso3=AFG",
+   "created": "2025-06-02"
+  },
+  {
+   "title": "Afghanistan - Acute Food Insecurity October 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159434/?iso3=AFG",
+   "created": "2024-10-24"
+  },
+  {
+   "title": "Afghanistan - Acute Food Insecurity March 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157027/?iso3=AFG",
+   "created": "2024-05-16"
+  },
+  {
+   "title": "Afghanistan - Acute Food Insecurity October 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156740/?iso3=AFG",
+   "created": "2023-11-21"
+  },
+  {
+   "title": "Afghanistan - Acute Food Insecurity April 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156351/?iso3=AFG",
+   "created": "2023-05-15"
+  }
+ ],
+ "GMB": [
+  {
+   "title": "The Gambia - Acute Food Insecurity Analysis – CH Mar 2026",
+   "link": "",
+   "created": "2026-10-13"
+  },
+  {
+   "title": "The Gambia - Acute Food Insecurity Analysis – CH Mar 2026",
+   "link": "",
+   "created": "2026-10-09"
+  },
+  {
+   "title": "The Gambia - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "The Gambia - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "The Gambia - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "The Gambia - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "The Gambia - Cadre Harmonisé Analysis March 2023 (Projection)",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-04-19"
+  }
+ ],
+ "SEN": [
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis June 2026",
+   "link": "",
+   "created": "2026-10-09"
+  },
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-11"
+  },
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-02-12"
+  },
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Senegal - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-24"
+  }
+ ],
+ "TCD": [
+  {
+   "title": "Chad - Cadre Harmonisé Analysis July 2026",
+   "link": "",
+   "created": "2026-10-09"
+  },
+  {
+   "title": "Chad - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Chad - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-08"
+  },
+  {
+   "title": "Chad - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Chad - CH Analysis March 2024 (displaced population)",
+   "link": NaN,
+   "created": "2024-04-17"
+  },
+  {
+   "title": "Chad - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Chad - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Chad - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "NGA": [
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis July 2026",
+   "link": "",
+   "created": "2026-10-09"
+  },
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-11-07"
+  },
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-09"
+  },
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-02-12"
+  },
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-10-31"
+  },
+  {
+   "title": "Nigeria - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-13"
+  }
+ ],
+ "SOM": [
+  {
+   "title": "Somalia - Acute Food Insecurity Analysis – SO August 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165451/?iso3=SOM",
+   "created": "2026-10-08"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity Analysis – SO August 2026",
+   "link": "",
+   "created": "2026-10-06"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity Analysis Update – SO April 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163311/?iso3=SOM",
+   "created": "2026-05-14"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity Analysis – SO January 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161024/?iso3=SOM",
+   "created": "2026-03-12"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity Analysis January 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161024/?iso3=SOM",
+   "created": "2026-02-20"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity July 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159740/?iso3=SOM",
+   "created": "2025-09-23"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity March 2025 Proj Update",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159549/?iso3=SOM",
+   "created": "2025-03-28"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity January 2025",
+   "link": NaN,
+   "created": "2025-02-17"
+  },
+  {
+   "title": "Somalia - Somalia IPC Post GU 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157952/?iso3=SOM",
+   "created": "2024-09-19"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity January 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156834/?iso3=SOM",
+   "created": "2024-02-15"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity August 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156562/?iso3=SOM",
+   "created": "2023-09-17"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity April 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156310/?iso3=SOM",
+   "created": "2023-04-28"
+  },
+  {
+   "title": "Somalia - Acute Food Insecurity February 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156238/?iso3=SOM",
+   "created": "2023-03-10"
+  }
+ ],
+ "HND": [
+  {
+   "title": "Honduras - Actualización Análisis AFI – HN agosto de 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165450/?iso3=HND",
+   "created": "2026-09-17"
+  },
+  {
+   "title": "Honduras - Análisis de inseguridad alimentaria aguda – HN Marzo 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163882/?iso3=HND",
+   "created": "2026-06-10"
+  },
+  {
+   "title": "Honduras - Analisis CIF IAA Febrero 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159588/?iso3=HND",
+   "created": "2025-03-19"
+  },
+  {
+   "title": "Honduras - Acute Food Insecurity February 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156994/?iso3=HND",
+   "created": "2024-05-07"
+  },
+  {
+   "title": "Honduras - Acute Food Insecurity February 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156257/?iso3=HND",
+   "created": "2023-03-13"
+  }
+ ],
+ "KEN": [
+  {
+   "title": "Kenya - Acute Food Insecurity Analysis – KE July 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165446/?iso3=KEN",
+   "created": "2026-09-14"
+  },
+  {
+   "title": "Kenya - Acute Food Insecurity Analysis – KE February 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161211/?iso3=KEN",
+   "created": "2026-03-12"
+  },
+  {
+   "title": "Kenya - Kenya ASAL IPC LRA Analysis July 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159707/?iso3=KEN",
+   "created": "2025-09-02"
+  },
+  {
+   "title": "Kenya - Kenya ASAL IPC SRA Analysis Feb 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159540/?iso3=KEN",
+   "created": "2025-03-18"
+  },
+  {
+   "title": "Kenya - Kenya ASAL IPC LRA Analysis July 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157147/?iso3=KEN",
+   "created": "2024-09-04"
+  },
+  {
+   "title": "Kenya - Acute Food Insecurity February 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156893/?iso3=KEN",
+   "created": "2024-03-01"
+  },
+  {
+   "title": "Kenya - Acute Food Insecurity July 2023 (LRA)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156541/",
+   "created": "2023-08-10"
+  },
+  {
+   "title": "Kenya - Acute Food Insecurity January 2023 (SRA)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156210/?iso3=KEN",
+   "created": "2023-02-15"
+  }
+ ],
+ "MOZ": [
+  {
+   "title": "Mozambique - Acute Food Insecurity Analysis – MZ July 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165444/?iso3=MOZ",
+   "created": "2026-09-09"
+  },
+  {
+   "title": "Mozambique - Acute Food Insecurity Analysis – MZ November 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159833/?iso3=MOZ",
+   "created": "2026-03-12"
+  },
+  {
+   "title": "Mozambique - Analise de InSAN Aguda Pos-Choques Junho 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159711/?iso3=MOZ",
+   "created": "2025-08-13"
+  },
+  {
+   "title": "Mozambique - Acute Food Insecurity January_combined",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159459/?iso3=MOZ",
+   "created": "2025-01-13"
+  },
+  {
+   "title": "Mozambique - Analise de InSA Aguda Pos Choques Junho 2024",
+   "link": NaN,
+   "created": "2024-09-13"
+  },
+  {
+   "title": "Mozambique - Acute Food Insecurity July 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156717/?iso3=MOZ",
+   "created": "2023-12-07"
+  },
+  {
+   "title": "Mozambique - Acute Food Insecurity November 2022",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1155848/?iso3=MOZ",
+   "created": "2023-03-27"
+  }
+ ],
+ "ZMB": [
+  {
+   "title": "Zambia - Acute Food Insecurity Analysis – ZM June 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165426/?iso3=ZMB",
+   "created": "2026-08-24"
+  },
+  {
+   "title": "Zambia - Acute Food Insecurity Analysis August 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159771/?iso3=ZMB",
+   "created": "2025-10-20"
+  },
+  {
+   "title": "Zambia - Acute Food Insecurity April 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157977/?iso3=ZMB",
+   "created": "2024-09-23"
+  },
+  {
+   "title": "Zambia - Acute Food Insecurity September 2023",
+   "link": NaN,
+   "created": "2023-11-09"
+  }
+ ],
+ "MWI": [
+  {
+   "title": "Malawi - Acute Food Insecurity Analysis – MW June 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165423/?iso3=MWI",
+   "created": "2026-08-07"
+  },
+  {
+   "title": "Malawi - Acute Food Insecurity June 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159768/?iso3=MWI",
+   "created": "2025-10-14"
+  },
+  {
+   "title": "Malawi - Acute Food Insecurity November 2024 (Proj update)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159832/?iso3=MWI",
+   "created": "2024-12-03"
+  },
+  {
+   "title": "Malawi - Acute Food Insecurity May 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157089/?iso3=MWI",
+   "created": "2024-06-04"
+  },
+  {
+   "title": "Malawi - Acute Food Insecurity July 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156521/?iso3=MWI",
+   "created": "2023-07-12"
+  }
+ ],
+ "GTM": [
+  {
+   "title": "Guatemala - Análisis de inseguridad alimentaria aguda – GT mayo de 2026",
+   "link": "",
+   "created": "2026-08-05"
+  },
+  {
+   "title": "Guatemala - Acute Food Insecurity May 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159721/?iso3=GTM",
+   "created": "2025-08-27"
+  },
+  {
+   "title": "Guatemala - Acute Food Insecurity June 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157137/?iso3=GTM",
+   "created": "2024-08-14"
+  },
+  {
+   "title": "Guatemala - Acute Food Insecurity May 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156450/?iso3=GTM",
+   "created": "2023-06-08"
+  }
+ ],
+ "BDI": [
+  {
+   "title": "Burundi - Analyse de l'insécurité alimentaire aigue – BI Juin 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165416/?iso3=BDI",
+   "created": "2026-08-04"
+  },
+  {
+   "title": "Burundi - Acute Food Insecurity Analysis August 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159737/?iso3=BDI",
+   "created": "2025-09-22"
+  },
+  {
+   "title": "Burundi - Acute Food Insecurity November 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159450/?iso3=BDI",
+   "created": "2024-12-02"
+  },
+  {
+   "title": "Burundi - Acute Food Insecurity May 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157088/?iso3=BDI",
+   "created": "2024-06-06"
+  },
+  {
+   "title": "Burundi - Acute Food Insecurity September 2023",
+   "link": NaN,
+   "created": "2023-10-27"
+  },
+  {
+   "title": "Burundi - Acute Food Insecurity April 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156379/?iso3=BDI",
+   "created": "2023-05-11"
+  }
+ ],
+ "LSO": [
+  {
+   "title": "Lesotho - Acute Food Insecurity Analysis – LS June 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165420/?iso3=LSO",
+   "created": "2026-08-03"
+  },
+  {
+   "title": "Lesotho - Acute Food Insecurity June 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159759/?iso3=LSO",
+   "created": "2025-10-08"
+  },
+  {
+   "title": "Lesotho - Acute Food Insecurity December 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159496/?iso3=LSO",
+   "created": "2025-01-30"
+  },
+  {
+   "title": "Lesotho - Acute Food Insecurity May 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157117/?iso3=LSO",
+   "created": "2024-07-05"
+  },
+  {
+   "title": "Lesotho - Acute Food Insecurity July 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156570/?iso3=LSO",
+   "created": "2023-08-24"
+  }
+ ],
+ "SWZ": [
+  {
+   "title": "Eswatini - Acute Food Insecurity Analysis – SZ June 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165418/?iso3=SWZ",
+   "created": "2026-07-31"
+  },
+  {
+   "title": "Eswatini - Acute Food Insecurity June 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159690/?iso3=SWZ",
+   "created": "2025-07-31"
+  },
+  {
+   "title": "Eswatini - Acute Food Insecurity June 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157105/?iso3=SWZ",
+   "created": "2024-07-03"
+  },
+  {
+   "title": "Eswatini - Acute Food Insecurity June 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1152805/?iso3=SWZ",
+   "created": "2023-08-10"
+  }
+ ],
+ "PSE": [
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity Analysis – PS May 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165303/?iso3=PSE",
+   "created": "2026-07-23"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity October 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159820/?iso3=PSE",
+   "created": "2025-12-19"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity August 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159696/?iso3=PSE",
+   "created": "2025-08-13"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity Analysis April 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159596/?iso3=PSE",
+   "created": "2025-05-08"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity September 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157985/?iso3=PSE",
+   "created": "2024-10-16"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity May 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157065/?iso3=PSE",
+   "created": "2024-06-21"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity February 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156872/?iso3=PSE",
+   "created": "2024-03-01"
+  },
+  {
+   "title": "Palestine (Gaza Strip) - Acute Food Insecurity December 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156749/?iso3=PSE",
+   "created": "2023-12-15"
+  }
+ ],
+ "DJI": [
+  {
+   "title": "Djibouti - Analyse de l'Insécurité alimentaire Aigue – DJ Juin 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165256/?iso3=DJI",
+   "created": "2026-07-17"
+  },
+  {
+   "title": "Djibouti - Acute Food Insecurity Analysis May 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159659/?iso3=DJI",
+   "created": "2025-06-04"
+  },
+  {
+   "title": "Djibouti - Acute Food Insecurity April 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157046/?iso3=DJI",
+   "created": "2024-06-06"
+  },
+  {
+   "title": "Djibouti - Acute Food Insecurity April 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156388/?iso3=DJI",
+   "created": "2023-05-30"
+  }
+ ],
+ "MDG": [
+  {
+   "title": "Madagascar - Acute Food Insecurity Analysis – MG May 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1165106/?iso3=MDG",
+   "created": "2026-07-15"
+  },
+  {
+   "title": "Madagascar - AFI Analysis December 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161004/?iso3=MDG",
+   "created": "2026-01-21"
+  },
+  {
+   "title": "Madagascar - GRAND SUD-GRAND SUD EST-EST-MAROA JUILLET 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159704/?iso3=MDG",
+   "created": "2025-08-27"
+  },
+  {
+   "title": "Madagascar - Acute Food Insecurity September 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159493/?iso3=MDG",
+   "created": "2025-01-31"
+  },
+  {
+   "title": "Madagascar - Acute Food Insecurity June 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157106/?iso3=MDG",
+   "created": "2024-07-24"
+  },
+  {
+   "title": "Madagascar - Acute Food Insecurity October 2023 (Grand Sud/Est)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156778/?iso3=MDG",
+   "created": "2024-01-07"
+  },
+  {
+   "title": "Madagascar - Acute Food Insecurity June 2023 (Grand Sud/Est)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156532/?iso3=",
+   "created": "2023-08-14"
+  }
+ ],
+ "BGD": [
+  {
+   "title": "Bangladesh - Acute Food Insecurity Analysis – BD May 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1164690/?iso3=BGD",
+   "created": "2026-06-30"
+  },
+  {
+   "title": "Bangladesh - Analysis: AFI April 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159634/?iso3=BGD",
+   "created": "2025-04-30"
+  },
+  {
+   "title": "Bangladesh - Acute Food Insecurity October 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1158462/?iso3=BGD",
+   "created": "2024-11-05"
+  },
+  {
+   "title": "Bangladesh - Acute Food Insecurity February 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156935/?iso3=BGD",
+   "created": "2024-03-20"
+  },
+  {
+   "title": "Bangladesh - Acute Food Insecurity March 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156384/?iso3=BGD",
+   "created": "2023-04-14"
+  }
+ ],
+ "CAF": [
+  {
+   "title": "Central African Republic - Acute Food Insecurity Analysis Update – CF May 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163780/?iso3=CAF",
+   "created": "2026-06-08"
+  },
+  {
+   "title": "Central African Republic - Acute Food Insecurity September 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159795/?iso3=CAF",
+   "created": "2025-11-06"
+  },
+  {
+   "title": "Central African Republic - Acute Food Insecurity April 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159665/?iso3=CAF",
+   "created": "2025-06-11"
+  },
+  {
+   "title": "Central African Republic - Acute Food Insecurity October 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159189/?iso3=CAF",
+   "created": "2024-11-01"
+  },
+  {
+   "title": "Central African Republic - Acute Food Insecurity September 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156637/?iso3=CAF",
+   "created": "2023-10-09"
+  },
+  {
+   "title": "Central African Republic - Acute Food Insecurity April 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156361/?iso3=CAF",
+   "created": "2023-05-09"
+  }
+ ],
+ "ECU": [
+  {
+   "title": "Ecuador - Análisis de Inseguridad Alimentaria Aguda – EC Febrero 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163306/?iso3=ECU",
+   "created": "2026-05-28"
+  },
+  {
+   "title": "Ecuador - Análisis CIF Aguda 2024 (actualización Feb 2025)",
+   "link": NaN,
+   "created": "2025-03-19"
+  },
+  {
+   "title": "Ecuador - Acute Food Insecurity August 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1158467/?iso3=ECU",
+   "created": "2024-08-25"
+  }
+ ],
+ "YEM": [
+  {
+   "title": "Yemen - Acute Food Insecurity Analysis – YESOUTH March 2026",
+   "link": " https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163308/?iso3=YEM",
+   "created": "2026-05-21"
+  },
+  {
+   "title": "Yemen - Acute Food Insecurity Analysis May 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159662/?iso3=YEM",
+   "created": "2025-06-25"
+  },
+  {
+   "title": "Yemen - Acute Food Insecurity August 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157981/?iso3=YEM",
+   "created": "2024-10-15"
+  },
+  {
+   "title": "Yemen - Acute Food Insecurity December 2023 (proj. update)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156803/?iso3=YEM",
+   "created": "2024-02-12"
+  },
+  {
+   "title": "Yemen - Acute Food Insecurity March 2023 Partial analysis",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156365/?iso3=YEM",
+   "created": "2023-05-23"
+  }
+ ],
+ "SDN": [
+  {
+   "title": "Sudan - Acute Food Insecurity Analysis – SD February 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163315/?iso3=SDN",
+   "created": "2026-05-14"
+  },
+  {
+   "title": "Sudan - Acute Food Insecurity September 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159787/?iso3=SDN",
+   "created": "2025-10-18"
+  },
+  {
+   "title": "Sudan - Acute Food Insecurity October 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159433/?iso3=SDN",
+   "created": "2024-12-24"
+  },
+  {
+   "title": "Sudan - Acute Food Insecurity April 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157066/?iso3=SDN",
+   "created": "2024-06-25"
+  },
+  {
+   "title": "Sudan - Acute Food Insecurity October 2023 (Proj Update)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156730/?iso3=SDN",
+   "created": "2023-12-07"
+  },
+  {
+   "title": "Sudan - Acute Food Insecurity June 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156504/?iso3=SDN",
+   "created": "2023-07-31"
+  }
+ ],
+ "COD": [
+  {
+   "title": "Congo, DRC - Acute Food Insecurity Analysis Update – CD April 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163307/?iso3=COD",
+   "created": "2026-05-12"
+  },
+  {
+   "title": "Congo, DRC - Acute Food Insecurity September 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159775/?iso3=COD",
+   "created": "2025-10-22"
+  },
+  {
+   "title": "Congo, DRC - Acute Food Insecurity March 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159546/?iso3=COD",
+   "created": "2025-03-20"
+  },
+  {
+   "title": "Congo, DRC - Acute Food Insecurity September 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1158150/?iso3=COD",
+   "created": "2024-10-28"
+  },
+  {
+   "title": "Congo, DRC - Acute Food Insecurity August 2023 (22ème cycle)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156611/?iso3=COD",
+   "created": "2023-09-12"
+  },
+  {
+   "title": "Congo, DRC - Acute Food Insecurity April 2023 (Proj Update)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156354/?iso3=COD",
+   "created": "2023-05-09"
+  }
+ ],
+ "SSD": [
+  {
+   "title": "South Sudan - Acute Food Insecurity Analysis – SS March 2026",
+   "link": "",
+   "created": "2026-04-29"
+  },
+  {
+   "title": "South Sudan - Acute Food Insecurity September 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159789/?iso3=SSD",
+   "created": "2025-11-03"
+  },
+  {
+   "title": "South Sudan - Acute Food Insecurity April 2025 Proj Update",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159640/?iso3=SSD",
+   "created": "2025-05-30"
+  },
+  {
+   "title": "South Sudan - Acute Food Insecurity September 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1158829/?iso3=SSD",
+   "created": "2024-11-05"
+  },
+  {
+   "title": "South Sudan - Acute Food Insecurity September 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156667/?iso3=SSD",
+   "created": "2023-10-31"
+  }
+ ],
+ "LBN": [
+  {
+   "title": "Lebanon - Acute Food Insecurity Analysis – LB March 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163301/?iso3=LBN",
+   "created": "2026-04-29"
+  },
+  {
+   "title": "Lebanon - Acute Food Insecurity Analysis– LB October 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159824/?iso3=LBN",
+   "created": "2026-04-15"
+  },
+  {
+   "title": "Lebanon - Lebanon IPC AFI analysis- April 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159615/?iso3=LBN",
+   "created": "2025-05-05"
+  },
+  {
+   "title": "Lebanon - Acute Food Insecurity November 2024",
+   "link": NaN,
+   "created": "2025-01-14"
+  },
+  {
+   "title": "Lebanon - Acute Food Insecurity April 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157035/?iso3=LBN",
+   "created": "2024-05-27"
+  },
+  {
+   "title": "Lebanon - Acute Food Insecurity Analysis October 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156728/?iso3=LBN",
+   "created": "2023-11-21"
+  },
+  {
+   "title": "Lebanon - Acute Food Insecurity May 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156514/?iso3=LBN",
+   "created": "2023-08-02"
+  }
+ ],
+ "TZA": [
+  {
+   "title": "Tanzania - Acute Food Insecurity Analysis – TZ February 2026",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1163286/?iso3=TZA",
+   "created": "2026-04-27"
+  },
+  {
+   "title": "Tanzania - Acute Food Insecurity March 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159586/?iso3=TZA",
+   "created": "2025-04-17"
+  },
+  {
+   "title": "Tanzania - Acute Food Insecurity November 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156759/?iso3=TZA",
+   "created": "2023-12-05"
+  }
+ ],
+ "HTI": [
+  {
+   "title": "Haiti - Analyse de l'insécurité alimentaire aiguë – HT February 2026_ Update",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1162842/?iso3=HTI",
+   "created": "2026-04-17"
+  },
+  {
+   "title": "Haiti - Acute Food Insecurity September 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159760/?iso3=HTI",
+   "created": "2025-10-06"
+  },
+  {
+   "title": "Haiti - Acute Food Insecurity March 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159571/?iso3=HTI",
+   "created": "2025-04-11"
+  },
+  {
+   "title": "Haiti - Acute Food Insecurity August 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157971/?iso3=HTI",
+   "created": "2024-09-17"
+  },
+  {
+   "title": "Haiti - Acute Food Insecurity March 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156884/?iso3=HTI",
+   "created": "2024-03-19"
+  },
+  {
+   "title": "Haiti - Acute Food Insecurity August 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI",
+   "created": "2023-09-05"
+  },
+  {
+   "title": "Haiti - Acute Food Insecurity March 2023 (Proj. Update)",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156263/?iso3=HTI",
+   "created": "2023-03-15"
+  }
+ ],
+ "PAK": [
+  {
+   "title": "Pakistan - IPC AFI Analysis_March 2026_Punjub",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161020/?iso3=PAK",
+   "created": "2026-03-24"
+  },
+  {
+   "title": "Pakistan - Acute Food Insecurity December 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1161020/?iso3=PAK",
+   "created": "2026-02-05"
+  },
+  {
+   "title": "Pakistan - Acute Food Insecurity November 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159508/?iso3=PAK",
+   "created": "2025-01-21"
+  },
+  {
+   "title": "Pakistan - Acute Food Insecurity March 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157024/?iso3=PAK",
+   "created": "2024-04-22"
+  },
+  {
+   "title": "Pakistan - Acute Food Insecurity April 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156396/?iso3=PAK",
+   "created": "2023-05-31"
+  }
+ ],
+ "CPV": [
+  {
+   "title": "Cape Verde - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Cape Verde - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Cape Verde - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Cape Verde - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Cape Verde - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-12-04"
+  },
+  {
+   "title": "Cape Verde - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "TGO": [
+  {
+   "title": "Togo - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Togo - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Togo - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Togo - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Togo - Cadre Harmonisé Analysis March 2023 (Projection)",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-04-19"
+  }
+ ],
+ "GIN": [
+  {
+   "title": "Guinea - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Guinea - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Guinea - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Guinea - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Guinea - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-30"
+  },
+  {
+   "title": "Guinea - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "GHA": [
+  {
+   "title": "Ghana - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Ghana - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-04-28"
+  },
+  {
+   "title": "Ghana - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Ghana - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Ghana - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-28"
+  }
+ ],
+ "CMR": [
+  {
+   "title": "Cameroon - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Cameroon - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Cameroon - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Cameroon - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Cameroon - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Cameroon - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "SLE": [
+  {
+   "title": "Sierra Leone - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Sierra Leone - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Sierra Leone - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Sierra Leone - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Sierra Leone - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Sierra Leone - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-24"
+  }
+ ],
+ "BEN": [
+  {
+   "title": "Benin - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-12"
+  },
+  {
+   "title": "Benin - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-08"
+  },
+  {
+   "title": "Benin - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Benin - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-12"
+  },
+  {
+   "title": "Benin - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Benin - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-24"
+  }
+ ],
+ "LBR": [
+  {
+   "title": "Liberia - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-11"
+  },
+  {
+   "title": "Liberia - Cadre Harmonisé Analysis March 2023 (Projection)",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-04-19"
+  }
+ ],
+ "CIV": [
+  {
+   "title": "Côte d'Ivoire - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-11"
+  },
+  {
+   "title": "Côte d'Ivoire - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Côte d'Ivoire - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Côte d'Ivoire - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Côte d'Ivoire - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Côte d'Ivoire - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "NER": [
+  {
+   "title": "Niger - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-11"
+  },
+  {
+   "title": "Niger - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Niger - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Niger - Cadre Harmonisé Analysis March 2024 (proj. update)",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Niger - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Niger - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-28"
+  }
+ ],
+ "MLI": [
+  {
+   "title": "Mali - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-11"
+  },
+  {
+   "title": "Mali - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Mali - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Mali - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Mali - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Mali - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "MRT": [
+  {
+   "title": "Mauritania - Cadre Harmonisé Analysis November 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2026-02-11"
+  },
+  {
+   "title": "Mauritania - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Mauritania - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-02-05"
+  },
+  {
+   "title": "Mauritania - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Mauritania - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-12-07"
+  },
+  {
+   "title": "Mauritania - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "NAM": [
+  {
+   "title": "Namibia - Acute Food Insecurity July 2025",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159738/?iso3=NAM",
+   "created": "2025-09-01"
+  },
+  {
+   "title": "Namibia - Acute Food Insecurity July 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157149/?iso3=NAM",
+   "created": "2024-08-09"
+  },
+  {
+   "title": "Namibia - Acute Food Insecurity May 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1157090/?iso3=NAM",
+   "created": "2024-05-14"
+  },
+  {
+   "title": "Namibia - Acute Food Insecurity July 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156545/?iso3=NAM",
+   "created": "2023-08-08"
+  },
+  {
+   "title": "Namibia - Acute Food Insecurity September 2022",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156226/?iso3=NAM",
+   "created": "2023-01-25"
+  }
+ ],
+ "GNB": [
+  {
+   "title": "Guinea-Bissau - Cadre Harmonisé Analysis March 2025",
+   "link": "https://www.ipcinfo.org/ch/en/",
+   "created": "2025-05-12"
+  },
+  {
+   "title": "Guinea-Bissau - Cadre Harmonisé Analysis November 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2025-01-10"
+  },
+  {
+   "title": "Guinea-Bissau - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Guinea-Bissau - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Guinea-Bissau - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "DOM": [
+  {
+   "title": "Dominican Republic - Analisis CIF IAA Noviembre 2024",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1159562/?iso3=DOM",
+   "created": "2025-01-16"
+  },
+  {
+   "title": "Dominican Republic - Acute Food Insecurity September 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156758/?iso3=DOM",
+   "created": "2023-10-23"
+  }
+ ],
+ "BFA": [
+  {
+   "title": "Burkina Faso - Cadre Harmonisé Analysis March 2024",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2024-03-08"
+  },
+  {
+   "title": "Burkina Faso - Cadre Harmonisé Analysis November 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-11-02"
+  },
+  {
+   "title": "Burkina Faso - Cadre Harmonisé Analysis March 2023",
+   "link": "http://www.ipcinfo.org/cadre-harmonise",
+   "created": "2023-03-27"
+  }
+ ],
+ "TLS": [
+  {
+   "title": "Timor-Leste - Acute Food Insecurity November 2023",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156859/?iso3=TLS",
+   "created": "2024-02-08"
+  },
+  {
+   "title": "Timor-Leste - Acute Food Insecurity November 2022",
+   "link": "https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156204/?iso3=TLS",
+   "created": "2023-01-25"
+  }
+ ]
+}

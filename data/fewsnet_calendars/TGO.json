@@ -1,0 +1,163 @@
+{
+ "iso3": "TGO",
+ "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Togo_v3_Final.png",
+ "page_url": "https://fews.net/west-africa/togo",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "north-central-unimodal",
+   "name": "Northern & central unimodal areas",
+   "where": "Savanes, Kara and Centrale: the northern two-thirds of the country (purple on the top locator map)",
+   "livelihood": "agropastoral",
+   "rainy": [
+    {
+     "name": "Rainy Season",
+     "start": 5,
+     "end": 10
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Maize, sorghum, millet, cotton harvest",
+     "start": 10,
+     "end": 1,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Yam harvest",
+     "start": 10,
+     "end": 12,
+     "rainy": "Rainy Season"
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 5,
+     "end": 8,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Maize, sorghum, millet, cotton: land prep, planting, weeding (one bar)",
+     "start": 5,
+     "end": 8,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Yam: prep, planting, weeding (one bar)",
+     "start": 3,
+     "end": 5,
+     "rainy": "Rainy Season"
+    }
+   ],
+   "notes": "Rainy shading ends mid-Oct. Maize/sorghum/millet/cotton harvest drawn as Jan + Oct-Dec pieces, merged. Planting bars combine land prep, planting and weeding (maize etc. May to mid-Aug; yam Mar to mid-May)."
+  },
+  {
+   "id": "south-bimodal",
+   "name": "Southern bimodal areas",
+   "where": "Plateaux and Maritime: the southern third of the country (purple on the bottom locator map)",
+   "livelihood": "agricultural",
+   "rainy": [
+    {
+     "name": "Rainy Season 1",
+     "start": 3,
+     "end": 7
+    },
+    {
+     "name": "Rainy Season 2",
+     "start": 9,
+     "end": 11
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Maize harvest (S1)",
+     "start": 6,
+     "end": 8,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "Maize harvest (S2)",
+     "start": 11,
+     "end": 12,
+     "rainy": "Rainy Season 2"
+    },
+    {
+     "name": "Rainfed highland rice harvest",
+     "start": 11,
+     "end": 12,
+     "rainy": "Rainy Season 2"
+    },
+    {
+     "name": "Rainfed lowland rice harvest",
+     "start": 10,
+     "end": 11,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "Palm oil, cassava and vegetables harvest (year-round)",
+     "start": 1,
+     "end": 12,
+     "rainy": null
+    },
+    {
+     "name": "Coffee and cocoa harvest",
+     "start": 9,
+     "end": 2,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 4,
+     "end": 6,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Maize S1: prep, planting, weeding (one bar)",
+     "start": 2,
+     "end": 4,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "Maize S2: plant",
+     "start": 9,
+     "end": 9,
+     "rainy": "Rainy Season 2"
+    },
+    {
+     "name": "Rainfed lowland rice: planting, weeding",
+     "start": 5,
+     "end": 7,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "Rainfed highland rice: plant, weed",
+     "start": 7,
+     "end": 8,
+     "rainy": "Rainy Season 2"
+    }
+   ],
+   "notes": "Rainy Season 1 Mar to mid-Jul, Rainy Season 2 Sep to mid-Nov; lean Apr to mid-Jun. Maize S1 harvest mid-Jun to Aug (after a May to mid-Jun green harvest, skipped). Coffee/cocoa drawn as Jan-Feb + Sep-Dec, merged. Rice prep bars skipped."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "TG01": "north-central-unimodal",
+   "TG02": "north-central-unimodal",
+   "TG05": "north-central-unimodal",
+   "TG03": "south-bimodal",
+   "TG04": "south-bimodal"
+  },
+  "adm2": {},
+  "confidence": {},
+  "method": "Locator maps split the country along the Centrale/Plateaux boundary (about 8 N); regions assigned by that line."
+ },
+ "transcriber_notes": "2024+ template: element edges sit on a half-month grid; a month that is exactly half covered counts (>= half rule). Half months counted: north rainy Oct, maize planting Aug, yam planting May; south rainy Jul & Nov, lean Jun, maize S1 harvest Jun, lowland rice planting Jul, highland rice planting Jul. Rice links are by timing and uncertain: lowland rice (planted May-Jul, harvested Oct-Nov) linked to Rainy Season 1; highland rice (planted mid-Jul-Aug, harvested Nov-Dec) linked to Rainy Season 2."
+}

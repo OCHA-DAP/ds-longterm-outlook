@@ -1,0 +1,71 @@
+{
+  "iso3": "LSO",
+  "image_url": "https://fews.net/sites/default/files/2024-11/LS-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/lesotho",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (calendar has no regional titles and no locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 3
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 4,
+          "end": 7,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 12,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Land prep. and planting: winter crops",
+          "start": 4,
+          "end": 6,
+          "rainy": null
+        }
+      ],
+      "notes": "Lean box drawn in two pieces (Dec and Jan-Feb), recorded as one Dec-Feb season. Planting bar starts on the mid-Oct tick. The winter-crop bar combines land preparation and planting and falls after the rains (no rainy season); no separate winter-crop harvest bar is drawn. Frost risk (mid-May to Aug) and green harvest (Mar) not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Planting (Oct 51%)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "LSA": "national",
+      "LSB": "national",
+      "LSC": "national",
+      "LSD": "national",
+      "LSE": "national",
+      "LSF": "national",
+      "LSG": "national",
+      "LSH": "national",
+      "LSJ": "national",
+      "LSK": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles; every district mapped to 'national'."
+  },
+  "transcriber_notes": "Planting start is exactly mid-Oct (counted as Oct)."
+}

@@ -1,0 +1,194 @@
+{
+ "NPL": {
+  "page": "https://fews.net/asia/nepal",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Nepal_v3_FInal.png"
+ },
+ "LKA": {
+  "page": "https://fews.net/asia/sri-lanka",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_SriLanka_v5_Final%20%281%29.png"
+ },
+ "BDI": {
+  "page": "https://fews.net/east-africa/burundi",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/BI-Seasonal-Calendar-202410.png"
+ },
+ "DJI": {
+  "page": "https://fews.net/east-africa/djibouti",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Djibouti_v4_Final.png"
+ },
+ "ETH": {
+  "page": "https://fews.net/east-africa/ethiopia",
+  "calendar_image": "https://fews.net/sites/default/files/2026-04/ET-Seasonal-Calendar-AllAreas.png"
+ },
+ "KEN": {
+  "page": "https://fews.net/east-africa/kenya",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/KE-Seasonal-Calendar-202410.png"
+ },
+ "RWA": {
+  "page": "https://fews.net/east-africa/rwanda",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/RW-Seasonal-Calendar-202410.png"
+ },
+ "SOM": {
+  "page": "https://fews.net/east-africa/somalia",
+  "calendar_image": "https://fews.net/sites/default/files/2025-11/2025-10%20SeasonalCalendarSomalia1_1.png"
+ },
+ "SSD": {
+  "page": "https://fews.net/east-africa/south-sudan",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/SS-Seasonal-Calendar-Temp-202410.png"
+ },
+ "SDN": {
+  "page": "https://fews.net/east-africa/sudan",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/SD-Seasonal-Calendar-082024.png"
+ },
+ "TZA": {
+  "page": "https://fews.net/east-africa/tanzania",
+  "calendar_image": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-tanzania.png"
+ },
+ "UGA": {
+  "page": "https://fews.net/east-africa/uganda",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/UG-Seasonal-Calendar-202410.png"
+ },
+ "COL": {
+  "page": "https://fews.net/latin-america-and-caribbean/colombia",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Colombia_v3_Final.png"
+ },
+ "SLV": {
+  "page": "https://fews.net/latin-america-and-caribbean/el-salvador",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/SV-Seasonal-Calendar-202410.png"
+ },
+ "GTM": {
+  "page": "https://fews.net/latin-america-and-caribbean/guatemala",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/GT-Seasonal-Calendar-202410_0.png"
+ },
+ "HTI": {
+  "page": "https://fews.net/latin-america-and-caribbean/haiti",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/HT-Seasonal-Calendar-202410.png"
+ },
+ "HND": {
+  "page": "https://fews.net/latin-america-and-caribbean/honduras",
+  "calendar_image": "https://fews.net/sites/default/files/2024-07/HN-Seasonal-Calendar-202406.png"
+ },
+ "NIC": {
+  "page": "https://fews.net/latin-america-and-caribbean/nicaragua",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/NI-Seasonal-Calendar-202410.png"
+ },
+ "VEN": {
+  "page": "https://fews.net/latin-america-and-caribbean/venezuela",
+  "calendar_image": "https://fews.net/sites/default/files/2026-03/VE_Seasonal_Calendar_Web_0.png"
+ },
+ "AGO": {
+  "page": "https://fews.net/southern-africa/angola",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/AO-Seasonal-Calendar-202410.png"
+ },
+ "COD": {
+  "page": "https://fews.net/southern-africa/democratic-republic-congo",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/DRC-Seasonal-Calendar-202410.png"
+ },
+ "LSO": {
+  "page": "https://fews.net/southern-africa/lesotho",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/LS-Seasonal-Calendar-202410.png"
+ },
+ "MDG": {
+  "page": "https://fews.net/southern-africa/madagascar",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/MG-Seasonal-Calendar-202410.png"
+ },
+ "MWI": {
+  "page": "https://fews.net/southern-africa/malawi",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/MW-Seasonal-Calendar-202410.png"
+ },
+ "MOZ": {
+  "page": "https://fews.net/southern-africa/mozambique",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/MZ-Seasonal-Calendar-202410.png"
+ },
+ "ZMB": {
+  "page": "https://fews.net/southern-africa/zambia",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Zambia_v2_Final.png"
+ },
+ "ZWE": {
+  "page": "https://fews.net/southern-africa/zimbabwe",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/ZW-Seasonal-Calendar-202410.png"
+ },
+ "BEN": {
+  "page": "https://fews.net/west-africa/benin",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Benin_v4_Final.png"
+ },
+ "BFA": {
+  "page": "https://fews.net/west-africa/burkina-faso",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/BF-Seasonal-Calendar-202410.png"
+ },
+ "CMR": {
+  "page": "https://fews.net/west-africa/cameroon",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/CM-Seasonal-Calendar-202410.png"
+ },
+ "CAF": {
+  "page": "https://fews.net/west-africa/central-african-republic",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/CAR-Seasonal-Calendar-202410.png"
+ },
+ "TCD": {
+  "page": "https://fews.net/west-africa/chad",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/TD-Seasonal-Calendar-202410.png"
+ },
+ "CIV": {
+  "page": "https://fews.net/west-africa/cote-divoire",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/CI%20SeasonalCalendar_Co%CC%82te%20d%27Ivoire_v7_Final.png"
+ },
+ "GIN": {
+  "page": "https://fews.net/west-africa/guinea",
+  "calendar_image": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-guinea.png"
+ },
+ "LBR": {
+  "page": "https://fews.net/west-africa/liberia",
+  "calendar_image": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-liberia.png"
+ },
+ "MLI": {
+  "page": "https://fews.net/west-africa/mali",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/ML-Seasonal-Calendar-202410_0.png"
+ },
+ "MRT": {
+  "page": "https://fews.net/west-africa/mauritania",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/MR-Seasonal-Calendar-202410_0.png"
+ },
+ "NER": {
+  "page": "https://fews.net/west-africa/niger",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/NE-Seasonal-Calendar-202410.png"
+ },
+ "NGA": {
+  "page": "https://fews.net/west-africa/nigeria",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/NG-Seasonal-Calendar-202410.png"
+ },
+ "SEN": {
+  "page": "https://fews.net/west-africa/senegal",
+  "calendar_image": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-senegal.png"
+ },
+ "SLE": {
+  "page": "https://fews.net/west-africa/sierra-leone",
+  "calendar_image": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-sierre-leone.png"
+ },
+ "TGO": {
+  "page": "https://fews.net/west-africa/togo",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Togo_v3_Final.png"
+ },
+ "AFG": {
+  "page": "https://fews.net/middle-east-and-asia/afghanistan",
+  "calendar_image": "https://fews.net/sites/default/files/2024-11/AF-Seasonal-Calendar-202410_0.png"
+ },
+ "YEM": {
+  "page": "https://fews.net/middle-east-and-asia/yemen",
+  "calendar_image": "https://fews.net/sites/default/files/2025-11/SeasonalCalendarTemplate-Yemen2_1.png"
+ },
+ "UKR": {
+  "page": "https://fews.net/middle-east-and-europe/ukraine",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Ukraine_v2_Final.png"
+ },
+ "LBN": {
+  "page": "https://fews.net/middle-east-and-europe/lebanon",
+  "calendar_image": "https://fews.net/sites/default/files/2026-03/LB_Seasonal_Calendar_Web_0.png"
+ },
+ "PAK": {
+  "page": "https://fews.net/asia/pakistan",
+  "calendar_image": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Pakistan_v3_Final.png"
+ },
+ "SYR": {
+  "page": "https://fews.net/middle-east-and-europe/syria",
+  "calendar_image": "https://fews.net/sites/default/files/2026-03/SY_Seasonal_Calendar_Web_0.png"
+ }
+}

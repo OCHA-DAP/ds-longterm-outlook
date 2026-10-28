@@ -1,0 +1,47 @@
+{
+  "iso3": "RWA",
+  "image_url": "https://fews.net/sites/default/files/2024-11/RW-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/east-africa/rwanda",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (single calendar, no regional titles or locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {"name": "Long Rains", "start": 2, "end": 5},
+        {"name": "Short Rains", "start": 9, "end": 1}
+      ],
+      "harvest": [
+        {"name": "Season A harvest", "start": 12, "end": 2, "rainy": "Short Rains"},
+        {"name": "Season B harvest", "start": 6, "end": 7, "rainy": "Long Rains"},
+        {"name": "Marshland Season C harvest", "start": 9, "end": 9, "rainy": null}
+      ],
+      "lean": [
+        {"name": "Main Lean Season", "start": 10, "end": 12, "kind": "general"},
+        {"name": "Secondary Lean Season", "start": 4, "end": 5, "kind": "general"}
+      ],
+      "planting": [
+        {"name": "Season A planting", "start": 10, "end": 10, "rainy": "Short Rains"},
+        {"name": "Season B planting", "start": 3, "end": 3, "rainy": "Long Rains"},
+        {"name": "Marshland Season C planting", "start": 6, "end": 7, "rainy": null}
+      ],
+      "notes": "Many edges sit exactly at mid-month and were counted under the at-least-half rule: Long Rains start mid-Feb; Short Rains start mid-Sep; Season A harvest runs mid-Dec to mid-Feb; Season B harvest and Season C marshland planting run mid-Jun to end-Jul; Main Lean box runs mid-Oct to mid-Dec. Season C is a dry-season marshland crop (no rainy shading)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "RW1": "national",
+      "RW2": "national",
+      "RW3": "national",
+      "RW4": "national",
+      "RW5": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar, so every province maps to national."
+  },
+  "transcriber_notes": "January is shaded blue as a separate column with no label; it joins the Short Rains shading across the year edge, so Short Rains is recorded as Sep-Jan. The Season A harvest bar is drawn in two pieces: a Dec piece labelled 'SsnA' and an unlabelled Jan-mid-Feb piece; treated as one harvest (12-2). Main Lean box measured at ~46% of Oct and ~49-52% of Dec (drawn mid-Oct to mid-Dec); both half months were counted, giving 10-12. If strict >50% is wanted it would be Nov only (11-11) or Nov-Dec."
+}

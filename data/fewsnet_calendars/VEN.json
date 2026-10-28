@@ -1,0 +1,164 @@
+{
+  "iso3": "VEN",
+  "image_url": "https://fews.net/sites/default/files/2026-03/VE_Seasonal_Calendar_Web_0.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/venezuela",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "rural",
+      "name": "Rural Areas",
+      "where": "Rural areas nationwide (the locator map shades all of Venezuela)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 5,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Maize harvest: Winter (rainy-season cycle)",
+          "start": 8,
+          "end": 10,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Maize harvest: Summer (dry-season cycle)",
+          "start": 2,
+          "end": 4,
+          "rainy": null
+        },
+        {
+          "name": "Rice harvest: Winter (rainy-season cycle)",
+          "start": 8,
+          "end": 10,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Rice harvest: Summer (dry-season cycle)",
+          "start": 2,
+          "end": 4,
+          "rainy": null
+        },
+        {
+          "name": "Potato harvest",
+          "start": 3,
+          "end": 3,
+          "rainy": null
+        },
+        {
+          "name": "Vegetable harvest: Winter",
+          "start": 10,
+          "end": 10,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Vegetable harvest: Summer",
+          "start": 6,
+          "end": 6,
+          "rainy": null
+        },
+        {
+          "name": "Coffee and sugar cane harvest",
+          "start": 10,
+          "end": 3,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Maize planting: Winter",
+          "start": 5,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Maize planting: Summer (dry-season cycle)",
+          "start": 10,
+          "end": 11,
+          "rainy": null
+        },
+        {
+          "name": "Rice planting: Winter",
+          "start": 4,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Rice planting: Summer (dry-season cycle)",
+          "start": 10,
+          "end": 12,
+          "rainy": null
+        },
+        {
+          "name": "Potato planting",
+          "start": 11,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy Season May-Nov; lean box Jun-Aug. 'Winter' (invierno) = rainy-season cycle, 'Summer' (verano) = dry-season cycle; Summer crops are sown Oct-Dec at the tail of the rains and harvested Feb-Apr, so they are linked to no rainy season. Coffee and sugar cane harvest is drawn as Oct-Dec plus Jan-Mar with open (square) ends at the year edge, one season. Potato harvest runs mid-Mar to just short of mid-Apr (April ~45% covered, so not counted); potato land prep mid-Oct to mid-Nov, planting mid-Nov to Dec. The Summer vegetable harvest is drawn in June."
+    },
+    {
+      "id": "urban",
+      "name": "Urban Areas",
+      "where": "Urban areas nationwide (Caracas and other cities); no locator map for this block",
+      "livelihood": "other",
+      "rainy": [],
+      "harvest": [],
+      "lean": [],
+      "planting": [],
+      "notes": "Urban block has no rainy shading, harvest, planting or lean box. Rows: informal labour/petty trade (higher demand Nov-Dec), self-employment (higher demand Sep-Dec), salaried employment year-round, end-of-year double salaries (Oct-Jan), remittances (high mid-Nov to Dec), high expenditure periods (Christmas Dec-Jan, Carnival mid-Feb to mid-Mar, school expenses Oct)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "VE01": "urban",
+      "VE02": "rural",
+      "VE03": "rural",
+      "VE04": "rural",
+      "VE05": "rural",
+      "VE06": "rural",
+      "VE07": "rural",
+      "VE08": "rural",
+      "VE09": "rural",
+      "VE10": "rural",
+      "VE11": "rural",
+      "VE12": "rural",
+      "VE13": "rural",
+      "VE14": "rural",
+      "VE15": "rural",
+      "VE16": "rural",
+      "VE17": "rural",
+      "VE18": "rural",
+      "VE19": "rural",
+      "VE20": "rural",
+      "VE21": "rural",
+      "VE22": "rural",
+      "VE23": "rural",
+      "VE24": "urban"
+    },
+    "adm2": {},
+    "confidence": {
+      "VE24": "medium",
+      "VE15": "medium",
+      "VE08": "medium",
+      "VE05": "medium",
+      "VE17": "low",
+      "VE23": "medium",
+      "VE13": "medium"
+    },
+    "method": "Rural/urban blocks are livelihood types, not areas; every state mixes both. States were mapped to rural (the agricultural calendar covers their land), and only Distrito Capital and La Guaira (part of the Caracas urban area) to urban."
+  },
+  "transcriber_notes": "Rainy, lean and crop edges fall on month boundaries except the potato harvest (mid-Mar to ~45% of Apr, so April not counted: Mar only) and potato land prep/planting (split at mid-Nov). The rural/urban split cannot be mapped to states from the image; heavily urbanised states (Miranda, Carabobo, Aragua, Zulia, Lara, Nueva Esparta) kept rural with medium/low confidence. The urban region has empty rainy/harvest/lean/planting lists because the image draws none for it."
+}

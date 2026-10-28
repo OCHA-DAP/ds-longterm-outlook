@@ -1,0 +1,288 @@
+{
+  "iso3": "COL",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Colombia_v3_Final.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/colombia",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "coastal-northern",
+      "name": "Coastal and Northern Regions (Pacífico and Caribe)",
+      "where": "The Caribbean lowlands of the north (incl. La Guajira) and the Pacific coastal strip down to the Ecuador border (purple on the locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Year-round Rainfall (Pacífico)",
+          "start": 1,
+          "end": 12
+        },
+        {
+          "name": "Minor Rains (Caribe)",
+          "start": 4,
+          "end": 6
+        },
+        {
+          "name": "Major Rains (Caribe)",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "S1 harvest: maize, rice, cassava, yam",
+          "start": 8,
+          "end": 8,
+          "rainy": "Minor Rains (Caribe)"
+        },
+        {
+          "name": "S2 harvest: maize, rice, cassava, yam",
+          "start": 12,
+          "end": 12,
+          "rainy": "Major Rains (Caribe)"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 2,
+          "end": 5,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Season 1 planting: maize, rice, cassava, yam",
+          "start": 4,
+          "end": 4,
+          "rainy": "Minor Rains (Caribe)"
+        },
+        {
+          "name": "Season 2 planting: maize, rice, cassava, yam",
+          "start": 8,
+          "end": 9,
+          "rainy": "Major Rains (Caribe)"
+        }
+      ],
+      "notes": "Pacífico has year-round rainfall (lighter shading across all months); the Caribe has Minor Rains Apr-Jun and Major Rains Aug-Nov. S1/S2 planting and harvest rows are shared for the block and timed on the Caribe rains. Lean box Feb-May. Livestock migration (La Guajira) Dec-Apr; the footnote says La Guajira is drier and semi-arid."
+    },
+    {
+      "id": "interior",
+      "name": "Interior Regions (Andina and Orinoquía)",
+      "where": "The Andean mountains and inter-Andean valleys plus the eastern plains (Llanos/Orinoquía) (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season (Andina), first",
+          "start": 3,
+          "end": 6
+        },
+        {
+          "name": "Rainy Season (Andina), second",
+          "start": 9,
+          "end": 11
+        },
+        {
+          "name": "Rainy Season (Orinoquía)",
+          "start": 4,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "S2 harvest: maize, beans",
+          "start": 1,
+          "end": 2,
+          "rainy": "Rainy Season (Andina), second"
+        },
+        {
+          "name": "S1 harvest: potato",
+          "start": 3,
+          "end": 3,
+          "rainy": "Rainy Season (Andina), first"
+        },
+        {
+          "name": "S1 harvest: maize",
+          "start": 8,
+          "end": 8,
+          "rainy": "Rainy Season (Andina), first"
+        },
+        {
+          "name": "S2 harvest: rice",
+          "start": 12,
+          "end": 12,
+          "rainy": "Rainy Season (Andina), second"
+        },
+        {
+          "name": "Coffee harvest",
+          "start": 9,
+          "end": 11,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season: Main (Andina & Orinoquía)",
+          "start": 6,
+          "end": 7,
+          "kind": "general"
+        },
+        {
+          "name": "Lean Season: Secondary (Andina)",
+          "start": 1,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "S1 planting: maize",
+          "start": 3,
+          "end": 3,
+          "rainy": "Rainy Season (Andina), first"
+        },
+        {
+          "name": "S1 planting: other crops",
+          "start": 4,
+          "end": 4,
+          "rainy": "Rainy Season (Andina), first"
+        },
+        {
+          "name": "S2 planting: rice, maize, beans, potato",
+          "start": 8,
+          "end": 10,
+          "rainy": "Rainy Season (Andina), second"
+        }
+      ],
+      "notes": "Andina: two rainy seasons (Mar-Jun, Sep-Nov) with a dry season Jul-Aug; Orinoquía: one rainy season Apr-Nov. Two lean boxes: secondary (Andina) Jan-Feb and main (Andina & Orinoquía) Jun-Jul. S1/S2 labels are linked to the two Andina rainy seasons; in Orinoquía both fall inside its single rainy season. 'S1: Potato' harvest is drawn in March, at the start of the S1 rains, as on the image; potato appears by name only in the S2 planting row (Aug-Oct), and the link follows the S1 harvest label."
+    },
+    {
+      "id": "amazonia",
+      "name": "Amazonía Region",
+      "where": "The Amazon lowlands of the south and south-east (purple on the locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season (varies by subregion)",
+          "start": 3,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Maize and rice harvest",
+          "start": 12,
+          "end": 12,
+          "rainy": "Rainy Season (varies by subregion)"
+        },
+        {
+          "name": "Cassava harvest",
+          "start": 3,
+          "end": 3,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 4,
+          "end": 6,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "S1 planting: maize, rice, cassava",
+          "start": 3,
+          "end": 3,
+          "rainy": "Rainy Season (varies by subregion)"
+        },
+        {
+          "name": "S2 planting: maize, rice, cassava",
+          "start": 8,
+          "end": 8,
+          "rainy": "Rainy Season (varies by subregion)"
+        }
+      ],
+      "notes": "Single rainy season Mar-Nov that varies by subregion. Lean box Apr-Jun. Hunting and gathering year-round; riverine fishing peak Sep-Nov."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "CO05": "interior",
+      "CO08": "coastal-northern",
+      "CO11": "interior",
+      "CO13": "coastal-northern",
+      "CO15": "interior",
+      "CO17": "interior",
+      "CO18": "amazonia",
+      "CO19": "interior",
+      "CO20": "coastal-northern",
+      "CO23": "coastal-northern",
+      "CO25": "interior",
+      "CO27": "coastal-northern",
+      "CO41": "interior",
+      "CO44": "coastal-northern",
+      "CO47": "coastal-northern",
+      "CO50": "interior",
+      "CO52": "interior",
+      "CO54": "interior",
+      "CO63": "interior",
+      "CO66": "interior",
+      "CO68": "interior",
+      "CO70": "coastal-northern",
+      "CO73": "interior",
+      "CO76": "interior",
+      "CO81": "interior",
+      "CO85": "interior",
+      "CO86": "amazonia",
+      "CO91": "amazonia",
+      "CO94": "amazonia",
+      "CO95": "amazonia",
+      "CO97": "amazonia",
+      "CO99": "interior"
+    },
+    "adm2": {
+      "CO05837": "coastal-northern",
+      "CO05490": "coastal-northern",
+      "CO05051": "coastal-northern",
+      "CO05659": "coastal-northern",
+      "CO05665": "coastal-northern",
+      "CO05045": "coastal-northern",
+      "CO05147": "coastal-northern",
+      "CO05172": "coastal-northern",
+      "CO05480": "coastal-northern",
+      "CO05475": "coastal-northern",
+      "CO05873": "coastal-northern",
+      "CO76109": "coastal-northern",
+      "CO19318": "coastal-northern",
+      "CO19809": "coastal-northern",
+      "CO19418": "coastal-northern",
+      "CO52835": "coastal-northern",
+      "CO52520": "coastal-northern",
+      "CO52473": "coastal-northern",
+      "CO52490": "coastal-northern",
+      "CO52390": "coastal-northern",
+      "CO52250": "coastal-northern",
+      "CO52696": "coastal-northern",
+      "CO52427": "coastal-northern",
+      "CO52621": "coastal-northern",
+      "CO52079": "coastal-northern"
+    },
+    "confidence": {
+      "CO52": "medium",
+      "CO19": "medium",
+      "CO76": "medium",
+      "CO05": "medium",
+      "CO50": "medium",
+      "CO99": "medium",
+      "CO94": "medium",
+      "CO95": "medium",
+      "CO86": "medium",
+      "CO20": "medium",
+      "CO13": "medium",
+      "CO54": "medium"
+    },
+    "method": "Departments mapped to the three locator maps (Caribbean departments + Chocó to coastal-northern; Andean and Llanos departments to interior; Caquetá, Putumayo, Guaviare, Guainía, Vaupés, Amazonas to amazonia); adm2 overrides move Pacific-coast municipalities of Valle, Cauca and Nariño and Antioquia's Urabá/Atrato municipalities to coastal-northern."
+  },
+  "transcriber_notes": "All edges in this calendar fall on month boundaries (no mid-month ambiguity). The locator maps show natural regions, not department lines: Nariño, Cauca, Valle and Antioquia are split (adm2 overrides used); Meta's southern edge and Vichada/Guaviare/Guainía sit near the Orinoquía/Amazonía boundary (medium confidence). 'Year-round Rainfall (Pacífico)' and 'Rainy Season (Orinoquía)' are lighter shading but are full rainy regimes, not 'showers', so not marked minor. San Andrés is not in the admin file."
+}

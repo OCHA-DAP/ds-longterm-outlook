@@ -1,0 +1,87 @@
+{
+  "iso3": "NER",
+  "image_url": "https://fews.net/sites/default/files/2024-11/NE-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/west-africa/niger",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (no regional titles or locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season/irrigated rice harvest",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Vegetable harvest",
+          "start": 1,
+          "end": 4,
+          "rainy": null
+        },
+        {
+          "name": "Off-season rice harvest",
+          "start": 5,
+          "end": 6,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 4,
+          "end": 7,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 5,
+          "end": 8,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 11,
+          "end": 1,
+          "rainy": null
+        }
+      ],
+      "notes": "Main planting mid-May to mid-Aug. Off-season planting mid-Nov to Jan (Dec 'Off-Season' bar plus an unlabelled Jan bar). Lean box Jun to mid-Sep. Pastoral lean box mid-Apr to Jul. Green harvest (teal, mid-Sep) excluded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "NE001": "national",
+      "NE002": "national",
+      "NE003": "national",
+      "NE004": "national",
+      "NE005": "national",
+      "NE006": "national",
+      "NE007": "national",
+      "NE008": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single-region calendar: every adm1 mapped to national."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). The Oct-Dec harvest bar is labelled 'Main Season/Irrigated Rice' (one bar); it is linked to the rainy season."
+}

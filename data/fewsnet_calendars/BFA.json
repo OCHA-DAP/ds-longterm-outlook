@@ -1,0 +1,86 @@
+{
+  "iso3": "BFA",
+  "image_url": "https://fews.net/sites/default/files/2024-11/BF-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/west-africa/burkina-faso",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (no regional titles or locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 5,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season harvest",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season harvest",
+          "start": 1,
+          "end": 4,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 4,
+          "end": 7,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 6,
+          "end": 8,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 10,
+          "end": 1,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy shading May to mid-Oct. Main planting Jun to mid-Aug. Off-season planting mid-Oct to Jan (Oct-Dec 'Off-Season' bar plus an unlabelled Jan bar). Off-season harvest Jan to mid-Apr. Lean box Jun to mid-Sep. Pastoral lean box mid-Apr to mid-Jul. Green harvest (teal, Aug to mid-Sep) excluded. Agricultural labour row has a Nov 'Cotton' bar (labour, not a harvest bar)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "BF13": "national",
+      "BF46": "national",
+      "BF47": "national",
+      "BF48": "national",
+      "BF49": "national",
+      "BF50": "national",
+      "BF51": "national",
+      "BF52": "national",
+      "BF53": "national",
+      "BF54": "national",
+      "BF55": "national",
+      "BF56": "national",
+      "BF57": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single-region calendar: every adm1 mapped to national."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). "
+}

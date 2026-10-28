@@ -1,0 +1,297 @@
+{
+  "iso3": "YEM",
+  "image_url": "https://fews.net/sites/default/files/2025-11/SeasonalCalendarTemplate-Yemen2_1.png",
+  "page_url": "https://fews.net/middle-east-and-asia/yemen",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "highland",
+      "name": "Highland Area",
+      "where": "Western and central highlands (Sana'a, Amran, Dhamar, Ibb, Ta'iz, Al Bayda, Ad Dali', Sa'dah, Hajjah and Al Mahwit mountains); no locator map",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 7,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest (All Highland)",
+          "start": 9,
+          "end": 11,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Northern harvest",
+          "start": 3,
+          "end": 4,
+          "rainy": null
+        },
+        {
+          "name": "Central harvest",
+          "start": 5,
+          "end": 6,
+          "rainy": null
+        },
+        {
+          "name": "Qat harvest (Central, Southern)",
+          "start": 7,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Summer planting (All Highland)",
+          "start": 3,
+          "end": 7,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Planting: North",
+          "start": 10,
+          "end": 12,
+          "rainy": null
+        },
+        {
+          "name": "Planting: Central (Cen.)",
+          "start": 12,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Lean box runs mid-Jun to end-Aug (Jun counted as half). Summer planting runs mid-Mar to end-Jul and feeds the Sep-Nov main harvest, so it spans both rainy seasons. The North (mid-Oct to mid-Dec) and Cen. (second half of Dec) planting bars are a dry-season crop harvested as Northern (Mar-Apr) and Central (May to mid-Jun); the image ties them to no rainy season, so rainy is null."
+    },
+    {
+      "id": "coastal",
+      "name": "Coastal Area",
+      "where": "Red Sea/Tihama coastal plain (Al Hodeidah, western Hajjah and Ta'iz) and the Gulf of Aden coast (Aden, Lahj, Abyan, coastal Shabwah, Hadramawt and Al Maharah); no locator map",
+      "livelihood": "mixed",
+      "rainy": [],
+      "harvest": [
+        {
+          "name": "Main fall harvest (All Coastal)",
+          "start": 11,
+          "end": 3,
+          "rainy": null
+        },
+        {
+          "name": "Minor spring harvest (Gulf of Aden)",
+          "start": 6,
+          "end": 7,
+          "rainy": null
+        },
+        {
+          "name": "Minor spring harvest (Red Sea/Tihama)",
+          "start": 7,
+          "end": 7,
+          "rainy": null
+        },
+        {
+          "name": "Vegetables and fruits harvest",
+          "start": 1,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 8,
+          "end": 11,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Spring planting (Gulf of Aden)",
+          "start": 2,
+          "end": 4,
+          "rainy": null
+        },
+        {
+          "name": "Spring planting (Red Sea/Tihama)",
+          "start": 5,
+          "end": 5,
+          "rainy": null
+        },
+        {
+          "name": "Fall planting (Red Sea/Tihama)",
+          "start": 8,
+          "end": 9,
+          "rainy": null
+        },
+        {
+          "name": "Fall planting (Gulf of Aden)",
+          "start": 10,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "The coastal block has NO rainy-season shading, so rainy is empty and every crop link is null. Lean box runs mid-Aug to mid-Nov (both half months counted). Main fall harvest is drawn in two pieces (mid-Nov to Dec, and Jan to Mar), treated as one 11-3. The vegetables and fruits harvest row is drawn as a brown (activity-coloured) bar, not green, all year. Cyclone and flood risk Apr-Jun and Jul-Sep."
+    },
+    {
+      "id": "eastern-plateau-desert",
+      "name": "Eastern Plateau and Desert",
+      "where": "Eastern plateau and desert (Ma'rib, Al Jawf, inland Shabwah, Wadi Hadramawt and the plateau, inland Al Maharah); no locator map",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 7,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main fall harvest",
+          "start": 9,
+          "end": 4,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Minor spring harvest",
+          "start": 6,
+          "end": 8,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Fruits and vegetables harvest",
+          "start": 11,
+          "end": 8,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 9,
+          "end": 10,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Sorghum/Maize planting",
+          "start": 3,
+          "end": 4,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Maize planting",
+          "start": 7,
+          "end": 8,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Wheat/Barley planting",
+          "start": 9,
+          "end": 11,
+          "rainy": null
+        }
+      ],
+      "notes": "Main: Fall harvest is drawn in two pieces, mid-Sep to Dec and Jan to mid-Apr, both labelled Main: Fall; recorded as one harvest 9-4. Minor: Spring harvest runs Jun to mid-Aug. The Maize planting bar runs mid-Jul to mid-Aug (both half months counted). Wheat/Barley planting runs mid-Sep to mid-Nov, at the end of the Second Rainy Season; the image does not say which harvest it feeds, so rainy is null. The fruits and vegetables harvest stops for Sep-Oct."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "YE11": "highland",
+      "YE12": "highland",
+      "YE13": "highland",
+      "YE14": "highland",
+      "YE15": "highland",
+      "YE16": "eastern-plateau-desert",
+      "YE17": "highland",
+      "YE18": "coastal",
+      "YE19": "eastern-plateau-desert",
+      "YE20": "highland",
+      "YE21": "eastern-plateau-desert",
+      "YE22": "highland",
+      "YE23": "highland",
+      "YE24": "coastal",
+      "YE25": "highland",
+      "YE26": "eastern-plateau-desert",
+      "YE27": "highland",
+      "YE28": "eastern-plateau-desert",
+      "YE29": "highland",
+      "YE30": "highland",
+      "YE31": "highland",
+      "YE32": "coastal"
+    },
+    "adm2": {
+      "YE1209": "coastal",
+      "YE1210": "coastal",
+      "YE1211": "coastal",
+      "YE1505": "coastal",
+      "YE1506": "coastal",
+      "YE1507": "coastal",
+      "YE1515": "coastal",
+      "YE1610": "highland",
+      "YE1611": "highland",
+      "YE1612": "highland",
+      "YE1702": "coastal",
+      "YE1703": "coastal",
+      "YE1704": "coastal",
+      "YE1705": "coastal",
+      "YE1706": "coastal",
+      "YE1711": "coastal",
+      "YE1712": "coastal",
+      "YE1722": "coastal",
+      "YE1724": "coastal",
+      "YE1812": "highland",
+      "YE1818": "highland",
+      "YE1913": "coastal",
+      "YE1914": "coastal",
+      "YE1915": "coastal",
+      "YE1917": "coastal",
+      "YE1925": "coastal",
+      "YE1926": "coastal",
+      "YE1927": "coastal",
+      "YE2117": "coastal",
+      "YE2214": "eastern-plateau-desert",
+      "YE2513": "coastal",
+      "YE2515": "coastal",
+      "YE2606": "highland",
+      "YE2614": "highland",
+      "YE2803": "coastal",
+      "YE2804": "coastal",
+      "YE2807": "coastal",
+      "YE2808": "coastal",
+      "YE2809": "coastal"
+    },
+    "confidence": {
+      "YE12": "medium",
+      "YE16": "medium",
+      "YE17": "medium",
+      "YE19": "medium",
+      "YE21": "medium",
+      "YE25": "medium",
+      "YE26": "medium",
+      "YE28": "low",
+      "YE32": "low"
+    },
+    "method": "There are no locator maps, so governorates were placed by physical geography: mountain governorates to Highland, the Tihama plain and the Gulf of Aden coast to Coastal, and the eastern desert governorates to Eastern Plateau. Split governorates got district (adm2) overrides."
+  },
+  "transcriber_notes": "Block extents come from region titles and geographic knowledge only; there is no locator map. Uncertain cases: Socotra (no block fits; set to coastal, low); Al Maharah (coastal districts hold most people but the desert plateau holds most land; default eastern, low); Abyan and Lahj (coastal plain vs inland mountains; default highland). Several edges fall at mid-month and were counted as half months (Highland lean Jun; Coastal lean Aug and Nov; Coastal main harvest start in Nov, measured about 42-45%; Eastern maize planting Jul-Aug)."
+}

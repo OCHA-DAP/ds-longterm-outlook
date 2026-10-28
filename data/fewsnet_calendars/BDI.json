@@ -1,0 +1,114 @@
+{
+  "iso3": "BDI",
+  "image_url": "https://fews.net/sites/default/files/2024-11/BI-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/east-africa/burundi",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (single calendar, no regional titles or locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Long Rains",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "name": "Short Rains",
+          "start": 9,
+          "end": 1
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Season A harvest",
+          "start": 1,
+          "end": 2,
+          "rainy": "Short Rains"
+        },
+        {
+          "name": "Season B harvest",
+          "start": 6,
+          "end": 7,
+          "rainy": "Long Rains"
+        },
+        {
+          "name": "Marshlands Season C harvest",
+          "start": 10,
+          "end": 11,
+          "rainy": null
+        },
+        {
+          "name": "Coffee harvest",
+          "start": 4,
+          "end": 5,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Secondary Lean Season",
+          "start": 4,
+          "end": 5,
+          "kind": "general"
+        },
+        {
+          "name": "Main Lean Season",
+          "start": 10,
+          "end": 12,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Season B planting",
+          "start": 2,
+          "end": 3,
+          "rainy": "Long Rains"
+        },
+        {
+          "name": "Season A planting",
+          "start": 9,
+          "end": 10,
+          "rainy": "Short Rains"
+        },
+        {
+          "name": "Marshlands Season C planting",
+          "start": 7,
+          "end": 7,
+          "rainy": null
+        }
+      ],
+      "notes": "Footnote: Season A 35% of production, Season B 50%, Season C (marshlands, dry season) 15%. Short Rains shading runs from mid-Sep through Dec and continues in Jan at the left edge (one wrapping season; only Oct-Dec is labelled). Exact edges: Long Rains mid-Feb to end-May; Season A harvest mid-Jan to end-Feb; Season B planting mid-Feb to mid-Mar; Season A planting mid-Sep to mid-Oct (all counted under the at-least-half rule). The Main Lean Season box is closed at the right edge (Oct-Dec, no Jan piece)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "BDI001": "national",
+      "BDI002": "national",
+      "BDI003": "national",
+      "BDI004": "national",
+      "BDI005": "national",
+      "BDI006": "national",
+      "BDI007": "national",
+      "BDI008": "national",
+      "BDI009": "national",
+      "BDI010": "national",
+      "BDI011": "national",
+      "BDI012": "national",
+      "BDI013": "national",
+      "BDI014": "national",
+      "BDI015": "national",
+      "BDI016": "national",
+      "BDI017": "national",
+      "BDI018": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar, so every province is mapped to national."
+  },
+  "transcriber_notes": "Edges measured on the full-resolution image. The Season C marshland harvest and planting have no rainy season (dry-season marshland cropping), and coffee is linked to none."
+}

@@ -1,0 +1,190 @@
+{
+  "iso3": "MDG",
+  "image_url": "https://fews.net/sites/default/files/2024-11/MG-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/madagascar",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "north-central",
+      "name": "Northern and Central Areas",
+      "where": "Most of the island: the north, the central highlands, the west and the east coast down to about Taolagnaro (purple on the locator map); everything except the far south and south-west",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season rice harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season rice harvest",
+          "start": 11,
+          "end": 12,
+          "rainy": null
+        },
+        {
+          "name": "Main harvest: maize, beans",
+          "start": 3,
+          "end": 4,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 4,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season rice planting",
+          "start": 10,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season rice planting",
+          "start": 7,
+          "end": 9,
+          "rainy": null
+        },
+        {
+          "name": "Planting: maize, beans",
+          "start": 12,
+          "end": 1,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Lean box drawn mid-Jan to mid-Apr (both edges on mid-month ticks). Rice planting has an unlabelled Jan piece, read as the continuation of the Oct-Dec 'Main Season' bar. Off-season rice is planted Jul-Sep in the dry season and has no rainy season. Cyclone season (Jan-Apr, Nov-Dec), green harvest of maize (Feb-Mar) and cash-crop labour (Jul-Dec) not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Main season rice harvest (Apr 48%); Main harvest: maize, beans (Mar 50%); Lean Season (Jan 48%, Apr 48%)."
+    },
+    {
+      "id": "south",
+      "name": "Southern Areas",
+      "where": "Far south and south-west (purple on the locator map): Atsimo Andrefana from the Mangoky southward, Androy and most of Anosy west of Taolagnaro",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season rice harvest",
+          "start": 6,
+          "end": 7,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season rice harvest",
+          "start": 12,
+          "end": 12,
+          "rainy": null
+        },
+        {
+          "name": "Main harvest: maize, beans",
+          "start": 3,
+          "end": 5,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Cassava harvest",
+          "start": 7,
+          "end": 9,
+          "rainy": null
+        },
+        {
+          "name": "Sweet potato harvest",
+          "start": 7,
+          "end": 9,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 11,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season rice planting",
+          "start": 12,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season rice planting",
+          "start": 7,
+          "end": 9,
+          "rainy": null
+        },
+        {
+          "name": "Planting: maize, beans",
+          "start": 11,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Planting: cassava",
+          "start": 10,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Planting: sweet potato",
+          "start": 2,
+          "end": 3,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Lean box drawn in two pieces (Nov-Dec and Jan to mid-Mar), recorded as one Nov-Mar season. Rice harvest bars are labelled 'Main Season' (Jun-Jul) and 'Off-Ssn' (Dec). Sweet potato is planted Feb-Mar inside the rainy season, so its Jul-Sep harvest is linked to it; the image does not label this. Cyclone season, green harvest, labour, milk and wild food bars not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Main harvest: maize, beans (Mar 50%, May 49%); Cassava harvest (Jul 50%); Lean Season (Mar 47%); Planting: maize, beans (Jan 49%)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "MG11": "north-central",
+      "MG12": "north-central",
+      "MG13": "north-central",
+      "MG14": "north-central",
+      "MG21": "north-central",
+      "MG22": "north-central",
+      "MG23": "north-central",
+      "MG24": "north-central",
+      "MG25": "north-central",
+      "MG31": "north-central",
+      "MG32": "north-central",
+      "MG33": "north-central",
+      "MG41": "north-central",
+      "MG42": "north-central",
+      "MG43": "north-central",
+      "MG44": "north-central",
+      "MG51": "south",
+      "MG52": "south",
+      "MG53": "south",
+      "MG54": "north-central",
+      "MG71": "north-central",
+      "MG72": "north-central"
+    },
+    "adm2": {},
+    "confidence": {
+      "MG53": "medium",
+      "MG24": "medium"
+    },
+    "method": "Regions read off the two locator maps; the southern area matches Atsimo Andrefana, Androy and most of Anosy, all other regions are northern and central."
+  },
+  "transcriber_notes": "The southern area's boundary does not follow region lines exactly: the humid east-coast strip around Taolagnaro (Anosy) is shown with the northern/central areas, and the line runs close to Ihorombe's southern edge. Several edges are on mid-month ticks and were counted (see region notes)."
+}

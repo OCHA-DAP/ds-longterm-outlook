@@ -1,0 +1,160 @@
+{
+ "iso3": "SYR",
+ "image_url": "https://fews.net/sites/default/files/2026-03/SY_Seasonal_Calendar_Web_0.png",
+ "page_url": "https://fews.net/middle-east-and-europe/syria",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "rural",
+   "name": "Rural areas",
+   "where": "Rural areas nationwide (locator map shows the whole country)",
+   "livelihood": "mixed",
+   "rainy": [
+    {
+     "name": "Rainy Season",
+     "start": 11,
+     "end": 3
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Wheat harvest",
+     "start": 6,
+     "end": 7,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Pulses harvest",
+     "start": 6,
+     "end": 6,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Fodder crops harvest",
+     "start": 4,
+     "end": 7,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Cash crops harvest (May-Jun)",
+     "start": 5,
+     "end": 6,
+     "rainy": null
+    },
+    {
+     "name": "Cash crops harvest (Aug-Sep)",
+     "start": 8,
+     "end": 9,
+     "rainy": null
+    },
+    {
+     "name": "Vegetable harvest (May-Jun)",
+     "start": 5,
+     "end": 6,
+     "rainy": null
+    },
+    {
+     "name": "Vegetable harvest (Sep)",
+     "start": 9,
+     "end": 9,
+     "rainy": null
+    },
+    {
+     "name": "Vegetable harvest (Dec)",
+     "start": 12,
+     "end": 12,
+     "rainy": null
+    },
+    {
+     "name": "Fruit harvest",
+     "start": 6,
+     "end": 12,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 1,
+     "end": 4,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Wheat: land prep., planting",
+     "start": 10,
+     "end": 12,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Pulses: land prep., planting",
+     "start": 10,
+     "end": 12,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Fodder crops: land prep., planting",
+     "start": 9,
+     "end": 11,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Cash crops: land prep., planting",
+     "start": 2,
+     "end": 3,
+     "rainy": null
+    }
+   ],
+   "notes": "Rainy shading drawn as Jan-Mar + Nov-Dec, merged to Nov-Mar. Planting bars are combined \"Land prep., planting\". Pulses green harvest (May) skipped. Fruit harvest mid-Jun to Dec. Cash crops, vegetables and fruit left unlinked (not tied to the rains on the image)."
+  },
+  {
+   "id": "urban",
+   "name": "Urban areas",
+   "where": "Urban areas (no separate locator map)",
+   "livelihood": "other",
+   "rainy": [],
+   "harvest": [],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 12,
+     "end": 2,
+     "kind": "general"
+    }
+   ],
+   "planting": [],
+   "notes": "Urban block shows labour, employment and expense rows only; no rainy shading, harvest or planting. Lean box drawn as Jan-Feb + Dec, merged."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "SY01": "urban",
+   "SY02": "rural",
+   "SY03": "rural",
+   "SY04": "rural",
+   "SY05": "rural",
+   "SY06": "rural",
+   "SY07": "rural",
+   "SY08": "rural",
+   "SY09": "rural",
+   "SY10": "rural",
+   "SY11": "rural",
+   "SY12": "rural",
+   "SY13": "rural",
+   "SY14": "rural"
+  },
+  "adm2": {
+   "SY0200": "urban"
+  },
+  "confidence": {
+   "SY02": "medium",
+   "SY03": "medium",
+   "SY04": "medium",
+   "SY06": "medium"
+  },
+  "method": "Livelihood blocks, not geographic: Damascus city governorate and the Aleppo-city district (Jebel Saman, adm2 override) mapped to urban, every other governorate to rural (its dominant area)."
+ },
+ "transcriber_notes": "2024+ template: element edges sit on a half-month grid; a month that is exactly half covered counts (>= half rule). Wheat/pulses planting ends mid-Dec (Dec counted). Urban vs rural is a livelihood split with no map; governorates with large cities (Aleppo, Rural Damascus, Homs, Lattakia) are mixed and set to rural at medium confidence."
+}

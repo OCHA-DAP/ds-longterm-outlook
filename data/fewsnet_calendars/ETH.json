@@ -1,0 +1,222 @@
+{
+  "iso3": "ETH",
+  "image_url": "https://fews.net/sites/default/files/2026-04/ET-Seasonal-Calendar-AllAreas.png",
+  "page_url": "https://fews.net/east-africa/ethiopia",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "western-meher",
+      "name": "Western Meher-producing areas",
+      "where": "The whole western half: Tigray, western and central Amhara, Benishangul-Gumuz, Gambela, western Oromia (Wellegas, Jimma, Illubabor, West Shewa), South West Ethiopia and the Guraghe-Hadiya-Kembata area (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Kiremt Rains",
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Meher harvest",
+          "start": 10,
+          "end": 12,
+          "rainy": "Kiremt Rains"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: Long-cycle Crops",
+          "start": 4,
+          "end": 5,
+          "rainy": "Kiremt Rains"
+        },
+        {
+          "name": "Planting: Short-cycle Crops",
+          "start": 6,
+          "end": 8,
+          "rainy": "Kiremt Rains"
+        }
+      ],
+      "notes": "Exact edges: lean box Jun to mid-Aug; long-cycle planting mid-Apr to end-May (before the shaded Kiremt period, linked to Kiremt as the only rainy season in the block, which produces the Meher harvest); short-cycle planting mid-Jun to end-Aug. Green Meher harvest Aug-Sep not counted."
+    },
+    {
+      "id": "belg-meher",
+      "name": "Belg and Meher-producing areas",
+      "where": "A central highland band: eastern Amhara (North and South Wello, North Shewa) and southern Tigray, then from around Addis Ababa through East Shewa, Arsi, Bale highlands and Hararghe, and south-west through Sidama, Gedeo, Wolayita, Gamo, Gofa, Konso and Guji (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Belg Rains",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "name": "Kiremt Rains",
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Belg harvest",
+          "start": 6,
+          "end": 8,
+          "rainy": "Belg Rains"
+        },
+        {
+          "name": "Meher harvest",
+          "start": 10,
+          "end": 12,
+          "rainy": "Kiremt Rains"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 3,
+          "end": 5,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: Short-cycle Crops",
+          "start": 2,
+          "end": 3,
+          "rainy": "Belg Rains"
+        },
+        {
+          "name": "Planting: Long-cycle Crops",
+          "start": 4,
+          "end": 5,
+          "rainy": "Belg Rains"
+        }
+      ],
+      "notes": "Exact edges: Belg Rains mid-Feb to mid-May; Kiremt Rains mid-Jun to mid-Sep; Belg harvest mid-Jun to mid-Aug; Meher harvest Oct to mid-Dec; short-cycle planting mid-Feb to end-Mar; lean box Mar-May. Long-cycle planting falls in the Belg rains, but these crops are harvested with the Meher harvest. Green harvest (Belg late Jun, Meher Aug-Sep) not counted."
+    },
+    {
+      "id": "northern-pastoral",
+      "name": "Northern pastoral areas",
+      "where": "Afar Region plus northern Somali Region (Siti and the Jijiga/Fafan area) (purple on the locator map)",
+      "livelihood": "pastoral",
+      "rainy": [
+        {
+          "name": "Diraac/Sugum Rains",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Karan/Karma Rains",
+          "start": 7,
+          "end": 9
+        }
+      ],
+      "harvest": [],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [],
+      "notes": "Lean box is drawn in two pieces: Jan to mid-Mar, plus a sliver from just after mid-December (covers about 45% of Dec, so Dec is not counted under the half-month rule; the box effectively runs from late Dec). Karan/Karma rains end at mid-Sep (counted). No crop rows."
+    },
+    {
+      "id": "southern-pastoral",
+      "name": "Southern pastoral areas",
+      "where": "Southern and south-eastern lowlands: most of Somali Region (south of Fafan/Siti), Borena and East Bale in Oromia, and the far south of South Omo along the Kenya border (purple on the locator map)",
+      "livelihood": "pastoral",
+      "rainy": [
+        {
+          "name": "Gu/Genna Rains",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Deyr/Hageya Rains",
+          "start": 10,
+          "end": 12
+        }
+      ],
+      "harvest": [],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 1,
+          "end": 3,
+          "kind": "general"
+        }
+      ],
+      "planting": [],
+      "notes": "Exact edges: lean box mid-Jan to mid-Mar (both months exactly half-covered, counted); Deyr/Hageya rains Oct to mid-Dec (counted). No crop rows."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "ET01": "western-meher",
+      "ET02": "northern-pastoral",
+      "ET03": "western-meher",
+      "ET04": "belg-meher",
+      "ET05": "southern-pastoral",
+      "ET06": "western-meher",
+      "ET07": "belg-meher",
+      "ET11": "western-meher",
+      "ET12": "western-meher",
+      "ET13": "belg-meher",
+      "ET14": "belg-meher",
+      "ET15": "northern-pastoral",
+      "ET16": "belg-meher"
+    },
+    "adm2": {
+      "ET0104": "belg-meher",
+      "ET0303": "belg-meher",
+      "ET0304": "belg-meher",
+      "ET0305": "belg-meher",
+      "ET0310": "belg-meher",
+      "ET0401": "western-meher",
+      "ET0402": "western-meher",
+      "ET0403": "western-meher",
+      "ET0404": "western-meher",
+      "ET0405": "western-meher",
+      "ET0413": "western-meher",
+      "ET0416": "western-meher",
+      "ET0418": "western-meher",
+      "ET0419": "western-meher",
+      "ET0412": "southern-pastoral",
+      "ET0421": "southern-pastoral",
+      "ET0501": "northern-pastoral",
+      "ET0502": "northern-pastoral",
+      "ET0701": "western-meher",
+      "ET0702": "western-meher",
+      "ET0703": "western-meher",
+      "ET0714": "western-meher",
+      "ET0716": "western-meher",
+      "ET0720": "western-meher",
+      "ET0724": "western-meher"
+    },
+    "confidence": {
+      "ET04": "low",
+      "ET05": "medium",
+      "ET07": "medium",
+      "ET13": "medium",
+      "ET14": "low",
+      "ET15": "low",
+      "ET01": "medium",
+      "ET03": "medium"
+    },
+    "method": "Approximate zone centroids were plotted on the four purple locator maps (calibrated to Ethiopia's extent); each zone went to the map that covers it, and each region to the block holding most of its zones/people, with adm2 overrides for split regions."
+  },
+  "transcriber_notes": "Edges measured on the full-resolution image; many fall exactly at mid-month and were counted (at-least-half rule); exact half-month edges are listed in each region's notes. Locator-map boundaries are only approximate. Uncertain zones: South Omo (mostly belg-meher on the map, southern strip pastoral; left in belg-meher), Borena (on both maps; put in southern-pastoral as it is mainly pastoral), Guji and Bale (belg-meher, but their lowlands are pastoral), Erer (southern-pastoral), Finfine Special zone and Addis Ababa (at the junction of the western and belg-meher maps; belg-meher), Dire Dawa (at the edge of the northern-pastoral map; low confidence), Fafan (a small lobe on the northern-pastoral map around Jijiga). Southern Tigray is on the belg-meher map. No harvest or lean labels other than 'Lean Season'."
+}

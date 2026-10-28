@@ -1,0 +1,175 @@
+{
+  "iso3": "GTM",
+  "image_url": "https://fews.net/sites/default/files/2024-11/GT-Seasonal-Calendar-202410_0.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/guatemala",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "primera-postrera",
+      "name": "Primera/Postrera areas (rest of the country)",
+      "where": "All areas outside the Western Highlands: the Dry Corridor, the east, the Pacific coast and the north; rows marked 'North' apply to northern Guatemala",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 5,
+          "end": 7
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Primera harvest",
+          "start": 9,
+          "end": 9,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Postrera harvest",
+          "start": 11,
+          "end": 12,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Postrera harvest (North)",
+          "start": 2,
+          "end": 3,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 5,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Primera planting",
+          "start": 4,
+          "end": 6,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Postrera planting",
+          "start": 8,
+          "end": 10,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Postrera planting (North)",
+          "start": 11,
+          "end": 1,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "notes": "First Rainy Season May 1 to mid-Jul; Second Rainy Season Aug 1 to mid-Nov. Lean box May-Aug (the box labelled just 'Lean Season'). Primera planting Apr-Jun, harvest Sep. Postrera planting mid-Aug to mid-Oct, harvest Nov to mid-Dec. 'North' Postrera bars: planting mid-Nov through Jan (continues as the unlabelled Jan bar), weeding Jan-Feb, harvest Feb-Mar; they are planted after the shaded rains end but are labelled Postrera."
+    },
+    {
+      "id": "western-highlands",
+      "name": "Western Highlands",
+      "where": "The western highland (Altiplano) departments, from the rows and lean box labelled 'Western Highlands'",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 5,
+          "end": 7
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest: Western Highlands",
+          "start": 11,
+          "end": 12,
+          "rainy": "First Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season: Western Highlands",
+          "start": 6,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: Western Highlands",
+          "start": 3,
+          "end": 5,
+          "rainy": "First Rainy Season"
+        }
+      ],
+      "notes": "Single long cycle: land preparation Feb to mid-Apr, planting Mar-May, weeding Jul-Aug, main harvest Nov to mid-Dec. Harvest linked to the First Rainy Season because the crop is sown with it, but it grows through both rainy seasons. Western Highlands lean box Jun-Sep. Frost risk Nov-Feb."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "GT01": "primera-postrera",
+      "GT02": "primera-postrera",
+      "GT03": "western-highlands",
+      "GT04": "western-highlands",
+      "GT05": "primera-postrera",
+      "GT06": "primera-postrera",
+      "GT07": "western-highlands",
+      "GT08": "western-highlands",
+      "GT09": "western-highlands",
+      "GT10": "primera-postrera",
+      "GT11": "primera-postrera",
+      "GT12": "western-highlands",
+      "GT13": "western-highlands",
+      "GT14": "western-highlands",
+      "GT15": "primera-postrera",
+      "GT16": "primera-postrera",
+      "GT17": "primera-postrera",
+      "GT18": "primera-postrera",
+      "GT19": "primera-postrera",
+      "GT20": "primera-postrera",
+      "GT21": "primera-postrera",
+      "GT22": "primera-postrera"
+    },
+    "adm2": {
+      "GT1211": "primera-postrera",
+      "GT1212": "primera-postrera",
+      "GT1213": "primera-postrera",
+      "GT1214": "primera-postrera",
+      "GT1215": "primera-postrera",
+      "GT1216": "primera-postrera",
+      "GT1217": "primera-postrera",
+      "GT1219": "primera-postrera",
+      "GT1220": "primera-postrera",
+      "GT1221": "primera-postrera",
+      "GT1222": "primera-postrera",
+      "GT1230": "primera-postrera",
+      "GT0917": "primera-postrera",
+      "GT0919": "primera-postrera",
+      "GT0920": "primera-postrera",
+      "GT0921": "primera-postrera",
+      "GT0922": "primera-postrera",
+      "GT1420": "primera-postrera"
+    },
+    "confidence": {
+      "GT03": "low",
+      "GT04": "medium",
+      "GT01": "medium",
+      "GT16": "medium",
+      "GT15": "medium",
+      "GT21": "medium"
+    },
+    "method": "No titled blocks, but rows and a lean box are labelled 'Western Highlands', so two regions: the Altiplano departments (Huehuetenango, Quiché, San Marcos, Quetzaltenango, Totonicapán, Sololá, Chimaltenango, plus Sacatepéquez) to western-highlands, all others to primera-postrera; adm2 overrides send the San Marcos and Quetzaltenango coastal/boca-costa municipalities and Ixcán (Quiché) to primera-postrera."
+  },
+  "transcriber_notes": "Edges drawn at mid-month are counted (at-least-half rule); the end of the First Rainy Season (mid-Jul), the end of the Second Rainy Season (mid-Nov), the start of Postrera planting (mid-Aug) and the end of the Postrera harvest (mid-Dec) are at mid-month. The calendar has no locator map; the Western Highlands department list and the 'North' scope come from geographic knowledge, not the image. Sacatepéquez (central highlands) placed in western-highlands with low confidence. The 'North' Postrera bars are kept inside primera-postrera rather than made a separate region."
+}

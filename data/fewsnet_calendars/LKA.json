@@ -1,0 +1,57 @@
+{
+  "iso3": "LKA",
+  "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_SriLanka_v5_Final%20%281%29.png",
+  "page_url": "https://fews.net/asia/sri-lanka",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (block titled NATIONAL; locator map shades all of Sri Lanka purple)",
+      "livelihood": "mixed",
+      "rainy": [
+        {"name": "Northeast Monsoon", "start": 12, "end": 2},
+        {"name": "1st Inter-monsoon", "start": 3, "end": 4},
+        {"name": "Southwest Monsoon", "start": 5, "end": 9},
+        {"name": "2nd Inter-monsoon", "start": 10, "end": 11}
+      ],
+      "harvest": [
+        {"name": "Rice & maize Season 1 (Maha) harvest", "start": 12, "end": 3, "rainy": "Northeast Monsoon"},
+        {"name": "Rice & maize Season 2 (Yala) harvest", "start": 7, "end": 9, "rainy": "Southwest Monsoon"},
+        {"name": "Vegetables Season 1 harvest", "start": 1, "end": 2, "rainy": "Northeast Monsoon"},
+        {"name": "Vegetables Season 2 harvest", "start": 8, "end": 9, "rainy": "Southwest Monsoon"},
+        {"name": "Tea harvest (first period)", "start": 3, "end": 5, "rainy": null},
+        {"name": "Tea harvest (second period)", "start": 10, "end": 12, "rainy": null},
+        {"name": "Rubber harvest", "start": 9, "end": 1, "rainy": null},
+        {"name": "Coconut harvest", "start": 5, "end": 8, "rainy": null},
+        {"name": "Fruits harvest", "start": 3, "end": 8, "rainy": null}
+      ],
+      "lean": [
+        {"name": "Lean Season", "start": 10, "end": 1, "kind": "general"}
+      ],
+      "planting": [
+        {"name": "Rice/Maize Season 1 (Maha) land prep & planting", "start": 9, "end": 11, "rainy": "2nd Inter-monsoon"},
+        {"name": "Rice/Maize Season 2 (Yala) land prep & planting", "start": 3, "end": 5, "rainy": "1st Inter-monsoon"}
+      ],
+      "notes": "The inter-monsoon columns (Mar-Apr, Oct-Nov) are a lighter blue than the monsoon columns, but they are labelled inter-monsoon, not showers, so they are not flagged minor. The Northeast Monsoon is shaded Jan-Feb (labelled) and Dec (labelled 'NE Monsoon'); recorded as one 12-2. The lean box runs from mid-Oct to Dec and on through Jan (two pieces at the year edge, one season). The Maha harvest is drawn as mid-Dec to Dec plus Jan to Mar (one harvest 12-3). Vegetables S1 runs mid-Jan to Feb and S2 Aug to mid-Sep. Cash-crop harvests are labelled with the crop only: tea in two separate blocks, rubber Sep-Jan, coconut May-Aug, fruits Mar-Aug."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "LK1": "national",
+      "LK2": "national",
+      "LK3": "national",
+      "LK4": "national",
+      "LK5": "national",
+      "LK6": "national",
+      "LK7": "national",
+      "LK8": "national",
+      "LK9": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar, so every province maps to national."
+  },
+  "transcriber_notes": "Rainy-season links are judgement calls. Maha planting (Sep-Nov) falls in the 2nd Inter-monsoon and its harvest (Dec-Mar) at the end of the Northeast Monsoon. The Maha crop grows across both, so harvest is linked to the Northeast Monsoon and planting to the 2nd Inter-monsoon. Likewise Yala planting (Mar-May) is linked to the 1st Inter-monsoon and its Jul-Sep harvest to the Southwest Monsoon."
+}

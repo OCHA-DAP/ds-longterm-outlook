@@ -1,0 +1,102 @@
+{
+  "iso3": "HND",
+  "image_url": "https://fews.net/sites/default/files/2024-07/HN-Seasonal-Calendar-202406.png",
+  "page_url": "https://fews.net/latin-america-and-caribbean/honduras",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "All of Honduras (no regional titles or locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "1st Rainy Season",
+          "start": 5,
+          "end": 7
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 8,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Primera harvest",
+          "start": 8,
+          "end": 10,
+          "rainy": "1st Rainy Season"
+        },
+        {
+          "name": "Postrera harvest",
+          "start": 12,
+          "end": 1,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Postrera tardía (late Postrera) harvest",
+          "start": 2,
+          "end": 3,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 4,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Primera planting",
+          "start": 6,
+          "end": 7,
+          "rainy": "1st Rainy Season"
+        },
+        {
+          "name": "Postrera planting",
+          "start": 8,
+          "end": 10,
+          "rainy": "Second Rainy Season"
+        },
+        {
+          "name": "Postrera tardía (late Postrera) planting",
+          "start": 12,
+          "end": 1,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "notes": "1st Rainy Season mid-May to mid-Jul; a 'Dry Ssn' (canícula) band is shaded mid-Jul to mid-Aug; Second Rainy Season mid-Aug to end-Nov. Lean box mid-Apr to mid-Aug. Postrera harvest = Dec bar plus the unlabelled Jan bar; the separate 'Tardía' harvest pill runs Feb-Mar. Tardía planting Dec-Jan."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "HN01": "national",
+      "HN02": "national",
+      "HN03": "national",
+      "HN04": "national",
+      "HN05": "national",
+      "HN06": "national",
+      "HN07": "national",
+      "HN08": "national",
+      "HN09": "national",
+      "HN10": "national",
+      "HN11": "national",
+      "HN12": "national",
+      "HN13": "national",
+      "HN14": "national",
+      "HN15": "national",
+      "HN16": "national",
+      "HN17": "national",
+      "HN18": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles or locator map; every adm1 mapped to national."
+  },
+  "transcriber_notes": "Edges drawn at mid-month are counted (at-least-half rule); the rainy-season, dry-spell and lean-box edges are at mid-month. Tardía (late) Postrera bars are linked to the Second Rainy Season by their label, although they are planted after that shading ends."
+}

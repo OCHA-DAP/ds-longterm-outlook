@@ -1,0 +1,8 @@
+# generated + caches: never commit (the plaintext page holds the data the gate protects)
+build/
+cache/
+.venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store

@@ -1,0 +1,198 @@
+{
+ "iso3": "BEN",
+ "image_url": "https://fews.net/sites/default/files/2026-07/SeasonalCalendar_Benin_v4_Final.png",
+ "page_url": "https://fews.net/west-africa/benin",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "north-central-unimodal",
+   "name": "Northern & central unimodal areas",
+   "where": "Everything north of roughly 7.5 N: Alibori, Atacora, Borgou, Donga, Collines (purple on the top locator map)",
+   "livelihood": "agropastoral",
+   "rainy": [
+    {
+     "name": "Rainy Season",
+     "start": 5,
+     "end": 10
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Main cereals harvest (maize, sorghum, rice)",
+     "start": 10,
+     "end": 12,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Yam harvest",
+     "start": 8,
+     "end": 9,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Cotton harvest",
+     "start": 11,
+     "end": 1,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Soy harvest",
+     "start": 10,
+     "end": 10,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Cashew harvest",
+     "start": 2,
+     "end": 3,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 5,
+     "end": 8,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting: maize, sorghum, soy, cotton",
+     "start": 5,
+     "end": 7,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Planting: yams",
+     "start": 12,
+     "end": 1,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Planting: rice",
+     "start": 10,
+     "end": 11,
+     "rainy": null
+    }
+   ],
+   "notes": "Rainy shading ends mid-Oct. Main cereals mid-Oct to Dec; yams mid-Aug to Sep. Cotton harvest drawn as Jan + Nov-Dec, merged. Yam planting drawn as Dec + an unlabelled first-half-Jan stub, merged. Cotton and soy linked to the rains because their planting bar sits in May-Jul."
+  },
+  {
+   "id": "south-bimodal",
+   "name": "Southern bimodal areas",
+   "where": "The south below roughly 7.5 N: Zou, Plateau, Couffo, Mono, Atlantique, Oueme, Littoral (purple on the bottom locator map)",
+   "livelihood": "mixed",
+   "rainy": [
+    {
+     "name": "Rainy Season 1",
+     "start": 3,
+     "end": 7
+    },
+    {
+     "name": "Rainy Season 2",
+     "start": 9,
+     "end": 11
+    }
+   ],
+   "harvest": [
+    {
+     "name": "S1: Maize harvest",
+     "start": 6,
+     "end": 7,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "S2: Maize harvest",
+     "start": 11,
+     "end": 11,
+     "rainy": "Rainy Season 2"
+    },
+    {
+     "name": "S2: Rice harvest",
+     "start": 2,
+     "end": 4,
+     "rainy": "Rainy Season 2"
+    },
+    {
+     "name": "S1: Cassava harvest",
+     "start": 12,
+     "end": 1,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "Palm nut harvest",
+     "start": 1,
+     "end": 2,
+     "rainy": null
+    },
+    {
+     "name": "Pineapple harvest",
+     "start": 3,
+     "end": 4,
+     "rainy": null
+    },
+    {
+     "name": "Vegetables harvest (outside the rainy seasons)",
+     "start": 12,
+     "end": 3,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 4,
+     "end": 6,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting S1",
+     "start": 3,
+     "end": 4,
+     "rainy": "Rainy Season 1"
+    },
+    {
+     "name": "Planting S2 (Sep-Oct)",
+     "start": 9,
+     "end": 10,
+     "rainy": "Rainy Season 2"
+    },
+    {
+     "name": "Planting S2 (Nov-Jan)",
+     "start": 11,
+     "end": 1,
+     "rainy": "Rainy Season 2"
+    }
+   ],
+   "notes": "Rainy Season 1 Mar to mid-Jul, Rainy Season 2 Sep to mid-Nov; lean Apr to mid-Jun. S1 maize mid-Jun to Jul; S2 rice mid-Feb to Apr; S1 cassava and vegetables drawn in Jan + Dec pieces, merged. S2 green harvest (Oct) skipped. S2 planting has two bars: mid-Sep to mid-Oct, and mid-Nov to Jan (Dec + Jan pieces merged)."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "BJ01": "north-central-unimodal",
+   "BJ02": "north-central-unimodal",
+   "BJ03": "south-bimodal",
+   "BJ04": "north-central-unimodal",
+   "BJ05": "north-central-unimodal",
+   "BJ06": "south-bimodal",
+   "BJ07": "north-central-unimodal",
+   "BJ08": "south-bimodal",
+   "BJ09": "south-bimodal",
+   "BJ10": "south-bimodal",
+   "BJ11": "south-bimodal",
+   "BJ12": "south-bimodal"
+  },
+  "adm2": {},
+  "confidence": {
+   "BJ05": "medium",
+   "BJ11": "medium",
+   "BJ12": "medium"
+  },
+  "method": "Locator maps split the country at about 7.5 N (Collines / Zou-Plateau line); departments assigned by that line."
+ },
+ "transcriber_notes": "2024+ template: element edges sit on a half-month grid; a month that is exactly half covered counts (>= half rule). Half months counted: north rainy Oct, maize planting May, yam planting Jan, yam harvest Aug, main cereals Oct, rice planting Oct & Nov; south rainy Jul & Nov, lean Jun, S1 planting Mar & Apr, S2 planting Sep, Oct & Nov, S1 maize Jun, S2 rice Feb. North rice planting (mid-Oct to mid-Nov, after the rains) is on the image as drawn but its season is unclear, so it is unlinked."
+}

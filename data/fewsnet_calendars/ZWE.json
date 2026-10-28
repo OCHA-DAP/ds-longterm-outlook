@@ -1,0 +1,95 @@
+{
+  "iso3": "ZWE",
+  "image_url": "https://fews.net/sites/default/files/2024-11/ZW-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/zimbabwe",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (calendar has no regional titles and no locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 11,
+          "end": 3
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Winter wheat harvest",
+          "start": 9,
+          "end": 10,
+          "rainy": null
+        },
+        {
+          "name": "Cotton harvest and sales",
+          "start": 4,
+          "end": 9,
+          "rainy": null
+        },
+        {
+          "name": "Tobacco harvest and sales",
+          "start": 2,
+          "end": 8,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 11,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: staple food crops, cotton",
+          "start": 11,
+          "end": 1,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Planting: winter wheat",
+          "start": 5,
+          "end": 6,
+          "rainy": null
+        },
+        {
+          "name": "Planting: tobacco",
+          "start": 9,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Lean box drawn in two pieces (Nov-Dec and Jan-Feb), recorded as one Nov-Feb season. Staple/cotton planting continues into the first half of Jan. Winter wheat is planted May-Jun and harvested Sep-Oct, outside the rainy season. Tobacco planting starts in Sep, before the rains, so it is not linked to the rainy season. Green harvest (mid-Feb to Mar), vegetables and labour bars not recorded. Edges at or near a mid-month tick, counted as covering the month (share of that month covered in brackets): Planting: staple food crops, cotton (Jan 49%)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "ZW10": "national",
+      "ZW11": "national",
+      "ZW12": "national",
+      "ZW13": "national",
+      "ZW14": "national",
+      "ZW15": "national",
+      "ZW16": "national",
+      "ZW17": "national",
+      "ZW18": "national",
+      "ZW19": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles; every province mapped to 'national'."
+  },
+  "transcriber_notes": "Staple planting ends exactly mid-Jan (counted as Jan)."
+}

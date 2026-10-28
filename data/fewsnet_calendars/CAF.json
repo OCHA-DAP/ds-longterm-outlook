@@ -1,0 +1,96 @@
+{
+ "iso3": "CAF",
+ "image_url": "https://fews.net/sites/default/files/2024-11/CAR-Seasonal-Calendar-202410.png",
+ "page_url": "https://fews.net/west-africa/central-african-republic",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "national",
+   "name": "National",
+   "where": "Whole country (no regional blocks or locator map)",
+   "livelihood": "mixed",
+   "rainy": [
+    {
+     "name": "Rainy Season",
+     "start": 3,
+     "end": 9
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Maize and groundnut harvest",
+     "start": 8,
+     "end": 9,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Rice/millet harvest",
+     "start": 10,
+     "end": 12,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Sorghum harvest",
+     "start": 12,
+     "end": 1,
+     "rainy": "Rainy Season"
+    },
+    {
+     "name": "Cassava harvest (year-round)",
+     "start": 1,
+     "end": 12,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season: South",
+     "start": 4,
+     "end": 6,
+     "kind": "general"
+    },
+    {
+     "name": "Lean Season: North",
+     "start": 6,
+     "end": 9,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting",
+     "start": 3,
+     "end": 6,
+     "rainy": "Rainy Season"
+    }
+   ],
+   "notes": "Sorghum harvest drawn as Jan + Dec pieces, merged to Dec-Jan. Green harvest (mid-Jun-Jul and Sep) skipped. Two lean boxes labelled South and North; no map defines them."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "CF11": "national",
+   "CF12": "national",
+   "CF21": "national",
+   "CF22": "national",
+   "CF23": "national",
+   "CF31": "national",
+   "CF32": "national",
+   "CF41": "national",
+   "CF42": "national",
+   "CF43": "national",
+   "CF51": "national",
+   "CF52": "national",
+   "CF53": "national",
+   "CF61": "national",
+   "CF62": "national",
+   "CF63": "national",
+   "CF71": "national"
+  },
+  "adm2": {},
+  "confidence": {},
+  "method": "Single-region calendar (no titled blocks): every prefecture mapped to national."
+ },
+ "transcriber_notes": "2024+ template: element edges sit on a half-month grid; a month that is exactly half covered counts (>= half rule). Planting starts mid-Mar (Mar counted, exactly half). Lean South = Apr to mid-Jun; Lean North = mid-Jun to mid-Sep (Jun cover ~0.45, Sep ~0.49, both counted) so June appears in both lean seasons. The North/South split of the lean season is not mapped on the image, so it is NOT reflected in assign."
+}

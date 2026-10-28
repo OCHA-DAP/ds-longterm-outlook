@@ -1,0 +1,59 @@
+{
+ "iso3": "SLE",
+ "image_url": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-sierre-leone.png",
+ "page_url": "https://fews.net/west-africa/sierra-leone",
+ "axis_start_month": 10,
+ "template": "pre-2024 small template (Oct-Sep axis; coloured boxes: gold harvest, dark red lean, blue rainy, green land prep/planting)",
+ "regions": [
+  {
+   "id": "national",
+   "name": "National",
+   "where": "Whole country (no regional blocks or locator map)",
+   "livelihood": "agricultural",
+   "rainy": [
+    {
+     "name": "Rainy season",
+     "start": 4,
+     "end": 10
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Rice harvest",
+     "start": 8,
+     "end": 12,
+     "rainy": "Rainy season"
+    },
+    {
+     "name": "Minor harvest - sweet potatoes, maize & millet",
+     "start": 6,
+     "end": 7,
+     "rainy": "Rainy season"
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean season",
+     "start": 5,
+     "end": 7,
+     "kind": "general"
+    }
+   ],
+   "planting": [],
+   "notes": "Axis runs OCT to SEP. Rainy season drawn as Oct + Apr-Sep, merged. Rice harvest drawn as Aug-Sep + Oct to early Jan, merged. Only land preparation bars (rice Jan-Apr; minor harvest Feb-Mar) are shown, so planting is empty."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "SL01": "national",
+   "SL02": "national",
+   "SL03": "national",
+   "SL04": "national",
+   "SL05": "national"
+  },
+  "adm2": {},
+  "confidence": {},
+  "method": "Single-region calendar: every province mapped to national."
+ },
+ "transcriber_notes": "Old small template: 13 labels (OCT ... SEP, OCT) on the 13 dashed month-boundary lines, so the first column is OCT; the APR, JUN and JUL lines are hidden behind boxes and were interpolated. Rice harvest box ends about 40% into Jan (Jan not counted). Lean box starts about half-way through May (cover ~0.48, counted). Labels \"Cash crop maketing\" and \"Lifestock disease and pests\" are misspelt on the image (not used)."
+}

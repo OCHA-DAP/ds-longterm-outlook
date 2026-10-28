@@ -1,0 +1,123 @@
+{
+ "iso3": "UGA",
+ "image_url": "https://fews.net/sites/default/files/2024-11/UG-Seasonal-Calendar-202410.png",
+ "page_url": "https://fews.net/east-africa/uganda",
+ "axis_start_month": 1,
+ "template": "2024+ (blue rainy shading, red lean box)",
+ "regions": [
+  {
+   "id": "unimodal",
+   "name": "Unimodal rainfall areas",
+   "where": "Karamoja, the north-eastern strip along the Kenya border (purple on the locator map)",
+   "livelihood": "agropastoral",
+   "rainy": [
+    {
+     "name": "Unimodal Rainy Season",
+     "start": 3,
+     "end": 10
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Main season harvest",
+     "start": 8,
+     "end": 10,
+     "rainy": "Unimodal Rainy Season"
+    },
+    {
+     "name": "Harvest (unlabelled December bar)",
+     "start": 12,
+     "end": 12,
+     "rainy": "Unimodal Rainy Season"
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 3,
+     "end": 6,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting",
+     "start": 4,
+     "end": 5,
+     "rainy": "Unimodal Rainy Season"
+    }
+   ],
+   "notes": "Rainy shading starts exactly at mid-March (counted, per the at-least-half rule). Main Season harvest bar runs early Aug to exactly mid-Oct. A second, unlabelled harvest bar covers all of December. Livestock migration Jan to early Apr and Sep to Dec."
+  },
+  {
+   "id": "bimodal",
+   "name": "Bimodal rainfall areas",
+   "where": "The rest of Uganda: west, centre, east and the north outside Karamoja (purple on the locator map)",
+   "livelihood": "agricultural",
+   "rainy": [
+    {
+     "name": "First Rainy Season",
+     "start": 3,
+     "end": 5
+    },
+    {
+     "name": "Second Rainy Season",
+     "start": 9,
+     "end": 11
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Season 1 harvest",
+     "start": 6,
+     "end": 7,
+     "rainy": "First Rainy Season"
+    },
+    {
+     "name": "Season 2 harvest",
+     "start": 12,
+     "end": 1,
+     "rainy": "Second Rainy Season"
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean Season",
+     "start": 3,
+     "end": 6,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Season 1 planting",
+     "start": 3,
+     "end": 4,
+     "rainy": "First Rainy Season"
+    },
+    {
+     "name": "Season 2 planting",
+     "start": 9,
+     "end": 10,
+     "rainy": "Second Rainy Season"
+    }
+   ],
+   "notes": "S2 harvest bar starts at mid-December and continues as an unlabelled bar through January at the left edge (one season, wrapping). Season 1 planting starts at mid-March, Season 2 planting ends at mid-October (both counted)."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "UG1": "bimodal",
+   "UG2": "bimodal",
+   "UG3": "unimodal",
+   "UG4": "bimodal"
+  },
+  "adm2": {},
+  "confidence": {
+   "UG3": "low",
+   "UG2": "medium"
+  },
+  "method": "Only four adm1 regions; Karamoja (unimodal) is a minority of Northern (and borders Eastern), so every region is mapped to bimodal; no adm2 units exist to carve out Karamoja. Reviewed 2026-10-28: Northern (UG3) moved to unimodal. Our Uganda figures are the IPC Karamoja analysis, filed under Northern, and ERA5 gives Northern a unimodal season (r 0.85 vs 0.42 bimodal). Northern outside Karamoja is bimodal on FEWS NET's map."
+ },
+ "transcriber_notes": "Edges were measured on the full-resolution image. Several edges fall exactly at mid-month (unimodal rainy start, unimodal main harvest end, bimodal S1 planting start, S2 planting end, S2 harvest start); these were counted as covering the month. The unimodal region (Karamoja) cannot be represented at adm1 because the admin file has only the four statistical regions and no adm2."
+}

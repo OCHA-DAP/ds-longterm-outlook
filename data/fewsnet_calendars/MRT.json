@@ -1,0 +1,106 @@
+{
+  "iso3": "MRT",
+  "image_url": "https://fews.net/sites/default/files/2024-11/MR-Seasonal-Calendar-202410_0.png",
+  "page_url": "https://fews.net/west-africa/mauritania",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (no regional titles or locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season harvest",
+          "start": 10,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Flood-recession harvest",
+          "start": 1,
+          "end": 3,
+          "rainy": null
+        },
+        {
+          "name": "Off-season harvest",
+          "start": 4,
+          "end": 6,
+          "rainy": null
+        },
+        {
+          "name": "Date palm harvest",
+          "start": 6,
+          "end": 8,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 4,
+          "end": 7,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 6,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 5,
+          "end": 9,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 1,
+          "end": 3,
+          "rainy": null
+        },
+        {
+          "name": "Flood-recession planting",
+          "start": 10,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy shading mid-Jun to mid-Sep. Main planting mid-May to mid-Sep. Off-season planting Jan to mid-Mar. Flood-recession planting mid-Oct to Dec. Off-season harvest mid-Apr to mid-Jun. Main harvest Oct to mid-Dec. Date palm harvest mid-Jun to mid-Aug. Green harvest (teal, mid-Sep) excluded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "MR01": "national",
+      "MR02": "national",
+      "MR03": "national",
+      "MR04": "national",
+      "MR05": "national",
+      "MR06": "national",
+      "MR07": "national",
+      "MR08": "national",
+      "MR09": "national",
+      "MR10": "national",
+      "MR11": "national",
+      "MR12": "national",
+      "MR13": "national",
+      "MR14": "national",
+      "MR15": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single-region calendar: every adm1 mapped to national."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). The off-season harvest bar starts just right of the pastoral-lean line (about Apr+0.55, i.e. 45% of April); read as mid-April and included."
+}

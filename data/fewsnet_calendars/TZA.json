@@ -1,0 +1,156 @@
+{
+  "iso3": "TZA",
+  "image_url": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-tanzania.png",
+  "page_url": "https://fews.net/east-africa/tanzania",
+  "axis_start_month": 4,
+  "template": "pre-2024 (coloured bars: blue rains, gold harvest, dark red lean; dashed month lines; axis Apr-Apr)",
+  "regions": [
+    {
+      "id": "bimodal",
+      "name": "Bimodal",
+      "where": "Bimodal-rainfall areas: the north-east highlands, Lake Victoria basin and northern coast incl. Zanzibar (no locator map; inferred from the block title)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Masika rains",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Vuli rains",
+          "start": 10,
+          "end": 12
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Masika harvest",
+          "start": 7,
+          "end": 8,
+          "rainy": "Masika rains"
+        },
+        {
+          "name": "Vuli harvest",
+          "start": 1,
+          "end": 2,
+          "rainy": "Vuli rains"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean season",
+          "start": 10,
+          "end": 12,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Vuli planting",
+          "start": 10,
+          "end": 10,
+          "rainy": "Vuli rains"
+        },
+        {
+          "name": "Masika planting",
+          "start": 2,
+          "end": 3,
+          "rainy": "Masika rains"
+        }
+      ],
+      "notes": "Masika rains drawn as Mar (right edge) plus Apr-May (left edge) on the Apr-start axis. Vuli rains and Vuli planting both start a little after mid-September (about 44% of Sep, so Sep not counted). Masika planting starts just after mid-February (about 47% of Feb; counted, as it is within the ~0.03 mid-month tolerance used throughout). Vuli harvest ends just past mid-February (about 52%, counted)."
+    },
+    {
+      "id": "unimodal",
+      "name": "Unimodal",
+      "where": "Unimodal-rainfall areas: central, western, southern highlands and southern coast (no locator map; inferred from the block title)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Msimu rains",
+          "start": 11,
+          "end": 4
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Msimu harvest",
+          "start": 5,
+          "end": 7,
+          "rainy": "Msimu rains"
+        },
+        {
+          "name": "Banana and cassava harvest",
+          "start": 1,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean season",
+          "start": 11,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Msimu preparation and planting",
+          "start": 10,
+          "end": 12,
+          "rainy": "Msimu rains"
+        }
+      ],
+      "notes": "Msimu rains are drawn as two bars, Nov-Jan and from just after mid-Feb to Apr (Apr shown at the left edge); recorded as one season Nov-Apr with a break in early-mid February (Feb itself is under half covered). The planting bar is labelled 'Msimu preparation and planting' (land preparation is not drawn separately). Banana and cassava harvest runs year-round. Green harvest (tan, Mar-Apr) not counted."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "TZ01": "unimodal",
+      "TZ02": "bimodal",
+      "TZ03": "bimodal",
+      "TZ04": "bimodal",
+      "TZ05": "unimodal",
+      "TZ06": "bimodal",
+      "TZ07": "bimodal",
+      "TZ08": "unimodal",
+      "TZ09": "unimodal",
+      "TZ10": "unimodal",
+      "TZ11": "unimodal",
+      "TZ12": "unimodal",
+      "TZ13": "unimodal",
+      "TZ14": "unimodal",
+      "TZ15": "unimodal",
+      "TZ16": "unimodal",
+      "TZ17": "bimodal",
+      "TZ18": "bimodal",
+      "TZ19": "bimodal",
+      "TZ20": "bimodal",
+      "TZ21": "bimodal",
+      "TZ22": "unimodal",
+      "TZ23": "unimodal",
+      "TZ24": "bimodal",
+      "TZ25": "bimodal",
+      "TZ26": "unimodal",
+      "TZ51": "bimodal",
+      "TZ52": "bimodal",
+      "TZ53": "bimodal",
+      "TZ54": "bimodal",
+      "TZ55": "bimodal"
+    },
+    "adm2": {},
+    "confidence": {
+      "TZ05": "medium",
+      "TZ06": "medium",
+      "TZ07": "medium",
+      "TZ16": "low",
+      "TZ17": "medium",
+      "TZ21": "medium",
+      "TZ24": "medium",
+      "TZ14": "medium"
+    },
+    "method": "No locator maps: regions were assigned from the standard Tanzanian bimodal (north-east, Lake Victoria basin, northern coast, Zanzibar) versus unimodal (central, west, south) rainfall split."
+  },
+  "transcriber_notes": "Older template: the axis starts in APRIL and month labels sit on dashed lines that mark the START of each month (APR at both edges). The image is small (838 px), so edges are accurate to about 2-3% of a month. No locator map, so assignment is from geographic knowledge; Kigoma (north bimodal, south unimodal), Morogoro, Pwani/Dar es Salaam, Manyara, Shinyanga and Simiyu are the least certain. Mid-month convention: edges within about 0.03 of a month's midpoint count as covering half (so the month is included); Vuli rains/planting start at about 0.44 of Sep, so Sep is excluded."
+}

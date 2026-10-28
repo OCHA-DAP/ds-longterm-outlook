@@ -1,0 +1,85 @@
+{
+  "iso3": "AGO",
+  "image_url": "https://fews.net/sites/default/files/2024-11/AO-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/southern-africa/angola",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "national",
+      "name": "National",
+      "where": "Whole country (calendar has no regional titles and no locator map)",
+      "livelihood": "mixed",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 10,
+          "end": 5
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest: cereal grains",
+          "start": 3,
+          "end": 6,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Cassava harvest",
+          "start": 1,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 11,
+          "end": 2,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting: cereal grains",
+          "start": 10,
+          "end": 11,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Planting: cassava",
+          "start": 10,
+          "end": 2,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Lean box drawn in two pieces (Jan-Feb and Nov-Dec), recorded as one Nov-Feb season. Cassava harvest bar spans the whole year. Green harvest Jan-Feb not recorded (green harvest excluded). Land preparation, weeding, labour, livestock migration and milk bars not recorded."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "AO01": "national",
+      "AO02": "national",
+      "AO03": "national",
+      "AO04": "national",
+      "AO05": "national",
+      "AO06": "national",
+      "AO07": "national",
+      "AO08": "national",
+      "AO09": "national",
+      "AO10": "national",
+      "AO11": "national",
+      "AO12": "national",
+      "AO13": "national",
+      "AO14": "national",
+      "AO15": "national",
+      "AO16": "national",
+      "AO17": "national",
+      "AO18": "national"
+    },
+    "adm2": {},
+    "confidence": {},
+    "method": "Single national calendar with no regional titles; every province mapped to 'national'."
+  },
+  "transcriber_notes": "No uncertain edges; all bar and box edges fall on month boundaries."
+}

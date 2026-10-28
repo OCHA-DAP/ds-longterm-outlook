@@ -1,0 +1,159 @@
+{
+  "iso3": "NGA",
+  "image_url": "https://fews.net/sites/default/files/2024-11/NG-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/west-africa/nigeria",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "northern",
+      "name": "Northern areas",
+      "where": "Northern Nigeria: all North-West and North-East states plus the North-Central states (Niger, Kwara, Kogi, Benue, Plateau, Nasarawa, FCT) (purple on the locator map)",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 4,
+          "end": 10
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main season harvest",
+          "start": 9,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season harvest",
+          "start": 4,
+          "end": 5,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season",
+          "start": 3,
+          "end": 5,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season",
+          "start": 7,
+          "end": 9,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Main season planting",
+          "start": 5,
+          "end": 7,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Off-season planting",
+          "start": 12,
+          "end": 1,
+          "rainy": null
+        }
+      ],
+      "notes": "Rainy shading starts mid-Apr. Main planting mid-May to mid-Jul. Lean box ends and main harvest starts mid-Sep. Off-season planting is the Dec 'Off-Ssn' bar plus an unlabelled Jan bar (one span). Off-season harvest Apr-May has no rainy season on the image."
+    },
+    {
+      "id": "southern",
+      "name": "Southern areas",
+      "where": "Southern Nigeria: the South-West, South-South and South-East states (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 2,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main harvest",
+          "start": 9,
+          "end": 12,
+          "rainy": "Rainy Season"
+        },
+        {
+          "name": "Cassava harvest",
+          "start": 1,
+          "end": 12,
+          "rainy": null
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 5,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 2,
+          "end": 4,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Rainy shading mid-Feb to end Nov (one block only). Planting mid-Feb to end Apr. Main harvest mid-Sep to mid-Dec. Lean box mid-May to mid-Aug. Green harvest of maize and yams (teal, mid-May to mid-Sep) excluded. Cassava harvest bar runs all year."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "NG001": "southern",
+      "NG002": "northern",
+      "NG003": "southern",
+      "NG004": "southern",
+      "NG005": "northern",
+      "NG006": "southern",
+      "NG007": "northern",
+      "NG008": "northern",
+      "NG009": "southern",
+      "NG010": "southern",
+      "NG011": "southern",
+      "NG012": "southern",
+      "NG013": "southern",
+      "NG014": "southern",
+      "NG015": "northern",
+      "NG016": "northern",
+      "NG017": "southern",
+      "NG018": "northern",
+      "NG019": "northern",
+      "NG020": "northern",
+      "NG021": "northern",
+      "NG022": "northern",
+      "NG023": "northern",
+      "NG024": "northern",
+      "NG025": "southern",
+      "NG026": "northern",
+      "NG027": "northern",
+      "NG028": "southern",
+      "NG029": "southern",
+      "NG030": "southern",
+      "NG031": "southern",
+      "NG032": "northern",
+      "NG033": "southern",
+      "NG034": "northern",
+      "NG035": "northern",
+      "NG036": "northern",
+      "NG037": "northern"
+    },
+    "adm2": {},
+    "confidence": {
+      "NG024": "medium",
+      "NG023": "medium",
+      "NG007": "medium",
+      "NG031": "medium"
+    },
+    "method": "Matched the purple locator maps, whose north/south boundary follows state lines (19 northern states + FCT vs the 17 southern states); transition states set to medium."
+  },
+  "transcriber_notes": "Convention: this template snaps edges to whole or half months; an edge at mid-month is treated as covering half of that month and so the month is included (schema rule 'at least half'). Southern areas show a single rainy-season block although the south is usually described as bimodal; transcribed as drawn. Several edges sit exactly at mid-month (rainy start mid-Apr north / mid-Feb south, lean ends mid-Sep north / mid-Aug south, south lean starts mid-May, south main harvest ends mid-Dec)."
+}

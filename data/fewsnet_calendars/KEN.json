@@ -1,0 +1,221 @@
+{
+  "iso3": "KEN",
+  "image_url": "https://fews.net/sites/default/files/2024-11/KE-Seasonal-Calendar-202410.png",
+  "page_url": "https://fews.net/east-africa/kenya",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "western-rift",
+      "name": "Western Rift Valley areas",
+      "where": "Western Kenya and the western/southern Rift Valley: Lake Victoria basin, the western highlands (Uasin Gishu, Nandi, Kericho, Bomet), Nakuru, Narok and Kajiado along the Tanzania border, plus a detached patch around Laikipia/Nyandarua (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Long Rains",
+          "start": 2,
+          "end": 8
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main Harvest: Unimodal Areas",
+          "start": 10,
+          "end": 1,
+          "rainy": "Long Rains"
+        },
+        {
+          "name": "Harvest: Bimodal Areas (Maize)",
+          "start": 7,
+          "end": 7,
+          "rainy": "Long Rains"
+        },
+        {
+          "name": "Harvest: Bimodal Areas (Oct-Nov bar)",
+          "start": 10,
+          "end": 11,
+          "rainy": "Long Rains"
+        },
+        {
+          "name": "Harvest: Bimodal Areas (Jan bar, second season; no short-rains shading drawn)",
+          "start": 1,
+          "end": 1,
+          "rainy": null
+        }
+      ],
+      "lean": [],
+      "planting": [
+        {
+          "name": "Planting: Unimodal Areas",
+          "start": 2,
+          "end": 6,
+          "rainy": "Long Rains"
+        }
+      ],
+      "notes": "No lean season box is drawn for this block. Exact edges: Long Rains mid-Feb to mid-Aug; unimodal planting mid-Feb to mid-Jun. Unimodal main harvest drawn as Oct-Dec plus Jan (one wrapping season). Bimodal harvest bars: Jul (labelled Maize), Oct-Nov (unlabelled) and Jan (unlabelled); the Jan bar follows a Dec 'Bimodal' green harvest and Nov 'Bimodal' weeding, i.e. a second season whose rains are not shaded, so it is linked to no rainy season. Bimodal planting is not drawn."
+    },
+    {
+      "id": "southeastern-coastal",
+      "name": "Southeastern and coastal areas",
+      "where": "South-eastern marginal agricultural lowlands (Kitui, Makueni, Tharaka-Nithi, Embu, lower Meru) and the coast (Taita Taveta, Kwale, Mombasa, Kilifi, Lamu) (purple on the locator map)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "Long Rains",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Short Rains",
+          "start": 10,
+          "end": 12
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main Harvest: Short Rains",
+          "start": 2,
+          "end": 3,
+          "rainy": "Short Rains"
+        },
+        {
+          "name": "Harvest: Long Rains",
+          "start": 7,
+          "end": 8,
+          "rainy": "Long Rains"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 9,
+          "end": 10,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Long rains planting",
+          "start": 3,
+          "end": 3,
+          "rainy": "Long Rains"
+        },
+        {
+          "name": "Short rains planting",
+          "start": 9,
+          "end": 10,
+          "rainy": "Short Rains"
+        }
+      ],
+      "notes": "Exact edges: Long Rains mid-Mar to end-May; Short Rains mid-Oct to mid-Dec; short-rains harvest Feb to mid-Mar; long-rains harvest Jul to mid-Aug; short-rains planting mid-Sep to end-Oct; lean box Sep to mid-Oct. The two planting bars are unlabelled and assigned by timing."
+    },
+    {
+      "id": "northern-eastern-pastoral",
+      "name": "Northern and eastern pastoral areas",
+      "where": "The arid north and north-east: Turkana, West Pokot, Samburu, Marsabit, Isiolo, Wajir, Mandera, Garissa and Tana River (purple on the locator map)",
+      "livelihood": "pastoral",
+      "rainy": [
+        {
+          "name": "Long Rains",
+          "start": 3,
+          "end": 5
+        },
+        {
+          "name": "Short Rains",
+          "start": 10,
+          "end": 12
+        }
+      ],
+      "harvest": [],
+      "lean": [
+        {
+          "name": "Secondary Lean Season",
+          "start": 2,
+          "end": 4,
+          "kind": "general"
+        },
+        {
+          "name": "Main Lean Season",
+          "start": 8,
+          "end": 10,
+          "kind": "general"
+        }
+      ],
+      "planting": [],
+      "notes": "Exact edges: Long Rains mid-Mar to end-May; Short Rains mid-Oct to mid-Dec; Secondary Lean Season mid-Feb to mid-Apr; Main Lean Season mid-Aug to mid-Oct. All counted under the at-least-half rule. No crop rows."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "KE001": "southeastern-coastal",
+      "KE002": "southeastern-coastal",
+      "KE003": "southeastern-coastal",
+      "KE004": "northern-eastern-pastoral",
+      "KE005": "southeastern-coastal",
+      "KE006": "southeastern-coastal",
+      "KE007": "northern-eastern-pastoral",
+      "KE008": "northern-eastern-pastoral",
+      "KE009": "northern-eastern-pastoral",
+      "KE010": "northern-eastern-pastoral",
+      "KE011": "northern-eastern-pastoral",
+      "KE012": "southeastern-coastal",
+      "KE013": "southeastern-coastal",
+      "KE014": "southeastern-coastal",
+      "KE015": "southeastern-coastal",
+      "KE016": "southeastern-coastal",
+      "KE017": "southeastern-coastal",
+      "KE018": "western-rift",
+      "KE019": "southeastern-coastal",
+      "KE020": "southeastern-coastal",
+      "KE021": "southeastern-coastal",
+      "KE022": "southeastern-coastal",
+      "KE023": "northern-eastern-pastoral",
+      "KE024": "northern-eastern-pastoral",
+      "KE025": "northern-eastern-pastoral",
+      "KE026": "western-rift",
+      "KE027": "western-rift",
+      "KE028": "western-rift",
+      "KE029": "western-rift",
+      "KE030": "northern-eastern-pastoral",
+      "KE031": "western-rift",
+      "KE032": "western-rift",
+      "KE033": "western-rift",
+      "KE034": "western-rift",
+      "KE035": "western-rift",
+      "KE036": "western-rift",
+      "KE037": "western-rift",
+      "KE038": "western-rift",
+      "KE039": "western-rift",
+      "KE040": "western-rift",
+      "KE041": "western-rift",
+      "KE042": "western-rift",
+      "KE043": "western-rift",
+      "KE044": "western-rift",
+      "KE045": "western-rift",
+      "KE046": "western-rift",
+      "KE047": "southeastern-coastal"
+    },
+    "adm2": {},
+    "confidence": {
+      "KE005": "medium",
+      "KE012": "medium",
+      "KE016": "medium",
+      "KE018": "medium",
+      "KE019": "low",
+      "KE020": "low",
+      "KE021": "low",
+      "KE022": "low",
+      "KE047": "low",
+      "KE026": "medium",
+      "KE030": "medium",
+      "KE031": "medium",
+      "KE034": "medium",
+      "KE033": "medium",
+      "KE004": "medium",
+      "KE024": "medium",
+      "KE028": "medium"
+    },
+    "method": "Approximate county centroids were plotted on the three purple locator maps; counties not covered by any map (central highlands: Kiambu, Murang'a, Kirinyaga, Nyeri, Nairobi; also Baringo, Machakos) were given the calendar that best fits their rainfall pattern."
+  },
+  "transcriber_notes": "Edges measured on the full-resolution image; most fall at mid-month and were counted (at-least-half rule); exact edges are listed in region notes. The central highlands (Kiambu, Murang'a, Kirinyaga, Nyeri, Nairobi) are not clearly purple on any locator map; they are put in southeastern-coastal (bimodal Mar-May / Oct-Dec rains) with low confidence. Nyeri sits on the edge of the Laikipia/Nyandarua patch of the western map. Kajiado and Narok are on the Western Rift Valley map although they are largely pastoral. Baringo falls between the western and pastoral maps (assigned pastoral). Lamu is mostly on the coastal map; its north is on the pastoral map."
+}

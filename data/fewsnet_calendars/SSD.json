@@ -1,0 +1,137 @@
+{
+  "iso3": "SSD",
+  "image_url": "https://fews.net/sites/default/files/2024-11/SS-Seasonal-Calendar-Temp-202410.png",
+  "page_url": "https://fews.net/east-africa/south-sudan",
+  "axis_start_month": 1,
+  "template": "2024+ (blue rainy shading, red lean box)",
+  "regions": [
+    {
+      "id": "northern-southeastern",
+      "name": "Northern and Southeastern areas",
+      "where": "The unimodal north and centre (Greater Upper Nile, Greater Bahr el Ghazal, Lakes, Abyei) and the south-east (Pibor and Greater Kapoeta); no locator map is drawn, so the extent is inferred from the title and lean-season labels",
+      "livelihood": "agropastoral",
+      "rainy": [
+        {
+          "name": "Rainy Season",
+          "start": 6,
+          "end": 9
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Main Harvest",
+          "start": 9,
+          "end": 1,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Pastoral Lean Season: Pibor and Greater Kapoeta",
+          "start": 1,
+          "end": 4,
+          "kind": "pastoral"
+        },
+        {
+          "name": "Lean Season: North and Southeast",
+          "start": 5,
+          "end": 8,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Planting",
+          "start": 5,
+          "end": 7,
+          "rainy": "Rainy Season"
+        }
+      ],
+      "notes": "Main Harvest drawn as Sep-Dec plus Jan (one wrapping season). Planting begins in May, before the shaded rainy season (Jun-Sep). The pastoral lean season applies only to Pibor and Greater Kapoeta."
+    },
+    {
+      "id": "southwestern",
+      "name": "Southwestern areas",
+      "where": "The bimodal Greenbelt of the south-west: Western Equatoria, Central Equatoria and the Magwi/Torit/Ikotos part of Eastern Equatoria (no locator map is drawn; inferred from the title)",
+      "livelihood": "agricultural",
+      "rainy": [
+        {
+          "name": "First Rainy Season",
+          "start": 3,
+          "end": 6
+        },
+        {
+          "name": "Second Rainy Season",
+          "start": 7,
+          "end": 11
+        }
+      ],
+      "harvest": [
+        {
+          "name": "Season 1 harvest",
+          "start": 6,
+          "end": 8,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Season 2 harvest",
+          "start": 10,
+          "end": 1,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "lean": [
+        {
+          "name": "Lean Season",
+          "start": 5,
+          "end": 6,
+          "kind": "general"
+        }
+      ],
+      "planting": [
+        {
+          "name": "Season 1 planting",
+          "start": 3,
+          "end": 4,
+          "rainy": "First Rainy Season"
+        },
+        {
+          "name": "Season 2 planting",
+          "start": 7,
+          "end": 8,
+          "rainy": "Second Rainy Season"
+        }
+      ],
+      "notes": "Second Rainy Season ends exactly at mid-November (counted). Season 2 harvest drawn as Oct-Dec plus an unlabelled Jan bar (one wrapping season)."
+    }
+  ],
+  "assign": {
+    "adm1": {
+      "SS00": "northern-southeastern",
+      "SS01": "southwestern",
+      "SS02": "northern-southeastern",
+      "SS03": "northern-southeastern",
+      "SS04": "northern-southeastern",
+      "SS05": "northern-southeastern",
+      "SS06": "northern-southeastern",
+      "SS07": "northern-southeastern",
+      "SS08": "northern-southeastern",
+      "SS09": "northern-southeastern",
+      "SS10": "southwestern"
+    },
+    "adm2": {
+      "SS0105": "northern-southeastern",
+      "SS0207": "southwestern",
+      "SS0202": "southwestern",
+      "SS0208": "southwestern"
+    },
+    "confidence": {
+      "SS02": "medium",
+      "SS01": "medium",
+      "SS04": "medium",
+      "SS09": "medium"
+    },
+    "method": "No locator maps on this calendar: the Equatorias' bimodal Greenbelt counties went to southwestern, everything else (including Pibor and Greater Kapoeta, named in the lean labels) to northern-southeastern, using geographic knowledge."
+  },
+  "transcriber_notes": "This calendar has no locator maps, so the region extents and the adm1/adm2 assignment rest on the block titles, the lean-season labels (Pibor, Greater Kapoeta) and general knowledge of South Sudan's unimodal/bimodal split. Terekeka (Central Equatoria) is put with the unimodal north; Magwi, Torit and Ikotos (Eastern Equatoria) with the southwest."
+}

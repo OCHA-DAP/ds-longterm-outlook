@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Humanitarian Outlook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* HDX v2 tokens (hdx-ai-hub styles plugin, assets/tokens.css), the subset this page uses.
+   Light mode only, like the team's other Pages sites. */
+:root {
+  color-scheme: light;
+  --b05:#e9f5f1; --b1:#d4eae4; --b5:#269777; --b6:#1e795f; --b7:#18614c;
+  --n0:#fff; --n01:#fafbfb; --n05:#f5f7f7; --n1:#ebeff0; --n15:#e2e8e8; --n2:#d8e0e1;
+  --n3:#c4d0d1; --n4:#b1c1c2; --n6:#7e8e8f; --n7:#5e6a6b; --n8:#3f4748; --n9:#1f2324;
+  --w05:#fbf4ea; --w1:#f6e9d4; --w4:#dda555; --w6:#aa7222; --w7:#7f5619; --w8:#553911;
+  --e1:#f3dad7; --e7:#762920; --p5:#1862d8; --p05:#e8effb; --p7:#0e3b82;
+  /* exposure share ramp, validated (dataviz validate_palette --ordinal): one hue, light->dark */
+  --s1:#dda555; --s2:#aa7222; --s3:#7f5619; --s4:#553911;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--n05); color: var(--n9);
+  font: 400 14px/1.5 'Roboto', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; }
+a { color: var(--b6); }
+.home-link { display: inline-block; margin: 10px 12px; padding: 6px 12px; font: 500 13px/1 'Roboto', system-ui, sans-serif;
+  color: var(--b6); background: var(--b05); border: 1px solid var(--b1); border-radius: 4px; text-decoration: none; }
+.home-link:hover { background: var(--b1); }
+.wrap { max-width: 1440px; margin: 0 auto 40px; background: var(--n0); box-shadow: 0 0 40px rgba(31,35,36,.06); }
+.hero { background: var(--b6); color: #fff; padding: 34px 36px 28px; }
+.eyebrow { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; margin: 0 0 10px; opacity: .9; }
+.hero h1 { font-family: 'Merriweather', Georgia, serif; font-size: 28px; line-height: 1.25; margin: 0 0 10px; }
+.hero p { margin: 0; max-width: 90ch; font-size: 14.5px; line-height: 1.6; }
+main { padding: 22px 36px 30px; }
+h2 { font-family: 'Merriweather', Georgia, serif; font-size: 20px; margin: 26px 0 10px; color: var(--n9); }
+h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .09em; color: var(--n7); margin: 22px 0 8px; }
+.banner { background: var(--w05); border-left: 5px solid var(--w4); padding: 11px 15px; border-radius: 4px;
+  color: var(--n8); font-size: 13.5px; margin: 0 0 16px; }
+.note { background: var(--b05); border-left: 5px solid var(--b5); padding: 11px 15px; border-radius: 4px;
+  color: var(--n8); font-size: 13px; margin: 12px 0; }
+.muted { color: var(--n7); }
+.small { font-size: 12px; }
+/* controls */
+.controls { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; margin: 6px 0 12px; }
+.seg { display: inline-flex; border: 1px solid var(--n3); border-radius: 4px; overflow: hidden; }
+.seg button { font: 500 12.5px 'Roboto', sans-serif; padding: 7px 11px; border: 0; background: var(--n0); color: var(--n8); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--n3); }
+.seg button[aria-pressed="true"] { background: var(--b6); color: #fff; }
+.ctl-label { font-size: 12px; color: var(--n7); margin-right: 6px; }
+input[type=search] { font: inherit; padding: 6px 10px; border: 1px solid var(--n3); border-radius: 4px; width: 200px; }
+/* table */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--n15); border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 7px 5px; border-bottom: 1px solid var(--n1); vertical-align: top; text-align: left; }
+thead th { background: var(--n05); font-weight: 500; color: var(--n8); font-size: 12px; position: sticky; top: 0; z-index: 1; }
+thead tr.grp th { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--n7); border-bottom: 0; padding-bottom: 2px; }
+thead tr.grp th.ours { color: var(--w7); }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { color: var(--b6); }
+th .arrow { color: var(--b6); font-size: 10px; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td.sep, th.sep { border-left: 2px solid var(--n15); }
+tbody tr:hover td { background: var(--n01); }
+td .sub { display: block; font-size: 11px; color: var(--n7); white-space: nowrap; }
+.cbar { display: block; height: 4px; background: var(--n1); border-radius: 2px; margin-top: 4px; min-width: 48px; }
+.cbar i { display: block; height: 4px; border-radius: 2px; }
+.c-label { display: inline-block; font-size: 10.5px; line-height: 1; padding: 3px 6px; border-radius: 2px; margin: 1px 3px 1px 0; white-space: nowrap; }
+.lab-src { background: var(--n1); color: var(--n8); }
+.lab-warn { background: var(--w1); color: var(--w8); }
+.lab-err { background: var(--e1); color: var(--e7); }
+.trend-Higher { color: var(--e7); } .trend-Lower { color: var(--b7); } .trend-Similar { color: var(--n7); }
+.cname a { font-weight: 500; text-decoration: none; }
+.cname a:hover { text-decoration: underline; }
+/* tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin: 10px 0 6px; }
+.tile { border: 1px solid var(--n15); border-radius: 4px; padding: 12px 14px; }
+.tile .k { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--n7); }
+.tile .v { font-size: 22px; font-weight: 500; margin: 4px 0 2px; }
+.tile .d { font-size: 12px; color: var(--n7); }
+.pbs { display: flex; height: 8px; border-radius: 2px; overflow: hidden; margin-top: 7px; gap: 2px; }
+.pbs i { display: block; height: 8px; }
+/* season strip */
+.strip { display: grid; gap: 2px; align-items: stretch; font-size: 11.5px; margin: 6px 0 4px; min-width: 900px; }
+.strip .rl { padding: 5px 8px 5px 0; color: var(--n8); font-size: 12px; line-height: 1.25; align-self: center; }
+.strip .rl small { display: block; color: var(--n7); font-size: 10.5px; }
+.strip .mh { text-align: center; color: var(--n7); font-size: 11px; padding: 2px 0; border-bottom: 1px solid var(--n2); }
+.strip .mh.y { font-weight: 500; color: var(--n8); }
+.strip .band { text-align: center; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; padding: 3px 2px; border-radius: 2px; }
+.band.ending { background: var(--n1); color: var(--n8); }
+.band.forecast { background: var(--p05); color: var(--p7); }
+.band.scenario { background: var(--n05); color: var(--n7); border: 1px dashed var(--n3); }
+.cell { border-radius: 2px; min-height: 34px; padding: 3px 2px; text-align: center; display: flex; flex-direction: column; justify-content: center; cursor: default; }
+.cell .t { font-size: 10px; opacity: .85; }
+.cell .x { font-weight: 500; font-size: 12px; }
+.cell.none { background: var(--n05); color: var(--n7); }
+.cell.offseason { background: repeating-linear-gradient(135deg, var(--n05) 0 4px, var(--n1) 4px 6px); color: var(--n6); }
+.cell.dark { color: #fff; }
+.cell.warnera5 { box-shadow: inset 0 0 0 2px var(--e7); }
+.gbar { background: var(--n6); color: #fff; border-radius: 2px; padding: 4px 6px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-self: center; }
+.gbar.light { background: var(--n3); color: var(--n9); }
+.gcell { text-align: center; font-size: 10.5px; color: var(--n8); background: var(--n1); border-radius: 2px; padding: 4px 1px; align-self: center; }
+.divider { grid-column: 1 / -1; border-top: 1px solid var(--n2); margin: 6px 0 2px; font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--n7); padding-top: 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 11.5px; color: var(--n7); margin: 6px 0 14px; align-items: center; }
+.legend .sw { display: inline-block; width: 18px; height: 11px; border-radius: 2px; vertical-align: -1px; margin-right: 5px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 4px 0 12px; font-size: 12.5px; }
+.links a { display: inline-block; padding: 4px 9px; border: 1px solid var(--b1); background: var(--b05); border-radius: 3px; text-decoration: none; color: var(--b7); }
+.links a:hover { background: var(--b1); }
+.region { border: 1px solid var(--n15); border-radius: 4px; padding: 10px 12px 8px; margin: 10px 0 14px; }
+.region h4 { margin: 0 0 2px; font-size: 14px; }
+.region .meta { font-size: 12px; color: var(--n7); margin-bottom: 6px; }
+.cal-rain { background: #bddbe9; color: var(--p7); border-radius: 2px; padding: 3px 6px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-self: center; }
+.cal-rain.minor { background: #ddeef5; }
+.cal-harv { background: #0d5d40; color: #fff; border-radius: 6px; padding: 3px 6px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-self: center; }
+.cal-lean { border: 2px solid #e8413e; color: #b3201c; border-radius: 2px; padding: 2px 6px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-self: center; background: #fff; }
+.sig { border-radius: 2px; padding: 3px 6px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-self: center; }
+.sig.none { background: var(--n05); color: var(--n7); border: 1px dashed var(--n3); }
+.sig.scen { background: repeating-linear-gradient(135deg, var(--w05) 0 5px, var(--w1) 5px 8px); color: var(--w8); border: 1px dashed var(--w4); }
+.lean-hit { border-radius: 2px; padding: 3px 6px; font-size: 11px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; align-self: center; border: 2px solid #e8413e; }
+.tip { position: fixed; z-index: 10; pointer-events: none; max-width: 330px; background: var(--n9); color: #fff; padding: 8px 10px;
+  border-radius: 4px; font-size: 12px; line-height: 1.45; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+.tip b { font-weight: 500; }
+details { margin: 10px 0; }
+details summary { cursor: pointer; font-weight: 500; color: var(--b6); }
+.method { font-size: 13px; color: var(--n8); max-width: 100ch; }
+.method li { margin: 4px 0; }
+.enso { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 18px; align-items: start; }
+.enso table { font-size: 12.5px; }
+@media (max-width: 760px) {
+  .hero { padding: 26px 18px 22px; } main { padding: 16px 16px 24px; } .enso { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 23px; }
+}
+</style>
+</head>
+<body>
+<a class="home-link" href="../">← Humanitarian outlook</a>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">OCHA Centre for Humanitarian Data · internal draft</p>
+    <h1 id="title">Year-ahead outlook by country</h1>
+    <p id="lede"></p>
+  </header>
+  <main id="view"></main>
+</div>
+<div id="tip" class="tip" hidden></div>
+<script>
+const D = /*__DATA__*/null;
+const M = D.meta, WIN = M.window, BUILT_MONTH = M.built.slice(0, 7);
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function fmt(v) {
+  if (v == null || isNaN(v)) return "—";
+  if (v === 0) return "0";
+  if (v >= 1e7) return (v / 1e6).toFixed(0) + "M";
+  if (v >= 1e6) return (v / 1e6).toFixed(1) + "M";
+  if (v >= 1e4) return Math.round(v / 1e3) + "k";
+  if (v >= 1e3) return (v / 1e3).toFixed(1) + "k";
+  return "<1k";
+}
+const pct = v => v == null ? "—" : Math.round(v * 100) + "%";
+const usd = v => v == null ? "—" : v >= 1e9 ? "$" + (v / 1e9).toFixed(1) + "B" : "$" + fmt(v);
+function ym(s) { const [y, m] = s.split("-").map(Number); return {y, m}; }
+function monLabel(s) { const {y, m} = ym(s); return `${MON[m - 1]} ${y}`; }
+function rangeLabel(a, b) {
+  if (!a) return "";
+  const A = ym(a), B = ym(b || a);
+  if (a === (b || a)) return `${MON[A.m - 1]} ${A.y}`;
+  return A.y === B.y ? `${MON[A.m - 1]}–${MON[B.m - 1]} ${B.y}` : `${MON[A.m - 1]} ${A.y}–${MON[B.m - 1]} ${B.y}`;
+}
+function addMonths(s, k) { const {y, m} = ym(s); const t = y * 12 + (m - 1) + k; return `${Math.floor(t / 12)}-${String(t % 12 + 1).padStart(2, "0")}`; }
+function monthIndex(s) { const {y, m} = ym(s); return y * 12 + m - 1; }
+
+// ---- weights: which people we count in each admin unit -------------------------------------
+const WEIGHTS = {
+  hnrp4: {label: "HNRP PiN · severity 4+", short: "PiN sev. 4+", src: "hnrp", key: "w4"},
+  hnrp3: {label: "HNRP PiN · severity 3+", short: "PiN sev. 3+", src: "hnrp", key: "w3"},
+  ipc3:  {label: "IPC/CH Phase 3+", short: "IPC 3+", src: "ipc", key: "w3"},
+  ipc4:  {label: "IPC/CH Phase 4+", short: "IPC 4+", src: "ipc", key: "w4"},
+};
+const state = {weight: "hnrp4", sort: {key: "known", dir: -1}, q: ""};
+try { const s = sessionStorage.getItem("outlook-weight"); if (s && WEIGHTS[s]) state.weight = s; } catch (e) {}
+
+function wsel(c, wk = state.weight) {
+  const o = WEIGHTS[wk], e = c.exposure[o.src];
+  if (!e) return null;
+  const pinOnly = o.src === "hnrp" && e.mode === "pin";
+  const key = pinOnly ? "wall" : o.key;
+  return {e, key, pinOnly, total: e.totals[key]};
+}
+function basisNote(c, w) {
+  const o = WEIGHTS[state.weight];
+  if (o.src === "hnrp") return w.pinOnly ? `PiN ${w.e.year ?? ""}, no severity split` : `HNRP ${w.e.year} PiN by severity`;
+  return `${w.e.analysis.slice(0, 4)} analysis · ${rangeLabel(w.e.s, w.e.e)}`;
+}
+function shareClass(sh) {
+  if (sh == null || sh <= 0) return null;
+  return sh < 0.1 ? 1 : sh < 0.33 ? 2 : sh < 0.66 ? 3 : 4;
+}
+const SHARE_COL = {1: "var(--s1)", 2: "var(--s2)", 3: "var(--s3)", 4: "var(--s4)"};
+
+// ---- external links ----------------------------------------------------------------------------
+const ext = (href, text) => href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(text)} ↗</a>` : "";
+function countryLinks(c) {
+  const L = [];
+  if (c.links.fews) L.push(ext(c.links.fews.page, "FEWS NET country page"));
+  if (c.calendar) L.push(ext(c.calendar.image_url, "FEWS NET seasonal calendar (image)"));
+  if (c.links.ipc) L.push(ext(c.links.ipc.link, c.links.ipc.exact ? `IPC/CH: ${c.links.ipc.title}` : `IPC/CH: latest analysis listed (${c.links.ipc.title})`));
+  if (c.hnrp) { L.push(ext(`https://humanitarianaction.info/plan/${c.hnrp.plan_id}`, `${c.hnrp.code} on Humanitarian Action`)); L.push(ext(`https://fts.unocha.org/plans/${c.hnrp.plan_id}/summary`, `${c.hnrp.code} funding on FTS`)); }
+  if (c.fews_peak && M.sources.peak_url) L.push(ext(M.sources.peak_url, "FEWS NET peak needs brief"));
+  if (c.fews_faob && M.sources.faob_url) L.push(ext(M.sources.faob_url, "FEWS NET monthly outlook brief"));
+  L.push(ext("https://ocha-dap.github.io/ds-seas5-skill/app/#hnrp", "SEAS5 viewer · Forecast × HNRP"));
+  return `<div class="links">${L.filter(Boolean).join("")}</div>`;
+}
+
+// ---- lean seasons affected: rainy season -> harvest -> next lean season (FEWS NET calendars) --
+function leanSeasonsAffected(c, w) {
+  if (!w || !w.e.regions) return [];
+  const m = {};
+  for (const [rid, R] of Object.entries(w.e.regions)) {
+    for (const im of R.imp || []) {
+      const k = `${im.kind}|${im.s}|${im.e}`;
+      const x = m[k] || (m[k] = {kind: im.kind, s: im.s, e: im.e, name: im.name, known: 0, nino: 0, nina: 0, neutral: 0, regions: [], feeds: []});
+      x.known += im.known[w.key] || 0;
+      for (const ph of ["nino", "neutral", "nina"]) x[ph] += im.scen[ph][w.key] || 0;
+      x.regions.push(rid); x.feeds.push(...im.feeds);
+    }
+  }
+  // ties (the same people feeding a pastoral and a cropping lean season) go to the cropping one:
+  // FEWS NET's peak-needs timing refers to the main lean season
+  return Object.values(m).sort((a, b) => b.known - a.known || (a.kind === "crops" ? -1 : 0) - (b.kind === "crops" ? -1 : 0) || a.s.localeCompare(b.s));
+}
+// the headline is a lean season still to come or under way: one that has already ended is
+// history, however many people it held
+function topLean(c, w) { const b = leanSeasonsAffected(c, w).filter(x => x.known > 0 && x.e >= BUILT_MONTH); return b.length ? b[0] : null; }
+
+// ---- tooltip -----------------------------------------------------------------------------------
+const tip = $("#tip");
+document.addEventListener("mousemove", ev => {
+  const t = ev.target.closest("[data-tip]");
+  if (!t) { tip.hidden = true; return; }
+  tip.innerHTML = t.dataset.tip; tip.hidden = false;
+  const x = Math.min(ev.clientX + 14, innerWidth - tip.offsetWidth - 8);
+  const y = ev.clientY + 16 + tip.offsetHeight > innerHeight ? ev.clientY - tip.offsetHeight - 10 : ev.clientY + 16;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+});
+
+// ---- global view -------------------------------------------------------------------------------
+function ipcShown(c) {
+  if (!c.ipc || !c.ipc.shown) return null;
+  const k = c.ipc.shown;
+  return c.ipc.periods.find(p => p.t === k.t && p.s === k.s && p.e === k.e) || null;
+}
+function faobLast(c) { const f = c.fews_faob; return f && f.projected.length ? f.projected[f.projected.length - 1] : null; }
+// FEWS NET publishes coarse bins ("9.0 - 9.99 million", ">= 21 million", "100,000 - 499,999"):
+// show its own bin edges, compacted, rather than re-rounding them
+function fewsRange(r) {
+  if (!r) return "—";
+  const L = String(r.label || "").trim();
+  let m;
+  if ((m = L.match(/^>=\s*([\d.]+)\s*million$/i))) return `≥ ${m[1]}M`;
+  if ((m = L.match(/^([\d.]+)\s*-\s*([\d.]+)\s*million$/i))) return `${m[1]}–${m[2]}M`;
+  if ((m = L.match(/^([\d,]+)\s*-\s*([\d,]+)$/))) {
+    // floored, so 999,999 reads 999k (FEWS NET's bin edge), not a rounded 1000k
+    const k = x => { const n = Number(x.replace(/,/g, "")); return n >= 1e6 ? (Math.floor(n / 1e4) / 100) + "M" : Math.floor(n / 1e3) + "k"; };
+    return `${k(m[1])}–${k(m[2])}`;
+  }
+  // other shapes seen in the Data Warehouse ("2 - 2.49", "750,000.0 - 999,999.0", "< 100,000"):
+  // rebuild from the bin's own numbers, floored so 2,499,999 reads 2.49M like FEWS NET's
+  const bin = n => n >= 1e6 ? (Math.floor(n / 1e4) / 100) + "M" : Math.floor(n / 1e3) + "k";
+  if (r.high == null) return r.low != null ? `≥ ${bin(r.low)}` : L;
+  if (!r.low) return `< ${bin(r.high + 1)}`;
+  return `${bin(r.low)}–${bin(r.high)}`;
+}
+
+function expCell(c, cat) {
+  const w = wsel(c);
+  if (!w) return {v: null, html: `<td class="num muted">—</td>`};
+  const v = w.e.cats[cat][w.key], sh = w.total ? v / w.total : null, cls = shareClass(sh);
+  const warn = cat === "ending" && c.era5_caveat && v > 0;  // observed + in-season seasons
+  const t = `<b>${esc(c.name)}</b> · ${CAT_NAME[cat]}<br>${fmt(v)} of ${fmt(w.total)} (${pct(sh)}) in areas with a dry signal`
+    + (warn ? `<br>⚠ ERA5 is known to overstate the 2026 deficit here` : "");
+  return {v, html: `<td class="num" data-tip="${esc(t)}">${fmt(v)}${warn ? ` <span class="c-label lab-err">ERA5</span>` : ""}<span class="cbar"><i style="width:${Math.max(0, Math.min(100, (sh || 0) * 100))}%;background:${cls ? SHARE_COL[cls] : "transparent"}"></i></span></td>`};
+}
+const CAT_NAME = {ending: "season ended or ending (observed / partly observed)", forecast: "SEAS5 forecast", known: "season ending or forecast",
+  scenario_nino: "if El Niño persists", scenario_neutral: "if ENSO is neutral", scenario_nina: "if La Niña develops"};
+
+function windowBounds() {
+  // the page starts at the first slot it draws (the six observed trimesters are all drawn)
+  const first = WIN.find(s => s.shown).start, lastF = WIN.filter(s => s.cat !== "scenario").pop(), last = WIN[WIN.length - 1];
+  return {first, seasEnd: addMonths(lastF.start, 2), end: addMonths(last.start, 2)};
+}
+
+const COLS = [
+  {key: "name", label: "Country", get: c => c.name, str: true},
+  {key: "total", label: "Counted", num: true, grp: "ours", get: c => wsel(c)?.total ?? null},
+  {key: "ending", label: "Season ended / ending", num: true, grp: "ours", get: c => { const w = wsel(c); return w ? w.e.cats.ending[w.key] : null; }},
+  {key: "forecast", label: "SEAS5 forecast", num: true, grp: "ours", get: c => { const w = wsel(c); return w ? w.e.cats.forecast[w.key] : null; }},
+  {key: "known", label: "Either", num: true, grp: "ours", get: c => { const w = wsel(c); return w ? w.e.cats.known[w.key] : null; }},
+  {key: "nino", label: "El Niño persists", num: true, grp: "ours", get: c => { const w = wsel(c); return w ? w.e.cats.scenario_nino[w.key] : null; }},
+  {key: "nina", label: "La Niña develops", num: true, grp: "ours", get: c => { const w = wsel(c); return w ? w.e.cats.scenario_nina[w.key] : null; }},
+  {key: "lean", label: "Lean season most affected", num: true, grp: "ours", get: c => topLean(c, wsel(c))?.known ?? null},
+  {key: "hnrp", label: "HNRP PiN", num: true, grp: "others", sep: true, get: c => c.hnrp?.in_need ?? null},
+  {key: "ipc", label: "IPC/CH Phase 3+", num: true, grp: "others", get: c => ipcShown(c)?.p3 ?? null},
+  {key: "peak", label: "FEWS NET peak needs", num: true, grp: "others", get: c => c.fews_peak?.low ?? null},
+  {key: "faob", label: "FEWS NET monthly", num: true, grp: "others", get: c => faobLast(c)?.low ?? null},
+  {key: "cov", label: "Funded", num: true, grp: "funding", sep: true, get: c => c.hnrp?.coverage ?? null},
+];
+
+function renderGlobal() {
+  const b = windowBounds();
+  $("#title").textContent = "Year-ahead outlook by country";
+  $("#lede").innerHTML = `People in areas with a poor rainy season (observed, forecast, or under an ENSO scenario) from <b>${monLabel(b.first)}</b> to <b>${monLabel(b.end)}</b>, alongside FEWS NET, IPC/CH and HNRP figures. Forecast: SEAS5 ${esc(M.issuance.label)} issuance. Built ${esc(M.built.slice(0, 10))}.`;
+  const v = $("#view");
+  v.innerHTML = `
+    <div class="banner"><b>Rainfall and seasonal calendars only.</b> Our columns count people in areas with a rainfall-based dry signal. They do not include conflict, displacement or economic drivers, which matter more in most of the largest crises. Other organisations' figures are shown as published. They measure different things (see “How to read this”) and are not directly comparable with ours or with each other.</div>
+    ${ensoPanel()}
+    <h2>All countries</h2>
+    <div class="controls">
+      <span><span class="ctl-label">Count</span>${weightToggle()}</span>
+      <span><input type="search" id="q" placeholder="Filter countries" value="${esc(state.q)}" aria-label="Filter countries"></span>
+    </div>
+    <div class="tbl-wrap"><table id="tbl"></table></div>
+    ${shareLegend()}
+    ${methodSection()}`;
+  bindWeight(renderGlobal);
+  $("#q").addEventListener("input", e => { state.q = e.target.value; drawTable(); });
+  drawTable();
+}
+
+function weightToggle() {
+  return `<span class="seg" role="group" aria-label="Who is counted">${Object.entries(WEIGHTS).map(([k, o]) =>
+    `<button type="button" data-w="${k}" aria-pressed="${state.weight === k}">${esc(o.label)}</button>`).join("")}</span>`;
+}
+function bindWeight(rerender) {
+  document.querySelectorAll("[data-w]").forEach(btn => btn.addEventListener("click", () => {
+    state.weight = btn.dataset.w;
+    try { sessionStorage.setItem("outlook-weight", state.weight); } catch (e) {}
+    rerender();
+  }));
+}
+function shareLegend() {
+  return `<div class="legend"><span>Bar and cell shading show the share of the people counted who are in areas with a dry signal:</span>
+    ${[[1, "under 10%"], [2, "10–33%"], [3, "33–66%"], [4, "over 66%"]].map(([k, l]) => `<span><span class="sw" style="background:${SHARE_COL[k]}"></span>${l}</span>`).join("")}
+    <span><span class="c-label lab-err">ERA5</span> / <span class="sw" style="background:#fff;box-shadow:inset 0 0 0 2px var(--e7)"></span>season-ending figure relies on ERA5, which overstated the 2026 deficit in the flagged countries</span></div>`;
+}
+
+function drawTable() {
+  const t = $("#tbl"), o = WEIGHTS[state.weight];
+  const q = state.q.trim().toLowerCase();
+  let rows = D.countries.filter(c => !q || c.name.toLowerCase().includes(q) || c.iso3.toLowerCase().includes(q));
+  const col = COLS.find(c => c.key === state.sort.key);
+  rows.sort((a, b) => {
+    const x = col.get(a), y = col.get(b);
+    if (col.str) return state.sort.dir * String(x).localeCompare(String(y));
+    if (x == null && y == null) return a.name.localeCompare(b.name);
+    if (x == null) return 1; if (y == null) return -1;
+    return state.sort.dir * (x - y) || a.name.localeCompare(b.name);
+  });
+  const th = c => `<th class="sortable ${c.num ? "num" : ""} ${c.sep ? "sep" : ""}" data-k="${c.key}">${esc(c.label)} <span class="arrow">${state.sort.key === c.key ? (state.sort.dir > 0 ? "▲" : "▼") : ""}</span></th>`;
+  const b = windowBounds();
+  t.innerHTML = `<thead>
+    <tr class="grp"><th></th><th colspan="7" class="ours">Our exposure · ${esc(o.label)} in areas with a dry signal</th><th colspan="4" class="sep">Other organisations' figures, as published</th><th class="sep">Plan funding</th></tr>
+    <tr>${COLS.map(th).join("")}</tr></thead><tbody>${rows.map(c => rowHtml(c, b)).join("")}</tbody>`;
+  t.querySelectorAll("th.sortable").forEach(h => h.addEventListener("click", () => {
+    const k = h.dataset.k;
+    state.sort = state.sort.key === k ? {key: k, dir: -state.sort.dir} : {key: k, dir: COLS.find(c => c.key === k).str ? 1 : -1};
+    drawTable();
+  }));
+}
+
+function rowHtml(c, b) {
+  const w = wsel(c);
+  const name = `<td class="cname"><a href="#/${c.iso3}">${esc(c.name)}</a>${w ? `<span class="sub">${esc(basisNote(c, w))}</span>` : `<span class="sub">no ${WEIGHTS[state.weight].src === "hnrp" ? "HNRP" : "IPC/CH"} areas</span>`}</td>`;
+  const total = `<td class="num">${w ? fmt(w.total) : "—"}${w && w.pinOnly ? `<span class="sub">PiN</span>` : ""}</td>`;
+  const cells = ["ending", "forecast", "known", "scenario_nino", "scenario_nina"].map(k => expCell(c, k).html).join("");
+  const tb = topLean(c, w);
+  const leanCell = `<td class="num"${tb ? ` data-tip="${esc(`<b>${esc(tb.name)}, ${rangeLabel(tb.s, tb.e)}</b><br>${fmt(tb.known)} counted in areas with a dry signal on ${esc([...new Set(tb.feeds)].join(" / "))}<br>${tb.kind === "livestock" ? "Pastoral lean season after the rains" : "Lean season after the harvest from those rains"}`)}"` : ""}>${tb ? `${esc(rangeLabel(tb.s, tb.e))}<span class="sub">${fmt(tb.known)}${tb.kind === "livestock" ? " · pastoral" : ""}</span>` : (c.calendar ? "—" : `<span class="muted small">no calendar</span>`)}</td>`;
+  const h = c.hnrp;
+  const hn = `<td class="num sep">${h ? `<a href="https://humanitarianaction.info/plan/${h.plan_id}" target="_blank" rel="noopener">${fmt(h.in_need)}</a>` : "—"}${h ? `<span class="sub">${h.year} ${esc(h.code)}</span>` : ""}</td>`;
+  const ip = ipcShown(c);
+  const ipc = `<td class="num">${ip ? (c.links.ipc ? `<a href="${esc(c.links.ipc.link)}" target="_blank" rel="noopener">${fmt(ip.p3)}</a>` : fmt(ip.p3)) : "—"}${ip ? `<span class="sub">${esc(rangeLabel(ip.s, ip.e))}${ip.e < BUILT_MONTH ? " (past)" : ""}</span>` : ""}</td>`;
+  const pk = c.fews_peak;
+  const peak = `<td class="num"${pk && pk.areas ? ` data-tip="${esc(`<b>Areas of highest concern</b><br>${esc(pk.areas)}`)}"` : ""}>${pk ? esc(fewsRange(pk)) : "—"}${pk ? `<span class="sub">peak ${esc(rangeLabel(...(pk.peak || [])))}${pk.vs_last_year ? ` · <span class="trend-${["Higher", "Lower", "Similar"].includes(pk.vs_last_year) ? pk.vs_last_year : "Similar"}">${pk.vs_last_year === "Higher" ? "↑" : pk.vs_last_year === "Lower" ? "↓" : "≈"} last yr</span>` : ""}</span>` : ""}</td>`;
+  const fl = faobLast(c);
+  const faob = `<td class="num">${fl ? esc(fewsRange(fl)) : "—"}${fl ? `<span class="sub">for ${esc(monLabel(fl.month))}</span>` : ""}</td>`;
+  const cv = h && h.coverage != null ? h.coverage : null;
+  const cov = `<td class="num sep">${cv != null ? pct(cv) : "—"}${cv != null ? `<span class="cbar"><i style="width:${Math.min(100, cv * 100)}%;background:var(--n6)"></i></span><span class="sub">of ${usd(h.requirements)}</span>` : ""}</td>`;
+  return `<tr>${name}${total}${cells}${leanCell}${hn}${ipc}${peak}${faob}${cov}</tr>`;
+}
+
+function ensoPanel() {
+  const e = M.enso, iri = e.iri;
+  const ph = e.latest.roni >= M.thresholds.enso ? "El Niño" : e.latest.roni <= -M.thresholds.enso ? "La Niña" : "neutral";
+  const rows = iri.seasons.map(([s, n, z, a]) => `<tr><td>${esc(s)}</td><td class="num">${n ?? "—"}${n != null ? "%" : ""}</td><td class="num">${z ?? "—"}${z != null ? "%" : ""}</td><td class="num">${a ?? "—"}${a != null ? "%" : ""}</td></tr>`).join("");
+  return `<h2>ENSO and the forecast horizon</h2>
+  <div class="enso">
+    <div>
+      <div class="tile"><div class="k">ENSO now · CPC relative index</div><div class="v">${e.latest.roni > 0 ? "+" : ""}${e.latest.roni.toFixed(2)} °C</div><div class="d">${esc(e.latest.season)} · ${ph}</div></div>
+      <table style="margin-top:10px"><thead><tr><th>Season</th><th class="num">El Niño</th><th class="num">Neutral</th><th class="num">La Niña</th></tr></thead><tbody>${rows}</tbody></table>
+      <p class="small muted">${esc(iri.source)}, ${esc(iri.published)}. ${esc(iri.note)} <a href="${esc(iri.url)}" target="_blank" rel="noopener">Source</a></p>
+    </div>
+    <div class="method">
+      <p>SEAS5's ${esc(M.issuance.label)} run covers seasons to <b>${monLabel(windowBounds().seasEnd)}</b>. For the rest of the year, the last columns are <b>three ENSO scenarios</b>. For each admin unit and season, we count how often the season was in the driest third of ERA5's ${e.obs_years[0]}–${e.obs_years[1]} record when ENSO was in that phase. The phase comes from CPC's relative Niño3.4 index over that same season. A scenario counts a unit only where that happened significantly more often than chance: a binomial test against one in three, p &lt; ${M.thresholds.scen_alpha}, with at least ${M.thresholds.scen_n} years of the phase. Neutral years are close to climatology almost everywhere, so the neutral column is near zero and is left out of the table; country pages show it.</p>
+      <p>This is a conditional climatology, not a forecast: it shows where seasons have more often been dry in a given ENSO phase. ${esc(iri.summary || "")} <span class="muted">(${esc(iri.published)})</span></p>
+    </div>
+  </div>`;
+}
+
+function peakEditions() {
+  const n = {};
+  D.countries.forEach(c => { if (c.fews_peak) { const k = rangeLabel(c.fews_peak.edition[0], c.fews_peak.edition[1]); n[k] = (n[k] || 0) + 1; } });
+  return Object.entries(n).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${k}: ${v} countries`).join("; ");
+}
+function planYears() {
+  const ys = [...new Set(D.countries.filter(c => c.hnrp).map(c => c.hnrp.year))].sort();
+  return ys.length ? ys.join(" or ") + " plans" : "no current plans";
+}
+
+function methodSection() {
+  const s = M.sources, t = M.thresholds;
+  return `<details><summary>How to read this</summary><div class="method"><ul>
+    <li><b>Exposure, not a projection.</b> Our columns count today's caseload, by admin unit, in areas where a season in the window is dry. They do not estimate how the caseload will change.</li>
+    <li><b>Dry signal.</b> For the season ending and the SEAS5 forecast, a unit counts where the trimester is part of its rainy season (≥ ${Math.round(t.rainy_share * 100)}% of annual rain), SEAS5 has at least moderate skill there (r ≥ ${t.r_min}), and the forecast is a 1-in-${t.rp_min}-year dry season or worse. These are the same rules as the SEAS5 viewer's Forecast × HNRP tab. “Rainy season” is a share-of-rain rule, not a crop calendar.</li>
+    <li><b>Season ended / ending.</b> The six trimesters that ended in the six months before SEAS5 was issued are fully observed (ERA5). They count as dry when the season ranks in its own driest third of the record. They are kept so that a season that has just ended is still linked to the lean season that follows it. As more months pass after a season ends, fewer of these trimesters cover it, so its result can change from one monthly update to the next. The trimesters under way at issuance have two or one of their three months observed and the rest forecast; their harvests are linked to next year's lean season. ERA5 overstated the 2026 deficit across the Sahel: it ranked Chad's July–September season as the driest on record, at 23% of normal, while CHIRPS had 64–70%. Figures that rely on ERA5 in these countries are flagged.</li>
+    <li><b>Timing of impact.</b> Where FEWS NET publishes a seasonal calendar, each rainy season is linked to its harvest and then to the first lean season after that harvest. In pastoral areas it is linked to the first pastoral lean season after the rains. This follows the reasoning in FEWS NET's projections: a poor season mainly affects food security in the next lean season. “Lean season most affected” is the current or upcoming lean season (across one or more calendar regions) with the most people counted in areas with a dry signal. Lean seasons that have already ended are left out of this column; country pages show every lean season, including those that have ended. Compare its timing with FEWS NET's peak-needs window. The calendars are our transcriptions of FEWS NET's images, and we assigned admin units to calendar regions; both are shown on each country page.</li>
+    <li><b>Who is counted.</b> HNRP PiN by JIAF severity class (one plan year per country, shown under the name); where a plan publishes no severity split, its PiN. IPC/CH Phase 3+ or 4+ population for one analysis period per country, the one covering today where possible. “Either” counts a unit once even when several seasons are dry.</li>
+    <li><b>Other organisations' figures are not comparable with each other.</b> FEWS NET counts people in Phase 3+ <i>before</i> planned food assistance, as a range: the peak over a 12-month edition (${esc(peakEditions())}) or by month (monthly brief). IPC/CH counts Phase 3+ for an analysis period after assistance is taken into account. HNRP PiN is multi-sector and fixed for the plan year. A Sudan IPC projection may cover only part of the country.</li>
+    <li><b>Funding</b> is each country's current plan (${esc(planYears())}): FTS funding to date against its current (revised) requirements. It is not next year's plan.</li>
+    <li><b>Sources.</b> ${ext("https://ocha-dap.github.io/ds-seas5-skill/app/", "SEAS5 viewer")} (${esc(M.issuance.label)} issuance) ·
+      HNRP and FTS via the ${ext("https://ocha-dap.github.io/ds-hnrp-mirror/", "HNRP mirror")} (refreshed ${esc((s.hnrp_generated || "").slice(0, 10))}) ·
+      IPC/CH via the ${ext("https://ocha-dap.github.io/ds-ipc-mirror/", "IPC mirror")} (${esc((s.ipc_generated || "").slice(0, 10))}) and ${ext("https://www.ipcinfo.org/", "ipcinfo.org")} ·
+      FEWS NET ${ext(s.peak_url, "peak needs brief")}, ${ext(s.faob_url, "monthly outlook brief")} and ${ext("https://fdw.fews.net/", "Data Warehouse")} (fetched ${esc(s.fdw_fetched)}; peak-needs edition loaded ${esc(s.peak_created)}, latest monthly brief loaded ${esc(s.faob_brief)}; key drivers are only in FEWS NET's PDFs) ·
+      FEWS NET seasonal calendars from each ${ext("https://fews.net/", "FEWS NET")} country page ·
+      ${ext("https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/", "CPC relative Niño3.4 index")} ·
+      ${ext(M.enso.iri.url, "IRI ENSO forecast")}.</li>
+  </ul></div></details>`;
+}
+
+// ---- country view ------------------------------------------------------------------------------
+function renderCountry(iso3) {
+  const c = D.countries.find(x => x.iso3 === iso3);
+  if (!c) { location.hash = ""; return; }
+  $("#title").textContent = c.name;
+  const b = windowBounds();
+  $("#lede").innerHTML = `Outlook ${monLabel(b.first)} – ${monLabel(b.end)} · SEAS5 ${esc(M.issuance.label)} · <a href="#/" style="color:#fff">all countries</a>`;
+  const v = $("#view");
+  v.innerHTML = `
+    <p><a href="#/">← All countries</a></p>
+    <div class="banner"><b>Rainfall and seasonal calendars only.</b> These figures count people in areas with a rainfall-based dry signal. They do not include conflict, displacement or economic drivers.</div>
+    ${countryLinks(c)}
+    ${tiles(c)}
+    <h2>Season by season</h2>
+    <div class="controls"><span><span class="ctl-label">Count</span>${weightToggle()}</span></div>
+    <div class="tbl-wrap" style="border:0">${strip(c)}</div>
+    ${shareLegend()}
+    ${calendarSection(c)}
+    ${unitsTable(c)}
+    ${countryNotes(c)}`;
+  bindWeight(() => renderCountry(iso3));
+  scrollTo(0, 0);
+}
+
+function tiles(c) {
+  const out = [];
+  const h = c.hnrp, hx = c.exposure.hnrp;
+  if (h) {
+    let pbs = "";
+    if (hx && hx.pbs) {
+      const tot = hx.pbs.reduce((a, b) => a + b, 0) || 1;
+      const cols = ["var(--n2)", "var(--n3)", "var(--w4)", "var(--w6)", "var(--w8)"];
+      pbs = `<div class="pbs" data-tip="${esc(`<b>PiN by severity, ${hx.year}</b><br>` + hx.pbs.map((x, i) => `Class ${i + 1}: ${fmt(x)}`).join("<br>"))}">${hx.pbs.map((x, i) => x ? `<i style="width:${x / tot * 100}%;background:${cols[i]}"></i>` : "").join("")}</div>
+        <div class="d">Severity 3: ${fmt(hx.pbs[2])} · 4: ${fmt(hx.pbs[3])} · 5: ${fmt(hx.pbs[4])}</div>`;
+    } else if (hx) pbs = `<div class="d">No severity split published; PiN only</div>`;
+    out.push(`<div class="tile"><div class="k">HNRP ${h.year} people in need</div><div class="v">${fmt(h.in_need)}</div><div class="d">${esc(h.code)}</div>${pbs}</div>`);
+  }
+  const ip = ipcShown(c);
+  if (ip) out.push(`<div class="tile"><div class="k">IPC/CH Phase 3+ · ${esc(ip.t)}</div><div class="v">${fmt(ip.p3)}</div><div class="d">${esc(rangeLabel(ip.s, ip.e))} · Phase 4+: ${fmt(ip.p4)} · analysis ${esc(c.ipc.analysis)}</div></div>`);
+  const pk = c.fews_peak;
+  if (pk) out.push(`<div class="tile"><div class="k">FEWS NET peak needs</div><div class="v">${esc(fewsRange(pk))}</div><div class="d">Peak ${esc(rangeLabel(...(pk.peak || [])))}${pk.pct && pk.pct[0] != null ? ` · ${pk.pct[0]}–${pk.pct[1]}% of population` : ""}${pk.vs_last_year ? ` · ${esc(pk.vs_last_year.toLowerCase())} than last year` : ""}</div></div>`);
+  if (h && h.coverage != null) out.push(`<div class="tile"><div class="k">${h.year} plan funding (FTS)</div><div class="v">${pct(h.coverage)}</div><div class="d">${usd(h.funding)} of ${usd(h.requirements)} to date · ${h.year} plan, not next year's</div></div>`);
+  return out.length ? `<div class="tiles">${out.join("")}</div>` : "";
+}
+
+// the axis runs past the outlook window far enough to show the lean seasons it feeds
+function axisMonths(c) {
+  const b = windowBounds();
+  let end = b.end;
+  for (const src of ["hnrp", "ipc"]) {
+    const R = c.exposure[src] && c.exposure[src].regions;
+    if (!R) continue;
+    // lean seasons fed by an observed or forecast season; a lean season fed only by an
+    // ENSO-scenario season (a year out) is drawn clipped at the edge rather than stretching the axis
+    for (const r of Object.values(R)) for (const im of r.imp || []) {
+      const fedKnown = (r.occ || []).some(oc => oc.cats.some(x => x !== "scenario") && oc.impacts.some(j => j.s === im.s && j.e === im.e));
+      if (fedKnown && im.e > end) end = im.e;
+    }
+  }
+  const cap = addMonths(b.first, 19);
+  if (monthIndex(end) > monthIndex(cap)) end = cap;
+  const months = [];
+  for (let s = b.first; monthIndex(s) <= monthIndex(end); s = addMonths(s, 1)) months.push(s);
+  return months;
+}
+
+function strip(c) {
+  const b = windowBounds();
+  const months = axisMonths(c);
+  const col = s => months.indexOf(s) + 2;  // grid column of a month (1 = row labels)
+  const ncol = months.length;
+  const parts = [];
+  const lab = (html, extra = "") => parts.push(`<div class="rl" style="grid-column:1${extra}">${html}</div>`);
+  // month header
+  lab("");
+  months.forEach((s, i) => { const {y, m} = ym(s); parts.push(`<div class="mh ${m === 1 || i === 0 ? "y" : ""}" style="grid-column:${i + 2}">${MON[m - 1]}${m === 1 || i === 0 ? ` ${String(y).slice(2)}` : ""}</div>`); });
+  // bands (trimester cells sit on their centre month)
+  lab(`<small>Trimesters, centred on their middle month</small>`);
+  for (const cat of ["observed", "ending", "forecast", "scenario"]) {
+    const sl = WIN.filter(s => s.cat === cat && s.shown);
+    if (!sl.length) continue;
+    const a = col(addMonths(sl[0].start, 1)), z = col(addMonths(sl[sl.length - 1].start, 1)) + 1;
+    parts.push(`<div class="band ${cat === "observed" ? "ending" : cat}" style="grid-column:${a}/${z}">${{observed: "Season ended · ERA5", ending: "Season ending", forecast: "SEAS5 forecast", scenario: "Beyond SEAS5 · ENSO scenarios"}[cat]}</div>`);
+  }
+  const w = wsel(c);
+  const o = WEIGHTS[state.weight];
+  if (!w) {
+    lab(`<b>Dry signal</b>`);
+    parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2}">No ${o.src === "hnrp" ? "HNRP" : "IPC/CH"} admin-level figures for ${esc(c.name)}. Choose another count above.</div>`);
+  } else {
+    const slots = w.e.slots;
+    const cellHtml = (s, key, rkey, phaseName) => {
+      const sl = slots[s.key], v = sl[key], rainyW = sl[rkey];
+      const cc = col(addMonths(s.start, 1));
+      const shRainy = w.total ? rainyW / w.total : 0;
+      if (!v && (!rainyW || shRainy < 0.05)) {
+        return `<div class="cell offseason" style="grid-column:${cc}" data-tip="${esc(`<b>${s.label}</b>${phaseName ? " · " + phaseName : ""}<br>Outside the rainy season for ${pct(1 - shRainy)} of the people counted`)}"><span class="t">${s.tri}</span><span class="x">·</span></div>`;
+      }
+      const sh = w.total ? v / w.total : 0, k = shareClass(sh);
+      const era5 = (s.cat === "ending" || s.cat === "observed") && c.era5_caveat && v > 0;
+      const t = `<b>${s.label}</b> · ${phaseName || (s.cat === "observed" ? "season ended, observed (ERA5): dry when in its own driest third of the record" : s.cat === "ending" ? `season ending, lead ${s.lead} (${-s.lead === 2 ? "2 of 3" : "1 of 3"} months observed)` : `SEAS5 forecast, lead ${s.lead}`)}<br>`
+        + `${fmt(v)} of ${fmt(w.total)} counted (${pct(sh)}) in areas with a dry signal<br>${fmt(rainyW)} in areas where this trimester is in the rainy season`
+        + (era5 ? "<br>⚠ ERA5 overstated the 2026 deficit here" : "");
+      return `<div class="cell ${k ? (k >= 3 ? "dark" : "") : "none"} ${era5 ? "warnera5" : ""}" style="grid-column:${cc};${k ? `background:${SHARE_COL[k]}` : ""}" data-tip="${esc(t)}"><span class="t">${s.tri}</span><span class="x">${fmt(v)}</span></div>`;
+    };
+    lab(`<b>Dry signal</b><small>${esc(o.short)}${w.pinOnly ? " (PiN, no severity)" : ""} · ${fmt(w.total)} counted</small>`);
+    WIN.filter(s => s.cat !== "scenario" && s.shown).forEach(s => parts.push(cellHtml(s, w.key, "rainy_" + w.key)));
+    for (const [ph, nm] of [["nino", "El Niño persists"], ["neutral", "ENSO neutral"], ["nina", "La Niña develops"]]) {
+      lab(`${nm}`);
+      WIN.filter(s => s.cat === "scenario").forEach(s => parts.push(cellHtml(s, `${ph}_${w.key}`, "rainy_" + w.key, nm)));
+    }
+  }
+  // IRI context row
+  const iri = M.enso.iri.seasons;
+  if (iri.length) {
+    lab(`<small>IRI plume, P(El Niño)</small>`);
+    for (const [label, pn] of iri) {
+      const [tri, yr] = label.split(" ");
+      const sy = tri === "DJF" ? Number(yr) - 1 : Number(yr);
+      const s = WIN.find(x => x.tri === tri && x.season_year === sy);
+      if (s && pn != null) parts.push(`<div class="gcell" style="grid-column:${col(addMonths(s.start, 1))}" data-tip="${esc(`${M.enso.iri.source}, ${M.enso.iri.published}`)}">${pn}%</div>`);
+    }
+  }
+  // others' timing
+  parts.push(`<div class="divider">Other organisations' timing</div>`);
+  const bar = (s, e, text, tipText, light) => {
+    if (!s) return;
+    const a = Math.max(monthIndex(s), monthIndex(months[0])), z = Math.min(monthIndex(e), monthIndex(months[ncol - 1]));
+    if (z < a) { parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2}">${esc(text)} — outside this window (${esc(rangeLabel(s, e))})</div>`); return; }
+    const ca = a - monthIndex(months[0]) + 2, cz = z - monthIndex(months[0]) + 3;
+    const clipL = monthIndex(s) < monthIndex(months[0]) ? "◂ " : "", clipR = monthIndex(e) > monthIndex(months[ncol - 1]) ? " ▸" : "";
+    parts.push(`<div class="gbar ${light ? "light" : ""}" style="grid-column:${ca}/${cz}" data-tip="${esc(tipText)}">${clipL}${esc(text)}${clipR}</div>`);
+  };
+  const pk = c.fews_peak;
+  lab(`FEWS NET peak needs<small>${pk ? `edition ${esc(rangeLabel(pk.edition[0], pk.edition[1]))}` : "no current edition"}</small>`);
+  if (pk && pk.peak) bar(pk.peak[0], pk.peak[1], `Peak · ${fewsRange(pk)}`, `<b>FEWS NET peak needs</b><br>${esc(fewsRange(pk))} people, ${esc(rangeLabel(pk.peak[0], pk.peak[1]))}${pk.areas ? `<br>${esc(pk.areas)}` : ""}`);
+  else parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2}">—</div>`);
+  const fa = c.fews_faob;
+  lab(`FEWS NET monthly brief<small>${fa ? `brief of ${esc(monLabel(fa.brief))}` : "not covered"}</small>`);
+  if (fa) {
+    const pts = [...(fa.current ? [Object.assign({cur: true}, fa.current)] : []), ...fa.projected];
+    let any = false;
+    pts.forEach(p => { const i = months.indexOf(p.month); if (i >= 0) { any = true; parts.push(`<div class="gcell" style="grid-column:${i + 2}" data-tip="${esc(`<b>FEWS NET ${p.cur ? "current" : "most likely"}, ${monLabel(p.month)}</b><br>${esc(p.label)} people in Phase 3+ (before assistance)`)}">${esc(fewsRange(p))}</div>`); } });
+    if (!any) parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2}">—</div>`);
+  } else parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2}">—</div>`);
+  if (c.ipc) {
+    c.ipc.periods.forEach(p => {
+      lab(`IPC/CH · ${esc(p.t)}<small>analysis ${esc(c.ipc.analysis)}</small>`);
+      bar(p.s, p.e, `Phase 3+ ${fmt(p.p3)}`, `<b>IPC/CH ${esc(p.t)}</b>, ${esc(rangeLabel(p.s, p.e))}<br>Phase 3+: ${fmt(p.p3)} · Phase 4+: ${fmt(p.p4)}`, true);
+    });
+  } else { lab(`IPC/CH`); parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2}">No analysis since 2022</div>`); }
+  if (c.hnrp) { lab(`HNRP plan year`); bar(`${c.hnrp.year}-01`, `${c.hnrp.year}-12`, `${c.hnrp.code} · PiN ${fmt(c.hnrp.in_need)}`, `<b>${esc(c.hnrp.name)}</b>`, true); }
+  return `<div class="strip" style="grid-template-columns:170px repeat(${ncol}, minmax(52px, 1fr))">${parts.join("")}</div>`;
+}
+
+const ymS = t => `${Math.floor(t / 12)}-${String(t % 12 + 1).padStart(2, "0")}`;
+const PH_NAME = {nino: "El Niño", neutral: "neutral", nina: "La Niña"};
+
+// One block per FEWS NET calendar region: FEWS NET's rains / harvest / lean season on the same
+// month axis as the strip, then our dry signal on each rainy season and the lean season it feeds.
+function calendarSection(c) {
+  if (!c.calendar) return `<h2>Seasonal calendar</h2><p class="muted">FEWS NET does not publish a seasonal calendar for ${esc(c.name)}, so the timing of impact (lean season) is not shown.</p>`;
+  const months = axisMonths(c), ncol = months.length;
+  const first = monthIndex(months[0]), last = monthIndex(months[ncol - 1]);
+  const colOf = t => t - first + 2;
+  const w = wsel(c), o = WEIGHTS[state.weight];
+  const RX = w && w.e.regions ? w.e.regions : {};
+  const occ = sp => {
+    const n = ((sp.end - sp.start) % 12 + 12) % 12 + 1, out = [];
+    for (let y = Math.floor(first / 12) - 1; y <= Math.floor(last / 12) + 1; y++) {
+      const s0 = y * 12 + sp.start - 1, e0 = s0 + n - 1;
+      if (e0 >= first && s0 <= last) out.push([s0, e0]);
+    }
+    return out;
+  };
+  const header = months.map((m0, i) => { const {y, m} = ym(m0); return `<div class="mh ${m === 1 || i === 0 ? "y" : ""}" style="grid-column:${i + 2};grid-row:1">${MON[m - 1]}${m === 1 || i === 0 ? ` ${String(y).slice(2)}` : ""}</div>`; }).join("");
+
+  const blocks = c.calendar.regions.map(r => {
+    const R = RX[r.id];
+    const parts = [header];
+    let row = 2;
+    // a section = one label + as many lanes as its bars need (bars in a lane never overlap)
+    const section = (label, items) => {
+      const lanes = [];
+      const placed = items.map(it => {
+        const a = Math.max(it.a, first), z = Math.min(it.z, last);
+        if (z < a) return null;
+        let li = lanes.findIndex(L => L.every(([p, q]) => z < p || a > q));
+        if (li < 0) { lanes.push([]); li = lanes.length - 1; }
+        lanes[li].push([a, z]);
+        return Object.assign({}, it, {a, z, li, clipL: it.a < first, clipR: it.z > last});
+      }).filter(Boolean);
+      const n = Math.max(1, lanes.length);
+      parts.push(`<div class="rl" style="grid-column:1;grid-row:${row} / span ${n}">${label}</div>`);
+      placed.forEach(it => parts.push(`<div class="${it.cls}" style="grid-column:${colOf(it.a)}/${colOf(it.z) + 1};grid-row:${row + it.li};${it.style || ""}"${it.tip ? ` data-tip="${esc(it.tip)}"` : ""}>${it.clipL ? "◂ " : ""}${esc(it.text)}${it.clipR ? " ▸" : ""}</div>`));
+      if (!placed.length) parts.push(`<div class="gcell" style="grid-column:2/${ncol + 2};grid-row:${row}">—</div>`);
+      row += n;
+    };
+    const spanItems = (list, cls, fmtText) => (list || []).flatMap(sp => occ(sp).map(([a, z]) => ({a, z, cls: cls + (sp.minor ? " minor" : ""), text: fmtText(sp),
+      tip: `<b>${esc(sp.name)}</b><br>${rangeLabel(ymS(a), ymS(z))}${sp.rainy ? `<br>from: ${esc(sp.rainy)}` : ""}${sp.kind ? `<br>kind: ${esc(sp.kind)}` : ""}`})));
+    section(`Rains<small>FEWS NET</small>`, spanItems(r.rainy, "cal-rain", sp => sp.name));
+    section(`Harvest<small>FEWS NET</small>`, spanItems(r.harvest, "cal-harv", sp => sp.name));
+    section(`Lean season<small>FEWS NET</small>`, spanItems(r.lean, "cal-lean", sp => sp.name + (sp.kind === "pastoral" ? " · pastoral" : "")));
+    if (R && w) {
+      const tot = R.totals[w.key] || 0;
+      const shade = v => { const k = shareClass(tot ? v / tot : 0); return k ? `background:${SHARE_COL[k]};color:${k >= 3 ? "#fff" : "var(--n9)"}` : ""; };
+      section(`Dry signal by rainy season<small>${esc(o.short)} · ${fmt(tot)} counted</small>`, R.occ.map(oc => {
+        const a = monthIndex(oc.s), z = monthIndex(oc.e), v = oc.known[w.key] || 0;
+        const hasKnown = oc.cats.some(x => x !== "scenario");
+        const sc = oc.scen, scTxt = `El Niño ${fmt(sc.nino[w.key])} · La Niña ${fmt(sc.nina[w.key])}`;
+        const tip = `<b>${esc(oc.season)}, ${rangeLabel(oc.s, oc.e)}</b><br>Trimesters covering it: ${oc.tris.join(", ")} (${oc.cats.map(x => ({observed: "observed (ERA5)", ending: "season ending", forecast: "SEAS5 forecast", scenario: "ENSO scenario"}[x])).join(", ")})`
+          + (hasKnown ? `<br>${fmt(v)} of ${fmt(tot)} counted (${pct(tot ? v / tot : 0)}) in areas with a dry signal` : "")
+          + (oc.cats.includes("scenario") ? `<br>ENSO scenarios: ${scTxt}, neutral ${fmt(sc.neutral[w.key])}` : "")
+          + (oc.harvest ? `<br>Linked harvest: ${esc(oc.harvest.name)}, ${rangeLabel(oc.harvest.s, oc.harvest.e)}` : "<br>No harvest linked to it on the calendar")
+          + oc.impacts.map(im => `<br>Lean season affected: ${esc(im.name)}, ${rangeLabel(im.s, im.e)} (${im.kind === "livestock" ? "pastoral, after the rains" : "after the harvest"})${im.diluted_by ? `; ${esc(im.diluted_by)} comes earlier, so the effect is likely smaller` : ""}`).join("");
+        if (hasKnown) return {a, z, cls: v > 0 ? "sig" : "sig none", style: v > 0 ? shade(v) : "", text: v > 0 ? `${fmt(v)} dry` : "no dry signal", tip};
+        return {a, z, cls: "sig scen", text: `ENSO: ${scTxt}`, tip};
+      }));
+      section(`Lean season affected<small>by the rains above</small>`, (R.imp || []).map(im => {
+        const a = monthIndex(im.s), z = monthIndex(im.e), v = im.known[w.key] || 0;
+        const sv = ["nino", "nina"].map(ph => [ph, im.scen[ph][w.key] || 0]).filter(x => x[1] > 0);
+        if (im.e < BUILT_MONTH) return {a, z, cls: "sig none", text: `${fmt(v)} · lean season ended`, tip: `<b>${esc(im.name)}, ${rangeLabel(im.s, im.e)}</b><br>Already ended. ${fmt(v)} counted in areas with a dry signal on ${esc([...new Set(im.feeds)].join(", "))}`};
+        const tip = `<b>${esc(im.name)}, ${rangeLabel(im.s, im.e)}</b><br>Rainy seasons: ${esc([...new Set(im.feeds)].join(", "))}<br>${fmt(v)} counted in areas with a dry signal on those rains (observed or SEAS5)`
+          + (sv.length ? `<br>ENSO scenarios: ${sv.map(([ph, x]) => `${PH_NAME[ph]} ${fmt(x)}`).join(" · ")}` : "");
+        if (v > 0) return {a, z, cls: "lean-hit", style: shade(v), text: `${fmt(v)} · ${im.kind === "livestock" ? "pastoral lean" : "lean season"}`, tip: tip + (im.kind === "livestock" ? "<br>The count covers everyone in the region; a poor pastoral season mainly affects pastoral households, often a minority" : "")};
+        if (sv.length) return {a, z, cls: "sig scen", text: `ENSO only: ${sv.map(([ph, x]) => `${PH_NAME[ph]} ${fmt(x)}`).join(" · ")}`, tip};
+        return {a, z, cls: "sig none", text: "no dry signal", tip};
+      }));
+    }
+    const meta = [r.where, r.livelihood, R ? `${R.units} admin unit${R.units === 1 ? "" : "s"} mapped here` : (w ? "no admin units with figures mapped here" : "")].filter(Boolean).join(" · ");
+    return `<div class="region"><h4>${esc(r.name)}</h4><div class="meta">${esc(meta)}</div><div class="tbl-wrap" style="border:0"><div class="strip" style="grid-template-columns:170px repeat(${ncol}, minmax(44px, 1fr))">${parts.join("")}</div></div></div>`;
+  }).join("");
+  const un = RX.unassigned && w ? `<p class="small muted">${RX.unassigned.units} admin unit(s) with ${fmt(RX.unassigned.totals[w.key])} counted could not be placed in a calendar region.</p>` : "";
+  return `<h2>Seasonal calendar and timing of impact</h2>
+    <p class="method">FEWS NET's projections link a poor rainy season to the following lean season: poor rains lead to a poor harvest (or poor pasture and water), household stocks and income run out earlier, and the <b>next lean season</b> starts earlier and is more severe. Each rainy season below is linked the same way, to its harvest and then to the first lean season after that harvest. In pastoral areas it is linked to the first pastoral lean season after the rains end. “Dry signal by rainy season” counts ${esc(o.label)} in admin units with a dry signal in a trimester covering that season. “Lean season affected” shows the same people under the lean season that follows, counting a unit once when two rainy seasons lead to the same lean season.</p>
+    ${blocks}${un}
+    <p class="small muted">Calendar transcribed by OCHA CHD from FEWS NET's seasonal calendar ${ext(c.calendar.image_url, "image")} (months rounded to whole months: a month counts when a bar covers at least half of it). Admin units placed in regions by us from the regions' titles and locator maps: ${esc(c.calendar.assign_method || "")}</p>`;
+}
+
+function unitsTable(c) {
+  const w = wsel(c);
+  const top = w && w.e.top ? w.e.top[w.key] : null;
+  if (!top || !top.length) return "";
+  const o = WEIGHTS[state.weight];
+  const winBy = Object.fromEntries(WIN.map(s => [s.key, s]));
+  const rows = top.map(u => {
+    const chips = u.seasons.map(s => {
+      const sl = winBy[s.key];
+      if (s.cat === "scenario") return `<span class="c-label lab-src">${esc(sl.label)} · ${s.phases.map(p => ({nino: "El Niño", neutral: "neutral", nina: "La Niña"}[p])).join(", ")}</span>`;
+      // the RP tops out at n+1 (46 with 45 years): that is "driest in the record", not a 1-in-46 estimate
+      return `<span class="c-label lab-warn">${esc(sl.label)}${s.cat === "observed" ? " (observed)" : ""} · ${s.rp >= 45 ? "driest on record" : `1-in-${Math.round(s.rp)} yr`}${c.era5_caveat && (s.cat === "observed" || s.cat === "ending") ? " · ERA5 ⚠" : ""}</span>`;
+    }).join("");
+    return `<tr><td>${esc(u.name)}${u.parent ? `<span class="sub">${esc(u.parent)}</span>` : ""}</td><td class="num">${fmt(u[w.key])}</td><td>${chips}</td></tr>`;
+  }).join("");
+  return `<h3>Admin units with a dry signal: the ${top.length} with the most people counted</h3>
+    <div class="tbl-wrap"><table><thead><tr><th>Admin unit</th><th class="num">${esc(w.pinOnly ? "PiN" : o.short)}</th><th>Dry seasons (orange: observed/forecast, return period; grey: ENSO scenario)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function countryNotes(c) {
+  const n = [];
+  const hx = c.exposure.hnrp, ix = c.exposure.ipc;
+  if (c.era5_caveat) n.push(`ERA5 overstated the 2026 rainy-season deficit across the Sahel belt (Chad: driest on record in ERA5, 64–70% of normal in CHIRPS). The season-ending figures here rely on ERA5 for their observed months and are likely too high.`);
+  if (hx && hx.mode === "pin") n.push(`No HNRP severity split is published for ${esc(c.name)}; the HNRP counts use admin-level PiN (${hx.year ?? "year n/a"}), so the severity 3+ and 4+ options show total PiN.`);
+  if (hx && hx.dropped) n.push(`${hx.dropped} of ${hx.units} HNRP admin units carry no ${hx.year} severity split and are not counted.`);
+  if (hx && hx.pbs && c.hnrp && c.hnrp.in_need) {
+    const sum = hx.pbs.reduce((a, b) => a + b, 0), gap = (c.hnrp.in_need - sum) / c.hnrp.in_need;
+    if (Math.abs(gap) > 0.02) n.push(`PiN by severity across the admin units adds up to ${fmt(sum)}, against ${fmt(c.hnrp.in_need)} in the plan (${gap > 0 ? "short by" : "over by"} ${pct(Math.abs(gap))}). The admin breakdown and the plan total are published separately.`);
+  }
+  const w = wsel(c);
+  if (w && w.total) {
+    const b1 = w.e.blind.seas5[w.key] / w.total, b2 = w.e.blind.scenario[w.key] / w.total;
+    if (b1 > 0.02) n.push(`${pct(b1)} of the people counted here (${fmt(w.e.blind.seas5[w.key])}) are in admin units with no SEAS5 forecast in the viewer's data, so they cannot show a season-ending or forecast signal.`);
+    if (b2 > 0.02) n.push(`${pct(b2)} of the people counted here (${fmt(w.e.blind.scenario[w.key])}) are in admin units with no ERA5 history to match, so they cannot show an ENSO-scenario signal.`);
+  }
+  const shown = ipcShown(c);
+  if (ix && shown && shown.all && ix.totals.wall < 0.8 * shown.all)
+    n.push(`The admin-level IPC/CH figures cover ${fmt(ix.totals.wall)} of the ${fmt(shown.all)} people in the national analysis (they use the ${esc(ix.label)} ${esc(ix.period_type)}), so the IPC/CH counts on this page are partial.`);
+  if (ix && ix.older_than_national) n.push(`The IPC/CH counts use the ${esc(ix.analysis)} analysis (${esc(ix.period_type)}, ${esc(ix.label)}), the one in the SEAS5 viewer's data; a newer analysis (${esc(c.ipc.analysis)}) is in the IPC figures above.`);
+  if (c.fews_peak && c.fews_peak.areas) n.push(`FEWS NET areas of highest concern: ${esc(c.fews_peak.areas)}.`);
+  if (c.calendar) {
+    const dryRegions = c.calendar.regions.filter(r => !(r.rainy || []).some(x => !x.minor && ((x.end - x.start + 12) % 12 + 1) < 11)).map(r => r.name);
+    if (dryRegions.length) n.push(`FEWS NET's calendar shows only minor or year-round rains, or none, for ${esc(dryRegions.join(", "))}, so these areas are not linked to a lean season here.`);
+    const sub = c.calendar.regions.flatMap(r => (r.lean || []).filter(l => l.kind === "pastoral" && (l.name || "").includes(":")).map(l => l.name));
+    if (sub.length) n.push(`${esc(sub.join("; "))}: FEWS NET labels this pastoral lean season for a sub-area only, so it is shown but not used to determine the lean season affected.`);
+  }
+  return n.length ? `<h3>Notes</h3><div class="note"><ul style="margin:0;padding-left:18px">${n.map(x => `<li>${x}</li>`).join("")}</ul></div>` : "";
+}
+
+// ---- router ------------------------------------------------------------------------------------
+function route() {
+  const m = location.hash.match(/^#\/([A-Z]{3})$/);
+  m ? renderCountry(m[1]) : renderGlobal();
+}
+addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>

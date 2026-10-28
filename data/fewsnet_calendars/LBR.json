@@ -1,0 +1,82 @@
+{
+ "iso3": "LBR",
+ "image_url": "https://fews.net/sites/default/files/2023-03/seasonal-calendar-liberia.png",
+ "page_url": "https://fews.net/west-africa/liberia",
+ "axis_start_month": 10,
+ "template": "pre-2024 small template (Oct-Sep axis; coloured boxes: gold harvest, dark red lean, blue rainy, green land prep/planting)",
+ "regions": [
+  {
+   "id": "national",
+   "name": "National",
+   "where": "Whole country (no regional blocks or locator map)",
+   "livelihood": "agricultural",
+   "rainy": [
+    {
+     "name": "Peak rainy season",
+     "start": 6,
+     "end": 9
+    }
+   ],
+   "harvest": [
+    {
+     "name": "Main rice harvest",
+     "start": 8,
+     "end": 12,
+     "rainy": "Peak rainy season"
+    },
+    {
+     "name": "Cowpea and vegetable harvest",
+     "start": 7,
+     "end": 9,
+     "rainy": "Peak rainy season"
+    },
+    {
+     "name": "Off-season cropping (gold harvest-coloured bar; whole off-season cycle)",
+     "start": 1,
+     "end": 2,
+     "rainy": null
+    }
+   ],
+   "lean": [
+    {
+     "name": "Lean season",
+     "start": 6,
+     "end": 8,
+     "kind": "general"
+    }
+   ],
+   "planting": [
+    {
+     "name": "Planting activities",
+     "start": 3,
+     "end": 6,
+     "rainy": "Peak rainy season"
+    }
+   ],
+   "notes": "Axis runs OCT to SEP. Main rice harvest drawn as Oct-Dec + Aug-Sep, merged. Land preparation (Jan-Apr) skipped."
+  }
+ ],
+ "assign": {
+  "adm1": {
+   "LR01": "national",
+   "LR02": "national",
+   "LR03": "national",
+   "LR04": "national",
+   "LR05": "national",
+   "LR06": "national",
+   "LR07": "national",
+   "LR08": "national",
+   "LR09": "national",
+   "LR10": "national",
+   "LR11": "national",
+   "LR12": "national",
+   "LR13": "national",
+   "LR14": "national",
+   "LR15": "national"
+  },
+  "adm2": {},
+  "confidence": {},
+  "method": "Single-region calendar: every county mapped to national."
+ },
+ "transcriber_notes": "Old small template: 13 labels (OCT ... SEP, OCT) on the 13 dashed month-boundary lines, so the first column is OCT. Only a \"Peak rainy season\" (Jun-Sep) is drawn, so planting (Mar-Jun) starts before it; links point to it as the only rainy season shown. \"Off-season cropping\" (Jan-Feb) is gold but not labelled as a harvest; unlinked."
+}
