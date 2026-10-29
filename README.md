@@ -25,12 +25,15 @@ own transcription (see below).
 | HNRP plans + FTS funding | dev blob `projects/ds-hnrp-mirror/site-data/plans.json` | PiN, requirements, coverage |
 | IPC/CH national | dev blob `projects/ds-ipc-mirror/site-data/national.json` | latest analysis and periods |
 | FEWS NET population estimates | `https://fdw.fews.net/api/ipcpopulationsize.csv` (public) | peak needs (latest 12-month edition per country), monthly outlook brief |
+| National population | `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL` (public, latest year) | the FEWS NET map layer's circle |
 | CPC relative Niño3.4 index | `https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt` | ENSO phase of each past season |
 | IRI ENSO probabilities | typed into `src/outlook/config.py` (`IRI_PLUME`) | context beside the scenarios; re-date each refresh |
 
 | FEWS NET seasonal calendars | `data/fewsnet_calendars/<ISO3>.json` (committed; our transcription of the calendar image on each FEWS NET country page, 48 countries) | rainy seasons, harvests, lean seasons per calendar region; admin-1 → region |
 | IPC/CH analysis links | `data/ipc_links.json` (committed snapshot of the IPC mirror's analysis registry; refresh with `pipeline/fetch_ipc_links.py`, needs the DB) | link to the analysis shown |
 | FEWS NET country pages | `data/fewsnet_pages.json` (committed) | links |
+| Admin boundaries (adm1, adm2, IPC/CH areas) | dev blob `projects/ds-seas5-skill/site/<tag>/docs/data/hnrp_{adm1,adm2,ipc}.geojson` | small maps of each calendar region (`src/outlook/zones.py`) |
+| Map background and bubble positions | `data/world-110m.json` (world-atlas 2.0.2, Natural Earth 1:110m) and `data/country_points.csv` (Natural Earth label points), both committed; regenerate with `pipeline/fetch_geo.py` | the map view |
 
 The rules (dry signal, seasons, scenarios, weights) are at the top of
 `src/outlook/exposure.py` and `src/outlook/enso.py`, and on the page under "How to read this".
@@ -44,6 +47,40 @@ season falls in between, the impact is marked as likely smaller. The page shows,
 region, FEWS NET's rains, harvest and lean season, our dry signal on each rainy season, and the
 lean season affected. The global column "Lean season most affected" is the current or upcoming
 lean season with the most people in areas with a dry signal.
+
+For each month, `calendar.region_exposure` also counts the people in a lean season that
+follows a dry rainy season (`exposure.<src>.monthly`, over `meta.months`). A unit counts once in
+a month even when two lean seasons overlap. Somalia's pastoral and cropping lean seasons share
+October; adding the per-lean-season figures would count those people twice.
+
+The outlook has three all-countries views on the same months:
+- **By month:** each country has four lines, grouped by region (`config.REGIONS`, plain
+  geography): the dry signal by trimester, the lean season affected, FEWS NET's peak-needs
+  window and the IPC/CH periods. Click a country to open its full month grid in place.
+- **Map:** one circle per country with a month slider. Four layers: ours (lean season affected,
+  dry signal; circle sized by PiN or IPC/CH Phase 3+), IPC/CH (Phase 3+/4+/5 of the latest
+  analysis's period covering the month) and FEWS NET (the Food Assistance Outlook Brief series:
+  each brief's current estimate, then the latest six-month projection for later months; built
+  in `fews_tables`). The FEWS NET monthly figures carry no phase split in the Data Warehouse
+  (the phase fields are empty on every brief row); only the Annual Peak Food Assistance Needs
+  estimate has one (`fews_peak.phases`, a bin per phase), so the FEWS NET layer draws Phase 3+,
+  4+ and 5 in each country's peak months only. A "5" marks Phase 5; a grey hatched circle marks
+  a month no analysis or estimate covers. The
+  circles are laid out as in the pa-aa-fji-storms bubble maps: each starts on its country's
+  label point in an equal-area projection, then a spring pulls it home while overlapping circles
+  push each other apart. The inner disc shows the people in an affected lean season that month.
+  The map loads d3 7.9.0 and topojson-client 3.1.0 from public CDNs. The other views work
+  without them.
+- **Table:** as before.
+
+Each calendar region on a country page has a small locator map (hover for a larger one):
+`zones.py` colours the SEAS5 viewer's admin-1 units by region, or admin-2 where the calendar
+assigns some admin-2 units on their own, and writes simplified SVG paths, so the country page
+needs no mapping library. Nepal has no boundaries in the SEAS5 data and gets no map.
+
+The country page shows the same month grid: our dry signal by trimester, then for each calendar
+region FEWS NET's rains (filled with our dry signal), harvest and lean season (filled with the
+people counted), then other organisations' timing.
 
 The calendars are transcriptions of FEWS NET's images. They were made on 2026-10-28 by reading
 each image (zoomed at full resolution), and checked two ways:
@@ -72,6 +109,10 @@ Needs the dev blob read SAS in the environment, as for any ocha-stratus read. `-
 ~560 MB). Refresh monthly, once the SEAS5 site has flipped to the new issuance. At the same
 time, re-check the IRI numbers and summary sentence in `config.py`; the build warns when they
 are over 45 days old.
+
+**`main` is protected: every change goes through a pull request** (no direct pushes, admins
+included; no approval required, merge with a merge commit). Re-encrypt on the branch, check
+`docs/` holds no plaintext, open the PR, merge; the merge deploys the site.
 
 **Never commit `build/`.** The plaintext page holds the data the gate protects. Commit
 `docs/` with explicit pathspecs. The Pages workflow (`.github/workflows/deploy-pages.yml`)

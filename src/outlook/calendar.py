@@ -154,14 +154,23 @@ def ym(t: int) -> str:
 
 
 def region_exposure(units: list, win: list[dict], cal: dict, keys: list[str],
-                    phases: tuple[str, ...]) -> dict:
+                    phases: tuple[str, ...], axis: tuple[int, int]) -> tuple[dict, dict]:
     """Per calendar region: people counted, and for each rainy-season occurrence the people in
     units under a dry signal in a trimester that covers it (>= 2 of its months, or all of a
     shorter season), split into observed/forecast ("known") and per ENSO scenario.
 
     `units` are country_exposure()'s (row, weights, flags, hit) tuples. A unit dry in several
     trimesters of the same season counts once for that season.
+
+    Also returns, for the whole country and each month of `axis` (absolute months, inclusive),
+    the people in a lean season affected by a dry rainy season. A unit counts once in a month
+    however many affected lean seasons cover it (Somalia's pastoral Aug-Oct and cropping Oct-Dec
+    lean seasons share October). `known`: fed by an observed or forecast dry season; `obs`: the
+    part fed by an observed or partly observed (ERA5) one; `scen[phase]`: known plus the lean
+    seasons fed by that ENSO scenario's dry seasons.
     """
+    a0, a1 = axis
+    n_ax = a1 - a0 + 1
     t0 = abs_month(win[0]["start"])
     t1 = abs_month(win[-1]["start"]) + 2
     slot_abs = [(s, abs_month(s["start"])) for s in win]
@@ -175,7 +184,8 @@ def region_exposure(units: list, win: list[dict], cal: dict, keys: list[str],
             if not ov:
                 continue
             occ.append(dict(o, tris=[s["label"] for s in ov], cats=sorted({s["cat"] for s in ov}),
-                            known=zero(), scen={ph: zero() for ph in phases}, _ov=ov))
+                            known=zero(), scen={ph: zero() for ph in phases}, _ov=ov,
+                            _dry=set()))
         # lean seasons fed by these occurrences: a unit counts once per lean season even when
         # two rainy seasons feed it
         imp = {}
@@ -186,15 +196,27 @@ def region_exposure(units: list, win: list[dict], cal: dict, keys: list[str],
                                          scen={ph: zero() for ph in phases}))["feeds"].append(i)
         out[r["id"]] = dict(totals=zero(), units=0, occ=occ, imp=imp)
     out["unassigned"] = dict(totals=zero(), units=0, occ=[], imp={})
+    series = lambda: {k: [0.0] * n_ax for k in keys}  # noqa: E731
+    monthly = dict(known=series(), obs=series(), scen={ph: series() for ph in phases})
+
+    def add(target: dict, months: set[int], w: dict) -> None:
+        for t in months:
+            for k in keys:
+                target[k][t - a0] += w[k] or 0
+
     for row, w, f, _ in units:
         rid = region_of(row["pcode"], cal.get("assign") or {})
         R = out.get(rid) or out["unassigned"]
         R["units"] += 1
         for k in keys:
             R["totals"][k] += w[k] or 0
-        dry_known, dry_scen = set(), {ph: set() for ph in phases}
+        dry_known, dry_obs, dry_scen = set(), set(), {ph: set() for ph in phases}
         for i, o in enumerate(R["occ"]):
-            if any(f[s["key"]]["dry"] for s in o["_ov"] if s["cat"] != "scenario"):
+            if any(f[s["key"]]["dry"] for s in o["_ov"] if s["cat"] in ("observed", "ending")):
+                dry_obs.add(i)
+            dry_tris = [s["key"] for s in o["_ov"] if s["cat"] != "scenario" and f[s["key"]]["dry"]]
+            o["_dry"].update(dry_tris)
+            if dry_tris:
                 dry_known.add(i)
                 for k in keys:
                     o["known"][k] += w[k] or 0
@@ -203,19 +225,33 @@ def region_exposure(units: list, win: list[dict], cal: dict, keys: list[str],
                     dry_scen[ph].add(i)
                     for k in keys:
                         o["scen"][ph][k] += w[k] or 0
+        m_known, m_obs, m_scen = set(), set(), {ph: set() for ph in phases}
         for im in R["imp"].values():
-            if dry_known & set(im["feeds"]):
+            feeds = set(im["feeds"])
+            span = set(range(max(im["s"], a0), min(im["e"], a1) + 1))
+            if dry_known & feeds:
+                m_known |= span
                 for k in keys:
                     im["known"][k] += w[k] or 0
+            if dry_obs & feeds:
+                m_obs |= span
             for ph in phases:
-                if dry_scen[ph] & set(im["feeds"]):
+                if dry_scen[ph] & feeds:
+                    m_scen[ph] |= span
                     for k in keys:
                         im["scen"][ph][k] += w[k] or 0
+        add(monthly["known"], m_known, w)
+        add(monthly["obs"], m_obs, w)
+        for ph in phases:
+            add(monthly["scen"][ph], m_known | m_scen[ph], w)
     rnd = lambda d: {k: round(v) for k, v in d.items()}  # noqa: E731
     for R in out.values():
         R["totals"] = rnd(R["totals"])
         for o in R["occ"]:
-            o.pop("_ov")
+            # the observed / forecast trimesters with a dry signal in at least one unit: a long
+            # season can be flagged on its first trimester alone, and the page says which
+            o["dry_tris"] = [s["label"] for s in o.pop("_ov") if s["key"] in o["_dry"]]
+            o.pop("_dry")
             o["known"] = rnd(o["known"])
             o["scen"] = {ph: rnd(v) for ph, v in o["scen"].items()}
             o["s"], o["e"] = ym(o["s"]), ym(o["e"])
@@ -230,4 +266,8 @@ def region_exposure(units: list, win: list[dict], cal: dict, keys: list[str],
                     for im in sorted(R["imp"].values(), key=lambda x: x["s"])]
     if not out["unassigned"]["units"]:
         out.pop("unassigned")
-    return out
+    # all-zero series are left out (most countries have no affected lean season in most keys)
+    sparse = lambda d: {k: [round(x) for x in v] for k, v in d.items() if any(v)}  # noqa: E731
+    monthly = dict(known=sparse(monthly["known"]), obs=sparse(monthly["obs"]),
+                   scen={ph: sparse(v) for ph, v in monthly["scen"].items()})
+    return out, monthly

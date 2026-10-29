@@ -30,6 +30,7 @@ from outlook.config import (
     SEAS5_PROCESSED,
     SEAS5_SITE,
     TRIMESTERS,
+    WB_POPULATION,
 )
 
 log = logging.getLogger(__name__)
@@ -128,6 +129,13 @@ def fdw_population(refresh: bool = False) -> pd.DataFrame:
     most likely (ML). National Phase 3+ ranges only; FEWS NET publishes no area populations."""
     text = _http_text(FDW_POPULATION, "fdw_ipcpopulationsize.csv", refresh)
     return pd.read_csv(io.StringIO(text), low_memory=False)
+
+
+def wb_population(refresh: bool = False) -> dict[str, dict]:
+    """iso3 -> {v: population, y: year}, World Bank SP.POP.TOTL, latest year with a value."""
+    _, rows = json.loads(_http_text(WB_POPULATION, "wb_population.json", refresh))
+    return {r["countryiso3code"]: dict(v=int(r["value"]), y=int(r["date"]))
+            for r in rows if r["countryiso3code"] and r["value"] is not None}
 
 
 def roni(refresh: bool = False) -> pd.DataFrame:

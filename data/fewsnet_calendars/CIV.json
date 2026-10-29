@@ -8,7 +8,7 @@
   {
    "id": "north-unimodal",
    "name": "Northern unimodal areas",
-   "where": "Northern half of the country down to roughly 7.5-8 N (purple on the top locator map; dips further south around Bouake and along the Ghana border)",
+   "where": "Northern half of the country down to roughly 7.5-8 N, dipping further south around Bouake and along the Ghana border (purple on the top locator map)",
    "livelihood": "agropastoral",
    "rainy": [
     {

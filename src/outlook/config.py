@@ -37,6 +37,28 @@ OBSERVED_SHOWN = 6
 
 TOP_UNITS = 12  # admin units listed per country page
 
+# Most months the per-month series can cover, from the first slot of the window. The build
+# trims them to the last month with people in an affected lean season (observed, forecast or
+# scenario) and warns if a lean season with people runs past this. Long rainy seasons judged on
+# an early trimester reach far: southern Nigeria's Feb-Nov rains, covered by the last SEAS5
+# trimester, lead to a lean season in May-Aug of the year after next.
+AXIS_MONTHS = 36
+
+# Geographic grouping for the all-countries views. Plain geography with Africa split by the
+# shape of its seasons (Sahel unimodal, East bimodal, Southern Nov-Mar): not OCHA's regional
+# office structure.
+REGIONS = {
+    "West and Central Africa": "BEN BFA CAF CIV CMR COD CPV GHA GIN GMB GNB LBR MLI MRT NER NGA "
+                               "SEN SLE TCD TGO",
+    "East Africa": "BDI DJI KEN RWA SDN SOM SSD TZA UGA",
+    "Southern Africa": "AGO LSO MDG MOZ MWI NAM SWZ ZMB ZWE",
+    "Middle East and North Africa": "IRQ JOR LBN PSE SYR YEM",
+    "Asia": "AFG BGD LKA MMR NPL PAK PHL",
+    "Latin America and the Caribbean": "BOL COL DOM ECU GTM HND HTI JAM PER SLV VEN",
+    "Europe": "UKR",
+}
+REGION_OF = {iso3: name for name, codes in REGIONS.items() for iso3 in codes.split()}
+
 TRIMESTERS: dict[str, list[int]] = {
     "JFM": [1, 2, 3],
     "FMA": [2, 3, 4],
@@ -90,3 +112,9 @@ ERA5_DRY_2026 = {"SEN", "GMB", "MRT", "MLI", "BFA", "NER", "NGA", "TCD", "CMR", 
 # Public HTTP sources
 FDW_POPULATION = "https://fdw.fews.net/api/ipcpopulationsize.csv"
 RONI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt"
+# national population, latest year per country: the FEWS NET map layer's circle. FEWS NET
+# publishes no analysed population; its own percentages use its own population figures, which
+# can differ from these (Yemen: about 33M implied, against the World Bank's 42M), so the page shows
+# FEWS NET's percentages as published rather than shares of this figure
+WB_POPULATION = ("https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL"
+                 "?format=json&mrnev=1&per_page=400")

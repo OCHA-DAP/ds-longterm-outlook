@@ -8,7 +8,7 @@
     {
       "id": "pastoral",
       "name": "Pastoral Areas",
-      "where": "Rural pastoral areas; the locator map shades the whole country purple",
+      "where": "Rural pastoral areas across the whole country (the locator map shades the whole country purple)",
       "livelihood": "pastoral",
       "rainy": [
         {"name": "Coastal Rains (Xays/Dadaa)", "start": 10, "end": 2},
