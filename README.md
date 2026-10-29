@@ -110,6 +110,10 @@ Needs the dev blob read SAS in the environment, as for any ocha-stratus read. `-
 time, re-check the IRI numbers and summary sentence in `config.py`; the build warns when they
 are over 45 days old.
 
+**`main` is protected: every change goes through a pull request** (no direct pushes, admins
+included; no approval required, merge with a merge commit). Re-encrypt on the branch, check
+`docs/` holds no plaintext, open the PR, merge; the merge deploys the site.
+
 **Never commit `build/`.** The plaintext page holds the data the gate protects. Commit
 `docs/` with explicit pathspecs. The Pages workflow (`.github/workflows/deploy-pages.yml`)
 serves `docs/` as is, and it refuses to publish if `docs/` holds unencrypted outlook data.
