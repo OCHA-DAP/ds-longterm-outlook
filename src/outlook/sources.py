@@ -10,9 +10,11 @@
 Blob and HTTP reads are cached under cache/; pass refresh=True (build --refresh) to re-read.
 """
 
+import csv
 import io
 import json
 import logging
+import re
 from datetime import date
 
 import ocha_stratus as stratus
@@ -25,6 +27,7 @@ from outlook.config import (
     ASAP_BIOMASS,
     BLOB,
     CACHE,
+    FAO_ASI,
     FDW_POPULATION,
     HNRP_SITE,
     IPC_SITE,
@@ -165,6 +168,39 @@ def asap_biomass(asap0_id: int, class_id: int, level: int, refresh: bool = False
         log.info("ASAP %s class %s: %.1f MB", asap0_id, class_id, len(r.text) / 1e6)
     df = pd.read_csv(path, usecols=["region_id", "date", "value"])
     return df.dropna(subset=["value"])
+
+
+_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def fao_asi(iso3: str, refresh: bool = False) -> pd.DataFrame:
+    """FAO ASI (cropland, season 1) for every admin-1 unit and dekad: code (GAUL ADM1_CODE),
+    province, date (YYYYMMDD int), value (% of cropland with mean VHI < 35). Empty frame where FAO
+    publishes no file. Names can hold commas, so each row is read around its date field."""
+    d = date.today()
+    tag = f"{d:%Y%m}{(1, 11, 21)[min(2, (d.day - 1) // 10)]:02d}"
+    path = CACHE / "fao_asi" / f"{iso3}_{tag}.csv"
+    if refresh or not path.exists():
+        r = requests.get(FAO_ASI.format(iso3=iso3), timeout=300)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(r.text if r.status_code == 200 and r.text.startswith("Indicator") else "")
+    out = []
+    # the file can also hold wVHI rows and a second copy of the ASI rows (Afghanistan)
+    for row in csv.reader(io.StringIO(path.read_text(encoding="utf-8", errors="replace"))):
+        if not row or row[0].strip() != "Agricultural Stress Index (ASI)":
+            continue
+        j = next((k for k, x in enumerate(row) if _DATE.match(x.strip())), None)
+        i = next((k for k in range(1, len(row)) if row[k].strip().isdigit()), None)
+        if j is None or i is None or j < i + 2 or j + 1 >= len(row):
+            continue
+        try:
+            v = float(row[j + 1])
+        except ValueError:
+            continue
+        out.append((int(row[i]), ",".join(row[i + 1:j - 1]).strip(),
+                    int(row[j].replace("-", "")), v))
+    return (pd.DataFrame(out, columns=["code", "province", "date", "value"])
+            .drop_duplicates(["code", "date"], keep="last"))
 
 
 def wb_population(refresh: bool = False) -> dict[str, dict]:

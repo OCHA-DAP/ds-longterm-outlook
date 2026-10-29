@@ -353,10 +353,18 @@ def main():
     # seasons ended or under way: biomass (JRC ASAP) per unit and trimester
     veg_units = vegetation.load_units()
     veg_series = vegetation.load_series(veg_units, args.refresh)
+    asi_units = vegetation.load_asi_units()
+    asi_series = vegetation.load_asi_series({r["iso3"] for r in low["rows"] + ipcp["rows"]},
+                                            args.refresh)
     veg = dict(flags={**vegetation.flags(low["rows"], win, veg_units, veg_series, today.year),
                       **vegetation.flags(ipcp["rows"], win, veg_units, veg_series, today.year)},
-               matched=vegetation.matched(veg_units, veg_series))
+               matched=vegetation.matched(veg_units, veg_series),
+               asi={**vegetation.asi_flags(low["rows"], win, asi_units, asi_series, today.year),
+                    **vegetation.asi_flags(ipcp["rows"], win, asi_units, asi_series,
+                                           today.year)})
+    ymd = lambda t: f"{t // 10000}-{t // 100 % 100:02d}-{t % 100:02d}"  # noqa: E731
     veg_latest = max((int(d[-1]) for d, _ in veg_series.values() if len(d)), default=None)
+    asi_latest = max((int(d[-1]) for d, _ in asi_series.values() if len(d)), default=None)
 
     hmeta, hw = exposure.hnrp_weights(low["rows"])
     imeta, iw = exposure.ipc_weights(ipcp["rows"], today)
@@ -495,8 +503,8 @@ def main():
                             scen_alpha=config.SCENARIO_ALPHA, scen_n=config.SCENARIO_N_MIN),
             sources=dict(hnrp_generated=plans.get("generated_at"), ipc_generated=ipc_gen,
                          fdw_fetched=f"{today}", **fews_latest,
-                         asap_latest=f"{veg_latest // 10000}-{veg_latest // 100 % 100:02d}-"
-                                     f"{veg_latest % 100:02d}" if veg_latest else None),
+                         asap_latest=ymd(veg_latest) if veg_latest else None,
+                         asi_latest=ymd(asi_latest) if asi_latest else None),
             enso=dict(latest=dict(season=cpc_label(lastr["trimester"], int(lastr["season_year"])),
                                   roni=float(lastr["roni"])), iri=config.IRI_PLUME,
                       obs_years=obs_years),

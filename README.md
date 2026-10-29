@@ -27,6 +27,7 @@ own transcription (see below).
 | IPC/CH national | dev blob `projects/ds-ipc-mirror/site-data/national.json` | latest analysis and periods |
 | FEWS NET population estimates | `https://fdw.fews.net/api/ipcpopulationsize.csv` (public) | peak needs (latest 12-month edition per country), monthly outlook brief |
 | Biomass per admin unit (JRC ASAP zFPARc, cropland and rangeland, every ten days since 2001) | `https://agricultural-production-hotspots.ec.europa.eu/export/rum/export.php` (public; GAUL2 units, GAUL1 where ASAP has no GAUL2), cached under `cache/asap/` per ten-day period | dry signal for seasons ended or under way (`src/outlook/vegetation.py`) |
+| FAO GIEWS ASI per admin-1 province (cropland, season 1, every ten days since 1984) | `https://www.fao.org/giews/earthobservation/asis/data/country/<ISO3>/MAP_ASI/DATA/ASI_Dekad_Season1_data.csv` (public; cached under `cache/fao_asi/`) | reference beside the biomass rank; `data/asi_units.csv` maps our units to provinces |
 | ASAP units matched to ours | `data/asap_units.csv` (committed; area overlap of ASAP's gaul2/gaul1_asap_v06 boundaries with the SEAS5 site's units; regenerate with `pipeline/fetch_asap_units.py`) | which ASAP units each admin unit reads |
 | National population | `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL` (public, latest year) | the FEWS NET map layer's circle |
 | CPC relative Niño3.4 index | `https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt` | ENSO phase of each past season |
@@ -133,11 +134,14 @@ a password gate (`site/gate.html`, copied to `docs/outlook/index.html`) that dec
 - **Seasons ended or under way are judged on biomass, not rainfall** (since 2026-10-29). ERA5
   had overstated the 2026 deficit from Senegal to Sudan (Chad JAS 2026: ERA5 23% of normal,
   CHIRPS 64–70%); its rank is now shown only for reference. The biomass rule: ASAP's zFPARc
-  at the last ten-day period of the trimester with a value, in the lowest third of the unit's
-  record since 2001 at the same point of the season, on at least half of the unit's judged
-  crop and rangeland area. ASAP's z-scores have a positive trend in places (South Sudan
-  rangeland, KB `analysis/asap-indicator-trends.md`), so recent years rank higher and the
-  signal is harder to reach. Cropland and rangeland are weighted by area, so rangeland decides
+  at the last ten-day period of the trimester with a value, detrended (a line fitted to the
+  unit's values at that dekad since 2001; the departure from it is ranked), in the lowest third
+  of the unit's record at the same point of the season, on at least half of the unit's judged
+  crop and rangeland area. Detrending is needed because ASAP's z-scores have a positive trend in
+  places (South Sudan rangeland, KB `analysis/asap-indicator-trends.md`). FAO's ASI (per
+  admin-1 province, cropland only, 1984 on; the same file the Afghanistan drought framework
+  reads) is matched to our units by name (`data/asi_units.csv`) and shown for reference in the
+  admin-unit table. Cropland and rangeland are weighted by area, so rangeland decides
   in agro-pastoral areas; irrigated cropland (Pakistan, Bangladesh) rarely shows poor biomass.
   A season's first rainy trimester is not judged (read a few dekads into the cycle). ASAP's
   series has values in most dekads, so only the rainy-season test keeps the dry season out.

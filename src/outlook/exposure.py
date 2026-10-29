@@ -189,7 +189,7 @@ def ipc_weights(rows: list[dict], today: date) -> tuple[dict, dict[str, dict]]:
 
 
 def unit_flags(row: dict, win: list[dict], comp: dict, rainy: dict, known: set[str],
-               obs: dict, veg: dict) -> dict:
+               obs: dict, veg: dict, asi: dict) -> dict:
     """Per window slot (by key): rainy?, dry? — and for scenario slots, dry per ENSO phase.
 
     Trimesters that have ended or are under way (observed, ending) are judged on biomass
@@ -211,7 +211,8 @@ def unit_flags(row: dict, win: list[dict], comp: dict, rainy: dict, known: set[s
             o = obs.get((ref, s["tri"], s["season_year"])) if ref else None
             flags[s["key"]] = dict(rainy=is_rainy, dry=bool(is_rainy and v and v["dry"]),
                                    rp=v["rp"] if v else None, pct=None, r=None, veg=v,
-                                   era5_rp=o["rp"] if o else None)
+                                   era5_rp=o["rp"] if o else None,
+                                   asi=asi.get((row["pcode"], s["key"])))
         elif s["cat"] == "scenario":
             is_rainy = rainy.get((ref, s["tri"]), False) if ref else False
             flags[s["key"]] = dict(
@@ -257,7 +258,7 @@ def country_exposure(rows: list[dict], weights: dict, win: list[dict], comp: dic
         if row["pcode"] not in veg["matched"]:
             for k in keys:
                 blind["veg"][k] += w[k] or 0
-        f = unit_flags(row, win, comp, rainy, known, obs, veg["flags"])
+        f = unit_flags(row, win, comp, rainy, known, obs, veg["flags"], veg.get("asi", {}))
         hit = {c: False for c in cats}
         for s in win:
             fl = f[s["key"]]
@@ -296,10 +297,13 @@ def top_units(units: list, win: list[dict], key: str) -> list[dict]:
                 if phs:
                     seasons.append(dict(key=s["key"], cat="scenario", phases=phs))
             elif fl["dry"]:
-                v = fl.get("veg") or {}
+                v, a = fl.get("veg") or {}, fl.get("asi") or {}
                 seasons.append(dict(key=s["key"], cat=s["cat"], rp=fl["rp"], r=fl["r"],
                                     veg=s["cat"] in ("observed", "ending"), n=v.get("n"),
-                                    lc=v.get("lc"), era5_rp=fl.get("era5_rp")))
+                                    lc=v.get("lc"), z=v.get("z"), dep=v.get("dep"),
+                                    trend=v.get("trend"),
+                                    era5_rp=fl.get("era5_rp"), asi=a.get("asi"),
+                                    asi_rp=a.get("rp"), asi_n=a.get("n"), asi_dekad=a.get("dekad")))
         out.append(dict(name=row.get("name"), parent=row.get("parent"),
                         w4=w["w4"], w3=w["w3"], wall=w["wall"], seasons=seasons))
     return out

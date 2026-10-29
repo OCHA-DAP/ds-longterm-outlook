@@ -118,6 +118,14 @@ ASAP_BIOMASS = dict(variable_id=240, classesset_id=1, sensor_id=3)  # zFPARc, in
 ASAP_CLASSES = {"crop": 1, "range": 2}
 VEG_FIRST_YEAR = 2001  # MODIS FPAR starts in 2001
 VEG_N_MIN = 10  # a unit needs this many past years at that dekad to be ranked
+# FAO GIEWS ASIS Agricultural Stress Index, per admin-1 unit (GAUL 2015) and dekad since 1984:
+# the share of cropland with mean VHI below 35 in the season so far. Shown for reference beside
+# the biomass rank, not used in the rule. Same file as the Afghanistan drought framework reads.
+FAO_ASI = ("https://www.fao.org/giews/earthobservation/asis/data/country/{iso3}/MAP_ASI/DATA/"
+           "ASI_Dekad_Season1_data.csv")
+ASI_FIRST_YEAR = 1984
+ASI_RANK_MIN = 10.0  # % of cropland stressed; below this no rank is shown
+
 # Countries whose ASAP units cannot stand for places: no biomass signal, with the reason shown
 ASAP_SKIP = {
     "MMR": ("ASAP's admin-1 units for Myanmar are three groupings of the whole country (Region, "

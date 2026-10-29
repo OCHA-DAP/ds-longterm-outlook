@@ -8,10 +8,21 @@ the payloads hold); ASAP's are gaul2_asap_v06 (44 MB) where it has GAUL2 units f
 cache/asap/. For each of our units, every ASAP unit covering at least 5% of it, with that share
 and the ASAP unit's cropland and rangeland share of its area (ASAP's km2_crop / km2_range over
 km2_tot). Re-run when ASAP publishes a new boundary version or the SEAS5 site changes its units.
+
+Also writes data/asi_units.csv: the FAO ASI province (GAUL 2015 ADM1_CODE) each of our units
+sits in, for the ASI reference shown beside the biomass rank. FAO's provinces are matched by
+name -- to our admin-1 units, then our admin-2 units (where FAO's provinces are our admin-2:
+Chad, Tanzania, DR Congo's old provinces, Venezuela), then ASAP's GAUL1 units (whose polygons
+are then overlapped with ours). Names are compared without accents, case, spaces, punctuation
+or Arabic articles, with a close-match fallback ("Northern Darfur" / "North Darfur",
+"Gadaref" / "Gedaref", "Dayr Az Zor" / "Deir-ez-Zor").
 """
 
 import csv
+import difflib
 import logging
+import re
+import unicodedata
 import zipfile
 
 import requests
@@ -54,6 +65,70 @@ def load(level: int, wanted: set[int], skip: set[int]) -> tuple[list, list]:
             rec["level"], rec["asap_id"] = level, rec[f"asap{level}_id"]
             recs.append(rec)
     return geoms, recs
+
+
+def norm(name: str) -> str:
+    plain = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode().lower()
+    plain = re.sub(r"\b(al|aj|el|ar|az|ad|ash|the|de|du|des|province|region|governorate)\b", " ",
+                   plain)
+    plain = re.sub(r"\bnorthern\b", "north", plain)
+    plain = re.sub(r"\bsouthern\b", "south", plain)
+    plain = re.sub(r"\beastern\b", "east", plain)
+    plain = re.sub(r"\bwestern\b", "west", plain)
+    return re.sub(r"[^a-z0-9]", "", plain)
+
+
+def lookup(by_name: dict, n: str):
+    """Exact normalised name, else the single close match (ratio >= 0.85)."""
+    if n in by_name:
+        return by_name[n]
+    close = difflib.get_close_matches(n, list(by_name), n=2, cutoff=0.85)
+    return by_name[close[0]] if len(close) == 1 else None
+
+
+def asi_units(ours: dict, tag: str, asap0: dict) -> list[dict]:
+    """Our unit -> FAO ASI province code, by name (our admin-1, our admin-2, ASAP GAUL1 + area)."""
+    names = {lv: {} for lv in ("adm1", "adm2")}
+    for lv in names:
+        for f in sources.seas5_payload(f"hnrp_{lv}.geojson", tag)["features"]:
+            p = f["properties"]
+            names[lv].setdefault(p["iso3"], []).append((p["pcode"], norm(p["name"])))
+    gaul1 = {}
+    for sr in boundaries(1).iterShapeRecords():
+        rec = sr.record.as_dict()
+        gaul1.setdefault(rec["asap0_id"], []).append((norm(rec["name1"]), sr))
+    rows = []
+    for iso3 in sorted({f["properties"]["iso3"] for f in ours.values()}):
+        fao = sources.fao_asi(iso3)
+        if fao.empty:
+            continue
+        by_name = {norm(n): int(c) for c, n in fao[["code", "province"]].drop_duplicates().values}
+        prefix, used = {}, set()
+        for lv in ("adm1", "adm2"):  # name matches, admin-1 first
+            for pc, n in names[lv].get(iso3, []):
+                code = lookup(by_name, n)
+                if code is not None and (lv == "adm1" or code not in used):
+                    prefix[pc] = (code, lv)
+                    if lv == "adm1":
+                        used.add(code)
+        polys = [(lookup(by_name, n), shape(sr.shape.__geo_interface__).simplify(0.01))
+                 for n, sr in gaul1.get(asap0.get(iso3), []) if lookup(by_name, n) is not None]
+        polys = [(c, g if g.is_valid else g.buffer(0)) for c, g in polys]
+        for pc, f in ours.items():
+            if f["properties"]["iso3"] != iso3:
+                continue
+            hits = [k for k in prefix if pc.startswith(k)]
+            if hits:
+                code, how = prefix[max(hits, key=len)]
+                rows.append(dict(pcode=pc, fao_code=code, how=how))
+                continue
+            g = shape(f["geometry"])
+            g = g if g.is_valid else g.buffer(0)
+            best = max(((g.intersection(pg).area / g.area, c) for c, pg in polys if g.area),
+                       default=(0, None))
+            if best[0] >= 0.5:
+                rows.append(dict(pcode=pc, fao_code=best[1], how="asap-gaul1"))
+    return rows
 
 
 def main():
@@ -100,6 +175,15 @@ def main():
         w.writeheader()
         w.writerows(rows)
     log.info("wrote %s: %s rows; %s of our units match no ASAP unit", out, len(rows), missed)
+
+    asi = asi_units(ours, tag, asap0)
+    out = config.ROOT / "data" / "asi_units.csv"
+    with open(out, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["pcode", "fao_code", "how"])
+        w.writeheader()
+        w.writerows(asi)
+    log.info("wrote %s: %s of our %s units placed in an FAO ASI province", out, len(asi),
+             len(ours))
 
 
 if __name__ == "__main__":
