@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 import pycountry
 
-from outlook import calendar, config, enso, exposure, sources, zones
+from outlook import calendar, config, enso, exposure, sources, vegetation, zones
 
 log = logging.getLogger("build_data")
 
@@ -350,6 +350,14 @@ def main():
     rainy, comp, known, rn, obs_years, observed = era5_lookups(low["rows"] + ipcp["rows"], win,
                                                                args.refresh)
 
+    # seasons ended or under way: biomass (JRC ASAP) per unit and trimester
+    veg_units = vegetation.load_units()
+    veg_series = vegetation.load_series(veg_units, args.refresh)
+    veg = dict(flags={**vegetation.flags(low["rows"], win, veg_units, veg_series, today.year),
+                      **vegetation.flags(ipcp["rows"], win, veg_units, veg_series, today.year)},
+               matched=vegetation.matched(veg_units, veg_series))
+    veg_latest = max((int(d[-1]) for d, _ in veg_series.values() if len(d)), default=None)
+
     hmeta, hw = exposure.hnrp_weights(low["rows"])
     imeta, iw = exposure.ipc_weights(ipcp["rows"], today)
     plans = sources.hnrp_plans(args.refresh)
@@ -404,12 +412,13 @@ def main():
                    hnrp=plan, ipc=ipc_nat.get(iso3),
                    fews_peak=peak.get(iso3), fews_faob=faob.get(iso3), exposure={},
                    calendar=calendar_card(cals.get(iso3)), zones=zone_maps.get(iso3),
-                   population=wb_pop.get(iso3),
+                   population=wb_pop.get(iso3), veg_note=config.ASAP_SKIP.get(iso3),
                    links=dict(fews=fews_pages.get(iso3),
                               ipc=ipc_link(ipc_links.get(iso3), ipc_nat.get(iso3))))
         cal = cals.get(iso3)
         if iso3 in hmeta:
-            e = exposure.country_exposure(low_by[iso3], hw, win, comp, rainy, known, observed)
+            e = exposure.country_exposure(low_by[iso3], hw, win, comp, rainy, known, observed,
+                                          veg)
             pbs = [0.0] * 5
             for _, w, _, _ in e["units"]:
                 if w["pb"]:
@@ -422,7 +431,8 @@ def main():
                 **summarise(e, win, ["w4", "w3", "wall"]), regions=regions, monthly=monthly,
                 zone_level=zones.unit_level(low_by[iso3], adm1))
         if iso3 in imeta:
-            e = exposure.country_exposure(ipc_by[iso3], iw, win, comp, rainy, known, observed)
+            e = exposure.country_exposure(ipc_by[iso3], iw, win, comp, rainy, known, observed,
+                                          veg)
             # the SEAS5 payload can hold an older analysis than the IPC mirror today (AFG:
             # payload 2025-03, mirror 2026-09): the page says which one the exposure uses
             regions, monthly = (calendar.region_exposure(e["units"], win, cal, KEYS,
@@ -434,7 +444,6 @@ def main():
                                           older_than_national=bool(
                                               rec["ipc"] and imeta[iso3]["analysis"]
                                               < rec["ipc"]["analysis"]))
-        rec["era5_caveat"] = iso3 in config.ERA5_DRY_2026
         countries.append(rec)
 
     # trim the per-month series to the last month with people in an affected lean season
@@ -485,7 +494,9 @@ def main():
                             rainy_share=config.RAINY_SHARE, enso=config.ENSO_THRESH,
                             scen_alpha=config.SCENARIO_ALPHA, scen_n=config.SCENARIO_N_MIN),
             sources=dict(hnrp_generated=plans.get("generated_at"), ipc_generated=ipc_gen,
-                         fdw_fetched=f"{today}", **fews_latest),
+                         fdw_fetched=f"{today}", **fews_latest,
+                         asap_latest=f"{veg_latest // 10000}-{veg_latest // 100 % 100:02d}-"
+                                     f"{veg_latest % 100:02d}" if veg_latest else None),
             enso=dict(latest=dict(season=cpc_label(lastr["trimester"], int(lastr["season_year"])),
                                   roni=float(lastr["roni"])), iri=config.IRI_PLUME,
                       obs_years=obs_years),

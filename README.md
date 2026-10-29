@@ -1,8 +1,9 @@
 # ds-longterm-outlook
 
 A year-ahead outlook per country. Our columns count people in areas with a seasonal dry signal: HNRP
-PiN by JIAF severity, or IPC/CH phase populations, in admin units where the season now ending,
-the SEAS5 forecast or an ENSO scenario shows a dry signal. They are shown alongside what FEWS
+PiN by JIAF severity, or IPC/CH phase populations, in admin units with a dry signal: poor
+biomass (JRC ASAP) for seasons that have ended or are under way, a dry SEAS5 forecast for the
+seasons to come, or an ENSO scenario beyond the forecast. They are shown alongside what FEWS
 NET, IPC/CH and the HNRPs publish, and current plan funding (FTS).
 
 **Site:** https://ocha-dap.github.io/ds-longterm-outlook/ (the outlook itself is at
@@ -25,6 +26,8 @@ own transcription (see below).
 | HNRP plans + FTS funding | dev blob `projects/ds-hnrp-mirror/site-data/plans.json` | PiN, requirements, coverage |
 | IPC/CH national | dev blob `projects/ds-ipc-mirror/site-data/national.json` | latest analysis and periods |
 | FEWS NET population estimates | `https://fdw.fews.net/api/ipcpopulationsize.csv` (public) | peak needs (latest 12-month edition per country), monthly outlook brief |
+| Biomass per admin unit (JRC ASAP zFPARc, cropland and rangeland, every ten days since 2001) | `https://agricultural-production-hotspots.ec.europa.eu/export/rum/export.php` (public; GAUL2 units, GAUL1 where ASAP has no GAUL2), cached under `cache/asap/` per ten-day period | dry signal for seasons ended or under way (`src/outlook/vegetation.py`) |
+| ASAP units matched to ours | `data/asap_units.csv` (committed; area overlap of ASAP's gaul2/gaul1_asap_v06 boundaries with the SEAS5 site's units; regenerate with `pipeline/fetch_asap_units.py`) | which ASAP units each admin unit reads |
 | National population | `https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL` (public, latest year) | the FEWS NET map layer's circle |
 | CPC relative Niño3.4 index | `https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt` | ENSO phase of each past season |
 | IRI ENSO probabilities | typed into `src/outlook/config.py` (`IRI_PLUME`) | context beside the scenarios; re-date each refresh |
@@ -127,10 +130,21 @@ a password gate (`site/gate.html`, copied to `docs/outlook/index.html`) that dec
 
 ## Known limits (v1)
 
-- **ERA5 and the 2026 Sahel season.** The "season ending" trimesters use ERA5 for their
-  observed months, and ERA5 overstated the 2026 deficit from Senegal to Sudan. Chad JAS 2026:
-  ERA5 23% of normal, CHIRPS 64–70%. Those countries are flagged on the page. A CHIRPS
-  cross-check is the next step.
+- **Seasons ended or under way are judged on biomass, not rainfall** (since 2026-10-29). ERA5
+  had overstated the 2026 deficit from Senegal to Sudan (Chad JAS 2026: ERA5 23% of normal,
+  CHIRPS 64–70%); its rank is now shown only for reference. The biomass rule: ASAP's zFPARc
+  at the last ten-day period of the trimester with a value, in the lowest third of the unit's
+  record since 2001 at the same point of the season, on at least half of the unit's judged
+  crop and rangeland area. ASAP's z-scores have a positive trend in places (South Sudan
+  rangeland, KB `analysis/asap-indicator-trends.md`), so recent years rank higher and the
+  signal is harder to reach. Cropland and rangeland are weighted by area, so rangeland decides
+  in agro-pastoral areas; irrigated cropland (Pakistan, Bangladesh) rarely shows poor biomass.
+  A season's first rainy trimester is not judged (read a few dekads into the cycle). ASAP's
+  series has values in most dekads, so only the rainy-season test keeps the dry season out.
+  Units with no ASAP unit (Palestine; Myanmar, whose ASAP admin-1 units are three national
+  groupings) get no signal for these seasons; the country page says how many people that
+  leaves out. 14 countries use ASAP's GAUL1 units (no GAUL2), so their signal is per
+  province/state.
 - **"Rainy season" in the dry signal is a share-of-rain rule** (a trimester carrying ≥ 15% of
   annual rain), not a crop calendar. Harvests and lean seasons come from the FEWS NET calendars,
   which cover 48 countries; the others have no lean-season timing.

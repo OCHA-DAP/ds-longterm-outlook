@@ -21,6 +21,8 @@ import pyarrow.parquet as pq
 import requests
 
 from outlook.config import (
+    ASAP_BASE,
+    ASAP_BIOMASS,
     BLOB,
     CACHE,
     FDW_POPULATION,
@@ -129,6 +131,40 @@ def fdw_population(refresh: bool = False) -> pd.DataFrame:
     most likely (ML). National Phase 3+ ranges only; FEWS NET publishes no area populations."""
     text = _http_text(FDW_POPULATION, "fdw_ipcpopulationsize.csv", refresh)
     return pd.read_csv(io.StringIO(text), low_memory=False)
+
+
+def asap_countries(refresh: bool = False) -> dict[str, int]:
+    """iso3 -> ASAP's own country id (asap0_id: not ISO, not GAUL adm0_code)."""
+    meta = json.loads(_http_text(f"{ASAP_BASE}/getDataDownload.php", "asap_meta.json", refresh))
+    return {c["isocode3"]: int(c["asap0_id"]) for c in meta["countries"] if c.get("isocode3")}
+
+
+def asap_biomass(asap0_id: int, class_id: int, level: int, refresh: bool = False) -> pd.DataFrame:
+    """One country's zFPARc series for every GAUL unit (level 1 or 2) and dekad since 2001:
+    region_id, date (YYYYMMDD of the dekad), value. Cached per dekad: ASAP updates every ten
+    days."""
+    d = date.today()
+    tag = f"{d:%Y%m}{(1, 11, 21)[min(2, (d.day - 1) // 10)]:02d}"
+    path = CACHE / "asap" / f"zfparc_g{level}_{asap0_id}_{class_id}_{tag}.csv"
+    if refresh or not path.exists():
+        params = dict(gaul_level=level, country_id=asap0_id, class_id=class_id, **ASAP_BIOMASS)
+        for attempt in range(3):
+            try:
+                r = requests.get(f"{ASAP_BASE}/export/rum/export.php", params=params, timeout=600)
+                r.raise_for_status()
+                # an invalid combination returns an HTML page with status 200
+                if not r.text.startswith("country_id,"):
+                    raise ValueError(f"ASAP export {params}: not a CSV")
+                break
+            except (requests.RequestException, ValueError) as e:
+                if attempt == 2:
+                    raise
+                log.warning("ASAP %s class %s: %s, retrying", asap0_id, class_id, e)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(r.text)
+        log.info("ASAP %s class %s: %.1f MB", asap0_id, class_id, len(r.text) / 1e6)
+    df = pd.read_csv(path, usecols=["region_id", "date", "value"])
+    return df.dropna(subset=["value"])
 
 
 def wb_population(refresh: bool = False) -> dict[str, dict]:

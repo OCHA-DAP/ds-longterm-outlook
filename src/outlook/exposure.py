@@ -2,10 +2,11 @@
 
 One rule for every season, whatever its source:
   dry = rainy trimester (>= 15% of annual rain) AND a lower-tercile signal
-- season ended (lead -8..-3, fully observed): the ERA5 season ranks in its own driest third
-  (1-in-3-year dry or worse against the ERA5 record up to OBS_LAST_YEAR);
-- season ending (lead -2/-1, 2 or 1 of its 3 months observed) and SEAS5 forecast (lead 0..4):
-  skill r >= 0.30, forecast percentile < 50, drought return period >= 3 years;
+- season ended (lead -8..-3) or under way (lead -2/-1): biomass, not rainfall -- JRC ASAP
+  zFPARc in the unit's lowest third at that point of the season (vegetation.py); the first
+  rainy trimester of a season is not judged (too early in the cycle);
+- SEAS5 forecast (lead 0..4): skill r >= 0.30, forecast percentile < 50, drought return period
+  >= 3 years;
 - ENSO scenario (lead 5..9, beyond SEAS5): more lower-tercile ERA5 seasons in that ENSO phase
   than chance (one-sided binomial p < 0.05 against 1/3), over >= 8 years of the phase.
 "Rainy" is a share-of-annual-rain rule, not a crop calendar.
@@ -187,23 +188,30 @@ def ipc_weights(rows: list[dict], today: date) -> tuple[dict, dict[str, dict]]:
 # ---- exposure -------------------------------------------------------------------------------
 
 
-def observed_dry(o: dict | None) -> bool:
-    """An observed season in its own driest third: 1-in-RP_MIN-year dry or worse."""
-    return bool(o and o["rp"] >= RP_MIN)
-
-
 def unit_flags(row: dict, win: list[dict], comp: dict, rainy: dict, known: set[str],
-               obs: dict) -> dict:
-    """Per window slot (by key): rainy?, dry? — and for scenario slots, dry per ENSO phase."""
+               obs: dict, veg: dict) -> dict:
+    """Per window slot (by key): rainy?, dry? — and for scenario slots, dry per ENSO phase.
+
+    Trimesters that have ended or are under way (observed, ending) are judged on biomass
+    (vegetation.flags: JRC ASAP, lowest third of the unit's record), not on rainfall; the ERA5
+    rank of an observed trimester is kept as a reference only (era5_rp). The fully forecast
+    trimesters are SEAS5's; the scenario trimesters are the ENSO composites."""
     tris = row.get("tris") or {}
     ref = resolve(row["pcode"], known)
     flags = {}
     for s in win:
-        if s["cat"] == "observed":
+        if s["cat"] in ("observed", "ending"):
             is_rainy = rainy.get((ref, s["tri"]), False) if ref else False
+            # a season's first rainy trimester is read a few dekads into the cycle, too early
+            # for biomass to say much: judged only once the trimester before is rainy too
+            m0 = int(s["start"][5:7])
+            prev = TRI_BY_START[(m0 - 2) % 12 + 1]
+            settled = bool(ref and rainy.get((ref, prev), False))
+            v = veg.get((row["pcode"], s["key"])) if settled else None
             o = obs.get((ref, s["tri"], s["season_year"])) if ref else None
-            flags[s["key"]] = dict(rainy=is_rainy, dry=is_rainy and observed_dry(o),
-                                   rp=o["rp"] if o else None, pct=o["pct"] if o else None, r=None)
+            flags[s["key"]] = dict(rainy=is_rainy, dry=bool(is_rainy and v and v["dry"]),
+                                   rp=v["rp"] if v else None, pct=None, r=None, veg=v,
+                                   era5_rp=o["rp"] if o else None)
         elif s["cat"] == "scenario":
             is_rainy = rainy.get((ref, s["tri"]), False) if ref else False
             flags[s["key"]] = dict(
@@ -221,7 +229,7 @@ def unit_flags(row: dict, win: list[dict], comp: dict, rainy: dict, known: set[s
 
 
 def country_exposure(rows: list[dict], weights: dict, win: list[dict], comp: dict,
-                     rainy: dict, known: set[str], obs: dict,
+                     rainy: dict, known: set[str], obs: dict, veg: dict,
                      keys=("w4", "w3", "wall")) -> dict:
     """Exposed weight per slot and per category (union over a category's slots: a unit dry
     in two forecast seasons counts once). Observed (ended) seasons count in "ending"."""
@@ -232,9 +240,10 @@ def country_exposure(rows: list[dict], weights: dict, win: list[dict], comp: dic
     cats = {c: {k: 0.0 for k in keys} for c in ("ending", "forecast", "known")}
     cats |= {f"scenario_{ph}": {k: 0.0 for k in keys} for ph in PHASES}
     units = []
-    # weight in units that can never be flagged: no SEAS5 trimesters in the payload, or no
-    # ERA5 history to resolve to (so no ENSO scenario). It stays in the denominators.
-    blind = {"seas5": {k: 0.0 for k in keys}, "scenario": {k: 0.0 for k in keys}}
+    # weight in units that can never be flagged: no SEAS5 trimesters in the payload, no ERA5
+    # history to resolve to (so no ENSO scenario), or no ASAP unit to read biomass from (so no
+    # signal for seasons ended or under way). It stays in the denominators.
+    blind = {g: {k: 0.0 for k in keys} for g in ("seas5", "scenario", "veg")}
     for row in rows:
         w = weights.get(row["pcode"])
         if not w:
@@ -245,7 +254,10 @@ def country_exposure(rows: list[dict], weights: dict, win: list[dict], comp: dic
         if resolve(row["pcode"], known) is None:
             for k in keys:
                 blind["scenario"][k] += w[k] or 0
-        f = unit_flags(row, win, comp, rainy, known, obs)
+        if row["pcode"] not in veg["matched"]:
+            for k in keys:
+                blind["veg"][k] += w[k] or 0
+        f = unit_flags(row, win, comp, rainy, known, obs, veg["flags"])
         hit = {c: False for c in cats}
         for s in win:
             fl = f[s["key"]]
@@ -284,7 +296,10 @@ def top_units(units: list, win: list[dict], key: str) -> list[dict]:
                 if phs:
                     seasons.append(dict(key=s["key"], cat="scenario", phases=phs))
             elif fl["dry"]:
-                seasons.append(dict(key=s["key"], cat=s["cat"], rp=fl["rp"], r=fl["r"]))
+                v = fl.get("veg") or {}
+                seasons.append(dict(key=s["key"], cat=s["cat"], rp=fl["rp"], r=fl["r"],
+                                    veg=s["cat"] in ("observed", "ending"), n=v.get("n"),
+                                    lc=v.get("lc"), era5_rp=fl.get("era5_rp")))
         out.append(dict(name=row.get("name"), parent=row.get("parent"),
                         w4=w["w4"], w3=w["w3"], wall=w["wall"], seasons=seasons))
     return out

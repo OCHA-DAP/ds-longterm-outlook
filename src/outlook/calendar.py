@@ -166,8 +166,8 @@ def region_exposure(units: list, win: list[dict], cal: dict, keys: list[str],
     the people in a lean season affected by a dry rainy season. A unit counts once in a month
     however many affected lean seasons cover it (Somalia's pastoral Aug-Oct and cropping Oct-Dec
     lean seasons share October). `known`: fed by an observed or forecast dry season; `obs`: the
-    part fed by an observed or partly observed (ERA5) one; `scen[phase]`: known plus the lean
-    seasons fed by that ENSO scenario's dry seasons.
+    part fed by a season that has ended or is under way (biomass); `scen[phase]`: known plus the
+    lean seasons fed by that ENSO scenario's dry seasons.
     """
     a0, a1 = axis
     n_ax = a1 - a0 + 1
