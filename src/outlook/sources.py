@@ -10,9 +10,11 @@
 Blob and HTTP reads are cached under cache/; pass refresh=True (build --refresh) to re-read.
 """
 
+import csv
 import io
 import json
 import logging
+import re
 from datetime import date
 
 import ocha_stratus as stratus
@@ -21,8 +23,11 @@ import pyarrow.parquet as pq
 import requests
 
 from outlook.config import (
+    ASAP_BASE,
+    ASAP_BIOMASS,
     BLOB,
     CACHE,
+    FAO_ASI,
     FDW_POPULATION,
     HNRP_SITE,
     IPC_SITE,
@@ -129,6 +134,73 @@ def fdw_population(refresh: bool = False) -> pd.DataFrame:
     most likely (ML). National Phase 3+ ranges only; FEWS NET publishes no area populations."""
     text = _http_text(FDW_POPULATION, "fdw_ipcpopulationsize.csv", refresh)
     return pd.read_csv(io.StringIO(text), low_memory=False)
+
+
+def asap_countries(refresh: bool = False) -> dict[str, int]:
+    """iso3 -> ASAP's own country id (asap0_id: not ISO, not GAUL adm0_code)."""
+    meta = json.loads(_http_text(f"{ASAP_BASE}/getDataDownload.php", "asap_meta.json", refresh))
+    return {c["isocode3"]: int(c["asap0_id"]) for c in meta["countries"] if c.get("isocode3")}
+
+
+def asap_biomass(asap0_id: int, class_id: int, level: int, refresh: bool = False) -> pd.DataFrame:
+    """One country's zFPARc series for every GAUL unit (level 1 or 2) and dekad since 2001:
+    region_id, date (YYYYMMDD of the dekad), value. Cached per dekad: ASAP updates every ten
+    days."""
+    d = date.today()
+    tag = f"{d:%Y%m}{(1, 11, 21)[min(2, (d.day - 1) // 10)]:02d}"
+    path = CACHE / "asap" / f"zfparc_g{level}_{asap0_id}_{class_id}_{tag}.csv"
+    if refresh or not path.exists():
+        params = dict(gaul_level=level, country_id=asap0_id, class_id=class_id, **ASAP_BIOMASS)
+        for attempt in range(3):
+            try:
+                r = requests.get(f"{ASAP_BASE}/export/rum/export.php", params=params, timeout=600)
+                r.raise_for_status()
+                # an invalid combination returns an HTML page with status 200
+                if not r.text.startswith("country_id,"):
+                    raise ValueError(f"ASAP export {params}: not a CSV")
+                break
+            except (requests.RequestException, ValueError) as e:
+                if attempt == 2:
+                    raise
+                log.warning("ASAP %s class %s: %s, retrying", asap0_id, class_id, e)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(r.text)
+        log.info("ASAP %s class %s: %.1f MB", asap0_id, class_id, len(r.text) / 1e6)
+    df = pd.read_csv(path, usecols=["region_id", "date", "value"])
+    return df.dropna(subset=["value"])
+
+
+_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def fao_asi(iso3: str, refresh: bool = False) -> pd.DataFrame:
+    """FAO ASI (cropland, season 1) for every admin-1 unit and dekad: code (GAUL ADM1_CODE),
+    province, date (YYYYMMDD int), value (% of cropland with mean VHI < 35). Empty frame where FAO
+    publishes no file. Names can hold commas, so each row is read around its date field."""
+    d = date.today()
+    tag = f"{d:%Y%m}{(1, 11, 21)[min(2, (d.day - 1) // 10)]:02d}"
+    path = CACHE / "fao_asi" / f"{iso3}_{tag}.csv"
+    if refresh or not path.exists():
+        r = requests.get(FAO_ASI.format(iso3=iso3), timeout=300)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(r.text if r.status_code == 200 and r.text.startswith("Indicator") else "")
+    out = []
+    # the file can also hold wVHI rows and a second copy of the ASI rows (Afghanistan)
+    for row in csv.reader(io.StringIO(path.read_text(encoding="utf-8", errors="replace"))):
+        if not row or row[0].strip() != "Agricultural Stress Index (ASI)":
+            continue
+        j = next((k for k, x in enumerate(row) if _DATE.match(x.strip())), None)
+        i = next((k for k in range(1, len(row)) if row[k].strip().isdigit()), None)
+        if j is None or i is None or j < i + 2 or j + 1 >= len(row):
+            continue
+        try:
+            v = float(row[j + 1])
+        except ValueError:
+            continue
+        out.append((int(row[i]), ",".join(row[i + 1:j - 1]).strip(),
+                    int(row[j].replace("-", "")), v))
+    return (pd.DataFrame(out, columns=["code", "province", "date", "value"])
+            .drop_duplicates(["code", "date"], keep="last"))
 
 
 def wb_population(refresh: bool = False) -> dict[str, dict]:

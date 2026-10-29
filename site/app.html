@@ -115,8 +115,6 @@ td .sub { display: block; font-size: 11px; color: var(--n7); white-space: nowrap
 .cal-harv { background: #0d5d40; color: #fff; border-radius: 6px; height: 15px; line-height: 15px; padding: 0 6px; font-size: 10px; }
 .cal-lean { background: var(--n0); border: 2px solid #e8413e; color: #b3201c; }
 .ended { opacity: .55; }
-/* relies on ERA5, which overstated the 2026 Sahel deficit: a row of white dots along the bottom */
-.era5 { background-image: radial-gradient(circle, rgba(255,255,255,.95) 1px, transparent 1.3px); background-size: 4px 4px; background-repeat: repeat-x; background-position: 0 100%; }
 .gbar { background: var(--n6); color: #fff; }
 .gbar.light { background: var(--n3); color: var(--n9); }
 .gcell { text-align: center; font-size: 10.5px; color: var(--n8); background: var(--n1); border-radius: 2px; padding: 3px 1px; white-space: nowrap; overflow: hidden; }
@@ -136,19 +134,23 @@ td .sub { display: block; font-size: 11px; color: var(--n7); white-space: nowrap
 .gc { display: grid; column-gap: 1px; row-gap: 0; align-items: center; min-width: 1080px; font-size: 11px; }
 .g-reg { grid-column: 1 / -1; font-size: 12.5px; color: var(--n7); padding: 16px 0 3px; }
 .g-reg b { font-family: 'Merriweather', Georgia, serif; font-size: 15px; color: var(--n9); margin-right: 6px; }
-.g-name { grid-column: 1; padding: 3px 8px 3px 2px; font-size: 12.5px; line-height: 1.2; cursor: pointer; border-radius: 2px; }
+.g-name { grid-column: 1; align-self: center; padding: 3px 44px 3px 2px; font-size: 12.5px; line-height: 1.2; cursor: pointer; border-radius: 2px; }
+.g-blk { grid-column: 1 / -1; align-self: stretch; pointer-events: none; }
+.g-blk.alt { background: #f1f4f4; }
+.g-ll { grid-column: 1; justify-self: end; padding-right: 6px; font-size: 9.5px; line-height: 10px; color: var(--n7); letter-spacing: .02em; }
 .g-name:hover, .g-name:focus-visible { color: var(--b6); outline: none; background: var(--n01); }
 .g-name .tw { display: inline-block; width: 12px; color: var(--n6); font-size: 10px; }
 .g-name .sub { display: block; font-size: 10.5px; color: var(--n7); padding-left: 12px; }
 .g-name.nofig { color: var(--n7); }
-.g-bg { grid-column: 2 / -2; height: 7px; margin: 1px 0; background: var(--n05); }
-.g-c, .g-bar { height: 7px; margin: 1px 0; border-radius: 1px; }
+.g-bg { grid-column: 2 / -2; height: 8px; margin: 2px 0; background: rgba(31, 35, 36, .06); }
+.g-c, .g-bar { height: 8px; margin: 2px 0; border-radius: 1px; }
 .g-bar.fews { background: var(--n8); }
-.g-bar.ipc { background: var(--n3); margin-left: 1px; }
-.g-bar.ipc.cur { background: var(--n4); }
+/* IPC/CH in steel blue, apart from the grey track and the FEWS NET bar */
+.g-bar.ipc { background: #a3bdd0; margin-left: 1px; }
+.g-bar.ipc.cur { background: #5f87a6; }
 .g-end { grid-column: -2 / -1; text-align: right; font-size: 12px; padding-left: 6px; line-height: 1.2; }
 .g-end .sub { display: block; font-size: 10.5px; color: var(--n7); }
-.g-sep { grid-column: 1 / -1; height: 4px; border-bottom: 1px solid var(--n1); margin-bottom: 3px; }
+.g-sep { grid-column: 1 / -1; height: 0; border-bottom: 1px solid var(--n2); }
 .g-exp { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; row-gap: 2px; background: var(--n01); border: 1px solid var(--n15); border-radius: 4px; padding: 6px 0 8px; margin: 3px 0 6px; }
 .g-exp-h { grid-column: 1 / -1; padding: 0 8px 4px; font-size: 12px; color: var(--n7); }
 /* map */
@@ -463,12 +465,10 @@ function expCell(c, cat) {
   const w = wsel(c);
   if (!w) return {v: null, html: `<td class="num muted">—</td>`};
   const v = w.e.cats[cat][w.key], sh = w.total ? v / w.total : null, cls = shareClass(sh);
-  const warn = cat === "ending" && c.era5_caveat && v > 0;  // observed + in-season seasons
-  const t = `<b>${esc(c.name)}</b> · ${CAT_NAME[cat]}<br>${fmt(v)} of ${fmt(w.total)} (${pct(sh)}) in areas with a dry signal`
-    + (warn ? `<br>⚠ ERA5 is known to overstate the 2026 deficit here` : "");
-  return {v, html: `<td class="num" data-tip="${esc(t)}">${fmt(v)}${warn ? ` <span class="c-label lab-err">ERA5</span>` : ""}<span class="cbar"><i style="width:${Math.max(0, Math.min(100, (sh || 0) * 100))}%;background:${cls ? SHARE_COL[cls] : "transparent"}"></i></span></td>`};
+  const t = `<b>${esc(c.name)}</b> · ${CAT_NAME[cat]}<br>${fmt(v)} of ${fmt(w.total)} (${pct(sh)}) in areas with a dry signal`;
+  return {v, html: `<td class="num" data-tip="${esc(t)}">${fmt(v)}<span class="cbar"><i style="width:${Math.max(0, Math.min(100, (sh || 0) * 100))}%;background:${cls ? SHARE_COL[cls] : "transparent"}"></i></span></td>`};
 }
-const CAT_NAME = {ending: "season ended or ending (observed / partly observed)", forecast: "SEAS5 forecast", known: "season ending or forecast",
+const CAT_NAME = {ending: "seasons ended or under way, judged on biomass (JRC ASAP)", forecast: "SEAS5 forecast", known: "season ending or forecast",
   scenario_nino: "if El Niño persists", scenario_neutral: "if ENSO is neutral", scenario_nina: "if La Niña develops"};
 
 function windowBounds() {
@@ -495,8 +495,7 @@ const COLS = [
 
 function shareLegend() {
   return `<div class="legend"><span>Bar shading shows the share of the people counted who are in areas with a dry signal:</span>
-    ${[[1, "under 10%"], [2, "10–33%"], [3, "33–66%"], [4, "over 66%"]].map(([k, l]) => `<span><span class="sw" style="background:${SHARE_COL[k]}"></span>${l}</span>`).join("")}
-    <span><span class="c-label lab-err">ERA5</span> season-ending figure relies on ERA5, which overstated the 2026 deficit in the flagged countries</span></div>`;
+    ${[[1, "under 10%"], [2, "10–33%"], [3, "33–66%"], [4, "over 66%"]].map(([k, l]) => `<span><span class="sw" style="background:${SHARE_COL[k]}"></span>${l}</span>`).join("")}</div>`;
 }
 
 function drawTable() {
@@ -565,7 +564,7 @@ function renderGlobal() {
   const v = $("#view"), view = state.view;
   const offOurs = view === "map" && !OURS(state.layer) ? ` class="off" title="Not used by the IPC/CH and FEWS NET layers"` : "";
   v.innerHTML = `
-    <div class="banner"><b>Rainfall and seasonal calendars only.</b> Our figures count people in areas with a rainfall-based dry signal. They do not include conflict, displacement or economic drivers, which matter more in most of the largest crises. Other organisations' figures are shown as published. They measure different things (see “How to read this”) and are not directly comparable with ours or with each other.</div>
+    <div class="banner"><b>Rainfall forecasts, vegetation and seasonal calendars only.</b> Our figures count people in areas with a dry signal: poor biomass for seasons that have ended or are under way, a dry SEAS5 forecast for those to come. They do not include conflict, displacement or economic drivers, which matter more in most of the largest crises. Other organisations' figures are shown as published. They measure different things (see “How to read this”) and are not directly comparable with ours or with each other.</div>
     <h2>All countries</h2>
     <div class="controls">
       <span><span class="ctl-label">View</span>${seg("view", [["month", "By month"], ["map", "Map"], ["table", "Table"]], view, "View")}</span>
@@ -630,31 +629,34 @@ function drawMonth() {
     P.push(`<div class="mh" style="grid-column:-2 / -1;grid-row:${row};text-align:right">Largest month${state.scen !== "none" ? "*" : ""}</div>`);
     if (nowCol) P.push(`<div class="now-col" style="grid-column:${nowCol};grid-row:${row}"></div>`);
     row++;
-    for (const {c, w} of list) {
+    list.forEach(({c, w}, ci) => {
       const open = state.open.has(c.iso3), fig = w && w.total > 0;
-      P.push(`<div class="g-name${fig ? "" : " nofig"}" data-open="${c.iso3}" role="button" tabindex="0" aria-expanded="${open}" style="grid-row:${row} / span 4"><span class="tw">${open ? "▾" : "▸"}</span>${esc(c.name)}${c.era5_caveat ? ` <span class="c-label lab-err">ERA5</span>` : ""}<span class="sub">${fig ? `${fmt(w.total)} counted${w.pinOnly ? " (PiN)" : ""}${c.calendar ? "" : " · no FEWS NET calendar"}` : `no ${srcName} figures`}</span></div>`);
-      for (let i = 0; i < 4; i++) P.push(`<div class="g-bg" style="grid-row:${row + i}"></div>`);
+      P.push(`<div class="g-blk${ci % 2 ? " alt" : ""}" style="grid-row:${row} / span 4"></div>`);
+      P.push(`<div class="g-name${fig ? "" : " nofig"}" data-open="${c.iso3}" role="button" tabindex="0" aria-expanded="${open}" style="grid-row:${row} / span 4"><span class="tw">${open ? "▾" : "▸"}</span>${esc(c.name)}<span class="sub">${fig ? `${fmt(w.total)} counted${w.pinOnly ? " (PiN)" : ""}${c.calendar ? "" : " · no FEWS NET calendar"}` : `no ${srcName} figures`}</span></div>`);
+      for (let i = 0; i < 4; i++) {
+        P.push(`<div class="g-bg" style="grid-row:${row + i}"></div>`);
+        P.push(`<div class="g-ll" style="grid-row:${row + i}" data-tip="${esc(LINE_TIPS[i])}">${LINE_NAMES[i]}</div>`);
+      }
       if (fig) {
         const tot = w.total;
         // line 1: dry signal by trimester, on its middle month
         for (const m of AX) {
           const d = dryVal(w, m);
           if (!d || d.off || !d.v) continue;
-          const k = shareClass(d.v / tot), era5 = c.era5_caveat && (d.s.cat === "observed" || d.s.cat === "ending");
-          const t = `<b>${esc(c.name)}</b> · ${esc(d.s.label)}${d.scen ? ` · ${SCEN_NAME[state.scen]}` : ""}<br>${fmt(d.v)} of ${fmt(tot)} counted (${pct(d.v / tot)}) in areas with a dry signal` + (era5 ? "<br>Relies on ERA5, which overstated the 2026 deficit here" : "");
-          P.push(`<div class="g-c${era5 ? " era5" : ""}" style="grid-column:${colT(monthIndex(m))};grid-row:${row};${d.scen ? `background-image:${stripes(DRY_COL[k])}` : `background-color:${DRY_COL[k]}`}" data-tip="${esc(t)}"></div>`);
+          const k = shareClass(d.v / tot), how = SLOT_HOW[d.s.cat];
+          const t = `<b>${esc(c.name)}</b> · ${esc(d.s.label)}${d.scen ? ` · ${SCEN_NAME[state.scen]}` : ""}<br>${fmt(d.v)} of ${fmt(tot)} counted (${pct(d.v / tot)}) in areas with a dry signal${how ? `<br>${how}` : ""}`;
+          P.push(`<div class="g-c" style="grid-column:${colT(monthIndex(m))};grid-row:${row};${d.scen ? `background-image:${stripes(DRY_COL[k])}` : `background-color:${DRY_COL[k]}`}" data-tip="${esc(t)}"></div>`);
         }
         // line 2: lean season affected, by month
         for (const m of AX) {
           const lv = leanVal(w, m);
           if (!lv.v) continue;
-          const k = shareClass(lv.v / tot), era5 = c.era5_caveat && lv.obs > 0;
+          const k = shareClass(lv.v / tot);
           const names = leanNames(c, w, m);
           const t = `<b>${esc(c.name)}</b> · ${monLabel(m)}<br>${fmt(lv.v)} of ${fmt(tot)} counted (${pct(lv.v / tot)}) in a lean season that follows a dry rainy season`
             + (names.length ? `<br>${esc(names.join("; "))}` : "")
-            + (lv.v > lv.known ? `<br>${fmt(lv.known)} from observed or forecast seasons, the rest under the ${esc(SCEN_NAME[state.scen])} scenario` : "")
-            + (era5 ? "<br>Partly from seasons where ERA5 overstated the 2026 deficit" : "");
-          P.push(`<div class="g-c${era5 ? " era5" : ""}" style="grid-column:${colT(monthIndex(m))};grid-row:${row + 1};${lv.known ? `background-color:${LEAN_COL[k]}` : `background-image:${stripes(LEAN_COL[k])}`}" data-tip="${esc(t)}"></div>`);
+            + (lv.v > lv.known ? `<br>${fmt(lv.known)} from observed or forecast seasons, the rest under the ${esc(SCEN_NAME[state.scen])} scenario` : "");
+          P.push(`<div class="g-c" style="grid-column:${colT(monthIndex(m))};grid-row:${row + 1};${lv.known ? `background-color:${LEAN_COL[k]}` : `background-image:${stripes(LEAN_COL[k])}`}" data-tip="${esc(t)}"></div>`);
         }
       }
       // line 3: FEWS NET peak needs window
@@ -680,7 +682,7 @@ function drawMonth() {
       }
       P.push(`<div class="g-sep" style="grid-row:${row}"></div>`);
       row++;
-    }
+    });
   }
   host.innerHTML = monthLegend()
     + `<div class="tbl-wrap" style="border:0"><div class="gc" style="grid-template-columns:${GLOBAL_COLS(n)}">${P.join("")}</div></div>`
@@ -693,18 +695,26 @@ function drawMonth() {
   });
 }
 
+// the word beside each of a country's four lines, and what it means
+const LINE_NAMES = ["Dry", "Lean", "FEWS", "IPC"];
+const LINE_TIPS = [
+  "Dry signal, by trimester: share of the people counted in areas with a dry signal",
+  "Lean season after a dry rainy season, by month: share of the people counted",
+  "FEWS NET peak-needs window",
+  "IPC/CH current period (darker) and projections",
+];
+
 function rampSw(col, striped) {
   return [[1, "under 10%"], [2, "10–33%"], [3, "33–66%"], [4, "over 66%"]].map(([k, l]) =>
     `<span><span class="sw" style="${striped ? `background-image:${stripes(col[k])}` : `background:${col[k]}`}"></span>${l}</span>`).join("");
 }
 function monthLegend() {
   return `<div class="legend">
-    <div class="row"><b>Four lines per country.</b> Click a country to open its full calendar here.</div>
-    <div class="row"><span>1 · Dry signal, by trimester (on its middle month), share of the people counted:</span>${rampSw(DRY_COL)}</div>
-    <div class="row"><span>2 · Lean season that follows a dry rainy season, by month, share of the people counted:</span>${rampSw(LEAN_COL)}</div>
-    <div class="row"><span>3 · <span class="sw" style="background:var(--n8)"></span>FEWS NET peak needs</span><span>4 · <span class="sw" style="background:var(--n4)"></span><span class="sw" style="background:var(--n3)"></span>IPC/CH current period and projections</span>
+    <div class="row"><b>Four lines per country, labelled beside each.</b> Click a country to open its full calendar here.</div>
+    <div class="row"><span><b>Dry</b> · dry signal, by trimester (on its middle month), share of the people counted:</span>${rampSw(DRY_COL)}</div>
+    <div class="row"><span><b>Lean</b> · lean season that follows a dry rainy season, by month, share of the people counted:</span>${rampSw(LEAN_COL)}</div>
+    <div class="row"><span><b>FEWS</b> · <span class="sw" style="background:var(--n8)"></span>FEWS NET peak needs</span><span><b>IPC</b> · <span class="sw" style="background:#5f87a6"></span><span class="sw" style="background:#a3bdd0"></span>IPC/CH current period and projections</span>
       <span><span class="sw" style="background-image:${stripes("var(--n7)")}"></span>striped: only under the ENSO scenario chosen above</span>
-      <span><span class="sw era5" style="background-color:var(--r2)"></span>dotted: relies on ERA5, which overstated the 2026 Sahel deficit</span>
       <span><span class="sw" style="box-shadow:inset 1px 0 0 var(--p5),inset -1px 0 0 var(--p5)"></span>this month</span></div>
   </div>`;
 }
@@ -714,7 +724,13 @@ function monthLegend() {
 // subgrid, so its months sit under the calendar's). Our rows: the dry signal by trimester, then
 // per FEWS NET calendar region the rains (filled by our dry signal), harvest and lean season
 // (filled by the people counted). Then other organisations' timing.
-const BAND_NAME = {observed: "Season ended · ERA5", ending: "Ending", forecast: "SEAS5 forecast", scenario: "ENSO scenarios"};
+const BAND_NAME = {observed: "Ended · biomass", ending: "Under way", forecast: "SEAS5 forecast", scenario: "ENSO scenarios"};
+// how each kind of trimester is judged (tooltips)
+const SLOT_HOW = {
+  observed: "Season ended: judged on biomass (JRC ASAP), dry when in the lowest third of the unit's own record at that point of the season",
+  ending: "Season under way: judged on biomass so far (JRC ASAP), dry when in the lowest third of the unit's own record at that point of the season",
+  forecast: "SEAS5 forecast: dry when a 1-in-3-year dry season or worse",
+};
 const COUNTRY_COLS = n => `180px repeat(${n}, minmax(34px, 1fr))`;
 
 function countryGrid(c, months, sub = false) {
@@ -839,11 +855,11 @@ function dryCell(c, w, s, pos) {
     return `<div class="cell2 scen" style="${pos};border-color:${DRY_COL[k]}" data-tip="${esc(t)}"><span class="t">${ph === "nino" ? "El Niño" : "La Niña"}</span><span class="x">${fmt(v)}</span></div>`;
   }
   const v = sl[w.key] || 0;
-  const t = `<b>${s.label}</b> · ${s.cat === "observed" ? "season ended, observed (ERA5): dry when in its own driest third of the record" : s.cat === "ending" ? `season ending, lead ${s.lead} (${-s.lead === 2 ? "2 of 3" : "1 of 3"} months observed)` : `SEAS5 forecast, lead ${s.lead}`}<br>`
+  const t = `<b>${s.label}</b> · ${s.cat === "observed" ? "season ended" : s.cat === "ending" ? "under way at the SEAS5 issuance" : `SEAS5 forecast, lead ${s.lead}`}<br>${SLOT_HOW[s.cat]}${s.cat !== "forecast" && M.sources.asap_latest ? ` (ASAP data to ${esc(M.sources.asap_latest)})` : ""}<br>`
     + `${fmt(v)} of ${fmt(tot)} counted (${pct(tot ? v / tot : 0)}) in areas with a dry signal<br>${fmt(rainyW)} in areas where this trimester is in the rainy season`;
   if (!v && shR < 0.05) return off(t);
-  const k = shareClass(tot ? v / tot : 0), era5 = (s.cat === "ending" || s.cat === "observed") && c.era5_caveat && v > 0;
-  return `<div class="cell2${k ? "" : " none"}${era5 ? " era5" : ""}" style="${pos};${k ? `background-color:${DRY_COL[k]};color:${inkOn(k, "dry")}` : ""}" data-tip="${esc(t + (era5 ? "<br>ERA5 overstated the 2026 deficit here" : ""))}"><span class="t">${s.tri}</span><span class="x">${fmt(v)}</span></div>`;
+  const k = shareClass(tot ? v / tot : 0);
+  return `<div class="cell2${k ? "" : " none"}" style="${pos};${k ? `background-color:${DRY_COL[k]};color:${inkOn(k, "dry")}` : ""}" data-tip="${esc(t)}"><span class="t">${s.tri}</span><span class="x">${fmt(v)}</span></div>`;
 }
 
 // FEWS NET's rainy seasons, filled with our dry signal where the outlook window covers them
@@ -855,15 +871,15 @@ function rainItems(c, r, R, w, tot, occ) {
     const oc = R && R.occ.find(x => x.season === sp.name && monthIndex(x.s) === a);
     if (!oc || !w) return {a, z, cls: "cal-rain", text: sp.name, tip: head + (!w ? "" : !R ? "<br>No admin units with figures in this region" : "<br>Not assessed: no trimester in the outlook window covers it")};
     const v = oc.known[w.key] || 0, hasKnown = oc.cats.some(x => x !== "scenario"), sc = oc.scen;
-    const tipText = head + `<br>Trimesters covering it: ${oc.tris.join(", ")} (${oc.cats.map(x => ({observed: "observed (ERA5)", ending: "season ending", forecast: "SEAS5 forecast", scenario: "ENSO scenario"}[x])).join(", ")})`
+    const tipText = head + `<br>Trimesters covering it: ${oc.tris.join(", ")} (${oc.cats.map(x => ({observed: "ended, biomass", ending: "under way, biomass", forecast: "SEAS5 forecast", scenario: "ENSO scenario"}[x])).join(", ")})`
       + (hasKnown ? `<br>${fmt(v)} of ${fmt(tot)} counted in this region (${pct(tot ? v / tot : 0)}) in areas with a dry signal` : "")
       + (v > 0 && oc.dry_tris && oc.dry_tris.length ? `<br>Trimesters with a dry signal: ${esc(oc.dry_tris.join(", "))}` : "")
       + (oc.cats.includes("scenario") ? `<br>ENSO scenarios: El Niño ${fmt(sc.nino[w.key])} · neutral ${fmt(sc.neutral[w.key])} · La Niña ${fmt(sc.nina[w.key])}` : "")
       + (oc.harvest ? `<br>Linked harvest: ${esc(oc.harvest.name)}, ${rangeLabel(oc.harvest.s, oc.harvest.e)}` : "<br>No harvest linked to it on the calendar")
       + oc.impacts.map(im => `<br>Lean season affected: ${esc(im.name)}, ${rangeLabel(im.s, im.e)} (${im.kind === "livestock" ? "pastoral, after the rains" : "after the harvest"})${im.diluted_by ? `; ${esc(im.diluted_by)} comes earlier, so the effect is likely smaller` : ""}`).join("");
     if (hasKnown && v > 0) {
-      const k = shareClass(tot ? v / tot : 0), era5 = c.era5_caveat && oc.cats.some(x => x === "observed" || x === "ending");
-      return {a, z, cls: era5 ? "era5" : "", style: `background-color:${DRY_COL[k]};color:${inkOn(k, "dry")}`, text: `${sp.name} · ${fmt(v)} dry`, tip: tipText + (era5 ? "<br>Relies on ERA5, which overstated the 2026 deficit here" : "")};
+      const k = shareClass(tot ? v / tot : 0);
+      return {a, z, cls: "", style: `background-color:${DRY_COL[k]};color:${inkOn(k, "dry")}`, text: `${sp.name} · ${fmt(v)} dry`, tip: tipText};
     }
     if (hasKnown) return {a, z, cls: "cal-rain", text: `${sp.name} · no dry signal`, tip: tipText};
     const vs = Math.max(sc.nino[w.key] || 0, sc.nina[w.key] || 0);
@@ -899,9 +915,9 @@ function leanItems(c, r, R, w, tot, occ) {
       + (im.kind === "livestock" ? "<br>The count covers everyone in the region; a poor pastoral season mainly affects pastoral households, often a minority" : "")
       + (ended ? "<br>Already ended" : "");
     if (v > 0) {
-      const k = shareClass(tot ? v / tot : 0), era5 = c.era5_caveat && fedBy.some(o => o.cats.some(x => x === "observed" || x === "ending"));
-      return {a, z, cls: [era5 ? "era5" : "", ended ? "ended" : ""].join(" "), style: `background-color:${LEAN_COL[k]};color:${inkOn(k, "lean")}`,
-        text: `${text0} · ${fmt(v)}${ended ? " · ended" : ""}`, tip: tipText + (era5 ? "<br>Partly from seasons where ERA5 overstated the 2026 deficit" : "")};
+      const k = shareClass(tot ? v / tot : 0);
+      return {a, z, cls: ended ? "ended" : "", style: `background-color:${LEAN_COL[k]};color:${inkOn(k, "lean")}`,
+        text: `${text0} · ${fmt(v)}${ended ? " · ended" : ""}`, tip: tipText};
     }
     if (sv.length) {
       const vs = Math.max(...sv.map(x => x[1]));
@@ -949,7 +965,6 @@ function gridLegend() {
     <div class="row"><span>Trimester cells share the country's count; rains and lean seasons share their calendar region's.</span></div>
     <div class="row"><span><span class="sw" style="background:#bddbe9"></span>rains,</span><span><span class="sw" style="background:#0d5d40"></span>harvest,</span><span><span class="sw" style="background:#fff;box-shadow:inset 0 0 0 2px #e8413e"></span>lean season, as on FEWS NET's calendar</span>
       <span><span class="sw" style="background:#fff;border:2px dashed var(--s2)"></span>dashed: ENSO scenario only</span>
-      <span><span class="sw era5" style="background-color:var(--r2)"></span>dotted: relies on ERA5, which overstated the 2026 Sahel deficit</span>
       <span><span class="sw" style="box-shadow:inset 1px 0 0 var(--p5),inset -1px 0 0 var(--p5)"></span>this month</span></div>
   </div>`;
 }
@@ -1075,10 +1090,10 @@ function mapDiscs(n, m) {
     return {d: [v, 0, 0], x, v: x ? x.low || 0 : 0, has: !!x, p5: 0, cov: x ? n.outer : 0};
   }
   const w = wsel(c);
-  if (!w) return {d: [0, 0, 0], v: 0, era5: false};
-  if (state.layer === "lean") { const lv = leanVal(w, m); return {d: [w.total || 0, lv.v, 0], v: lv.v, era5: c.era5_caveat && lv.obs > 0}; }
+  if (!w) return {d: [0, 0, 0], v: 0};
+  if (state.layer === "lean") { const lv = leanVal(w, m); return {d: [w.total || 0, lv.v, 0], v: lv.v}; }
   const dv = dryVal(w, m), v = dv && !dv.off ? dv.v : 0;
-  return {d: [w.total || 0, v, 0], v, era5: !!(dv && c.era5_caveat && (dv.s.cat === "observed" || dv.s.cat === "ending") && v > 0)};
+  return {d: [w.total || 0, v, 0], v};
 }
 const DISC_CLASS = {lean: ["c-grey", "c-lean", ""], dry: ["c-grey", "c-dry", ""], ipc: ["c-p3", "c-p4", "c-p5"], fews: ["c-p3", "c-p4", "c-p5"]};
 
@@ -1103,8 +1118,7 @@ function drawMap() {
     <div class="mapbox"><svg id="map" class="layer-${state.layer}" viewBox="0 0 ${MAP_W} ${MAP_H}" role="img" aria-label="Map of countries: one circle per country, sized by the population its figures are a share of"></svg></div>
     ${mapLegend(L)}`;
   const svg = d3.select("#map");
-  svg.append("defs").html(`<pattern id="era5dots" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#fff" fill-opacity=".95"/></pattern>`
-    + `<pattern id="nodata" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#d8e0e1"/><line x1="0" y1="0" x2="0" y2="5" stroke="#b1c1c2" stroke-width="2"/></pattern>`);
+  svg.append("defs").html(`<pattern id="nodata" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#d8e0e1"/><line x1="0" y1="0" x2="0" y2="5" stroke="#b1c1c2" stroke-width="2"/></pattern>`);
   svg.append("g").attr("class", "land").selectAll("path").data(MAPC.feats).join("path")
     .attr("d", MAPC.path).attr("class", f => MAPC.oursIds.has(f.id) ? "ours" : null);
   // biggest first, so small circles sit on top
@@ -1114,7 +1128,6 @@ function drawMap() {
   g.append("circle").attr("class", n => "b-out" + (!OURS(state.layer) && n.outer > 0 ? " hatch" : "")).attr("r", n => n.r);
   g.append("circle").attr("class", "b-cov").attr("r", 0);
   DISC_CLASS[state.layer].forEach((cls, i) => g.append("circle").attr("class", `b-d${i} ${cls}`).attr("r", 0));
-  g.append("circle").attr("class", "b-dots").attr("r", 0).attr("fill", "url(#era5dots)");
   g.append("circle").attr("class", "b-peak").attr("r", n => n.r + 2.5).attr("opacity", 0);
   g.append("text").attr("class", "b-lab").text(n => n.c.name.length * 5.4 < 2 * n.r - 4 ? n.c.name : n.r >= 11 ? n.c.iso3 : "");
   // Phase 5 is often too small to see as a disc: a "5" on the circle's edge says it is there,
@@ -1161,8 +1174,6 @@ function updateMap(animate = true) {
   const cov = sel.select(".b-cov");
   (animate ? cov.transition().duration(350) : cov).attr("r", covR);
   [0, 1, 2].forEach(i => { const d = sel.select(`.b-d${i}`); (animate ? d.transition().duration(350) : d).attr("r", n => R.get(n)[i]); });
-  const dots = sel.select(".b-dots");
-  (animate ? dots.transition().duration(350) : dots).attr("r", n => vals.get(n).era5 ? R.get(n)[1] : 0);
   sel.select(".b-peak").attr("opacity", n => inPeak(n.c, m) ? 1 : 0);
   d3.select("#map").selectAll("g.fives > g").attr("opacity", n => vals.get(n).p5 > 0 ? 1 : 0);
   sel.attr("data-tip", n => mapTip(n, m, vals.get(n)));
@@ -1233,7 +1244,6 @@ function mapTip(n, m, mv) {
     const lv = leanVal(w, m), d = dryVal(w, m), names = leanNames(c, w, m);
     L.push(`${OURS(state.layer) ? "" : `Ours (${esc(o.short)}): `}in a lean season after a dry rainy season: ${fmt(lv.v)} (${pct(lv.v / w.total)})${names.length ? ` · ${esc(names.join("; "))}` : ""}`);
     if (OURS(state.layer) && d && !d.off) L.push(`Dry signal, ${esc(d.s.label)}${d.scen ? ` (${esc(SCEN_NAME[state.scen])})` : ""}: ${fmt(d.v)} (${pct(d.v / w.total)})`);
-    if (mv.era5) L.push("Relies on ERA5, which overstated the 2026 deficit here");
   }
   if (pk && pk.peak && !mv.peak) L.push(`FEWS NET peak needs: ${esc(fewsRange(pk))}, ${esc(rangeLabel(pk.peak[0], pk.peak[1]))}${inPeak(c, m) ? " (includes this month)" : ""}`);
   if (state.layer !== "fews" && fx) L.push(fewsLine(fx));
@@ -1271,8 +1281,7 @@ function mapLegend(L) {
   const marks = [[`<circle r="8" class="b-out"/><circle r="11" class="b-peak"/>`, "Dashed ring: the month is in FEWS NET's peak-needs window"]];
   if (!OURS(lay)) marks.push([`<g class="b-five"><circle r="6.5"/><text>5</text></g>`, lay === "fews" ? "Phase 5 in FEWS NET's peak estimate (it gives no Phase 5 figure outside the peak months)" : "Phase 5 reported this month (usually too few people to see as a disc)"]);
   marks.push(...(OURS(lay)
-    ? [[`<circle r="10" class="b-out"/><circle r="7" class="c-lean"/><circle r="7" fill="url(#era5dots)"/>`, "Dotted: relies on ERA5, which overstated the 2026 Sahel deficit"],
-       [`<circle r="4" fill="none" stroke="var(--n6)" stroke-dasharray="1.5 1.5"/>`, "No figures for this count"]]
+    ? [[`<circle r="4" fill="none" stroke="var(--n6)" stroke-dasharray="1.5 1.5"/>`, "No figures for this count"]]
     : [[`<circle r="10" class="b-out hatch"/>`, lay === "ipc" ? "Hatched: not analysed in the month shown (no period covers it, or the period covers part of the country). It does not mean no one is in need." : "Hatched: no FEWS NET figure for the month shown. It does not mean no one is in need."],
        [`<circle r="4" fill="none" stroke="var(--n6)" stroke-dasharray="1.5 1.5"/>`, lay === "ipc" ? "No IPC/CH figure in any of the months shown" : "No FEWS NET figure in any of the months shown"]]));
   const side = marks.map(([g, t]) => `${icon(g)}<span>${t}</span>`).join("");
@@ -1326,7 +1335,7 @@ function methodSection() {
   return `<details><summary>How to read this</summary><div class="method"><ul>
     <li><b>Exposure.</b> Our figures count today's caseload, by admin unit, in areas where a season in the window is dry. They do not estimate how the caseload will change.</li>
     <li><b>Dry signal.</b> For the season ending and the SEAS5 forecast, a unit counts where the trimester is part of its rainy season (≥ ${Math.round(t.rainy_share * 100)}% of annual rain), SEAS5 has at least moderate skill there (r ≥ ${t.r_min}), and the forecast is a 1-in-${t.rp_min}-year dry season or worse. These are the same rules as the SEAS5 viewer's Forecast × HNRP tab. “Rainy season” here is a share-of-rain rule; the crop calendars are used only for the timing of impact.</li>
-    <li><b>Season ended / ending.</b> The six trimesters that ended in the six months before SEAS5 was issued are fully observed (ERA5). They count as dry when the season ranks in its own driest third of the record. They are kept so that a season that has just ended is still linked to the lean season that follows it. As more months pass after a season ends, fewer of these trimesters cover it, so its result can change from one monthly update to the next. The trimesters under way at issuance have two or one of their three months observed and the rest forecast; their harvests are linked to next year's lean season. ERA5 overstated the 2026 deficit across the Sahel: it ranked Chad's July–September season as the driest on record, at 23% of normal, while CHIRPS had 64–70%. Figures that rely on ERA5 in these countries are flagged (dotted fill, or an ERA5 label).</li>
+    <li><b>Seasons ended or under way: biomass.</b> Rainfall is used only for what is still forecast. The six trimesters that ended in the six months before SEAS5 was issued, and the two under way at issuance, are judged on vegetation: JRC ASAP's cumulative biomass anomaly since the start of the season (zFPARc, MODIS), for cropland and rangeland, at the last ten-day period of the trimester with a value (the latest one for a trimester still under way). The value is detrended first: a straight line is fitted to the unit's values at that point of the season since 2001, and this year's departure from the line is ranked against the past years' departures, because ASAP's biomass has risen over time in places (South Sudan rangeland) and recent years would otherwise rank too high. A unit counts as dry when that departure is in the lowest third, the same 1-in-3-year rule as the SEAS5 forecast, and the season's biomass is also below the unit's long-run average: a season above average is never called dry, however far below a rising trend it is. Both values are in each admin unit's tooltip. The rule is applied on at least half of its judged crop and rangeland area (each weighted by its area, so rangeland decides in agro-pastoral areas). Only trimesters in the unit's rainy season are judged, and not the first rainy trimester of a season, which is read too early in the cycle. ASAP's cropland includes irrigated land, which responds less to a dry year. ASAP data to ${esc(M.sources.asap_latest || "—")}. FAO's Agricultural Stress Index (the share of a province's cropland under stress in FAO's first season, as used in the Afghanistan drought framework; data to ${esc(M.sources.asi_latest || "—")}, so it can be a few weeks behind ASAP) is shown for reference in the admin-unit table, not used in the rule: it is per province, cropland only, and ranked only when at least 10% of the cropland is stressed. The ended trimesters are kept so that a season that has just ended is still linked to the lean season that follows it; as more months pass, fewer of them cover it, so its result can change from one monthly update to the next. ERA5 rainfall is no longer used for these seasons; the admin-unit table on country pages shows its rank for reference.</li>
     <li><b>Timing of impact.</b> Where FEWS NET publishes a seasonal calendar, each rainy season is linked to its harvest and then to the first lean season after that harvest. In pastoral areas it is linked to the first pastoral lean season after the rains. This follows the reasoning in FEWS NET's projections: a poor season mainly affects food security in the next lean season. A person counts once in a month even when two lean seasons overlap (Somalia's pastoral and cropping lean seasons share October). “Lean season most affected” in the table is the current or upcoming lean season (across one or more calendar regions) with the most people counted in areas with a dry signal; lean seasons that have already ended are left out of it. The calendars are our transcriptions of FEWS NET's images, and we assigned admin units to calendar regions; both are shown on each country page.</li>
     <li><b>By month.</b> Each country has four lines on the same months: the dry signal by trimester (placed on its middle month), the lean season that follows a dry rainy season, FEWS NET's peak-needs window, and the IPC/CH current period and projections. Shading is the share of the people counted, so a small country can be as dark as a large one; the number on the right is the largest month in people, from this month on. Countries are grouped by region and sorted by the people counted.</li>
     <li><b>Map.</b> Each circle is the population the layer's figures are a share of. Our layers: the HNRP PiN of all severities, or the population of the admin units with IPC/CH figures; the grey disc is the people counted; the inner disc is those of them in an affected lean season (or with a dry signal) in the month shown. IPC/CH layer: the population the latest analysis covers; a white disc for the people analysed in the period covering the month (a projection can cover only part of a country, leaving the rest hatched), and Phase 3+, 4+ and 5 inside it. FEWS NET layer: the national population (World Bank). FEWS NET publishes no analysed population, and its own percentages use its own population figures, so tooltips give those percentages as published. The FEWS NET layer shows FEWS NET's figures, Phase 3+ before assistance, at the lower end of its ranges: the current estimate in each monthly brief, and for months after the latest brief the most likely projection made six months earlier. FEWS NET publishes these monthly figures as Phase 3+ only; it splits only its annual peak-needs estimate by phase, so in each country's peak months the FEWS NET layer shows that estimate as Phase 3+, 4+ and 5. On the IPC/CH layer a “5” marks a month with people in Phase 5; on the FEWS NET layer it can show only in peak months. On both, a grey hatched circle a month with no figure (no analysis or estimate covers it), which does not mean no one is in need. Circles start on each country's label point (Natural Earth) in an equal-area projection and are moved apart where they would overlap.</li>
@@ -1342,6 +1351,8 @@ function methodSection() {
       ${ext("https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/", "CPC relative Niño3.4 index")} ·
       ${ext(M.enso.iri.url, "IRI ENSO forecast")} ·
       ${ext("https://data.worldbank.org/indicator/SP.POP.TOTL", "World Bank national population")} (the FEWS NET map layer) ·
+      ${ext("https://agricultural-production-hotspots.ec.europa.eu/", "JRC ASAP")} biomass (zFPARc, MODIS) for seasons ended or under way ·
+      ${ext("https://www.fao.org/giews/earthobservation/", "FAO GIEWS ASIS")} Agricultural Stress Index, for reference ·
       map: ${ext("https://www.naturalearthdata.com/", "Natural Earth")} 1:110m via world-atlas; calendar-region maps: the SEAS5 viewer's admin boundaries.</li>
   </ul></div></details>`;
 }
@@ -1357,7 +1368,7 @@ function renderCountry(iso3) {
   const v = $("#view");
   v.innerHTML = `
     <p><a href="#/${state.view}">← All countries</a></p>
-    <div class="banner"><b>Rainfall and seasonal calendars only.</b> These figures count people in areas with a rainfall-based dry signal. They do not include conflict, displacement or economic drivers.</div>
+    <div class="banner"><b>Rainfall forecasts, vegetation and seasonal calendars only.</b> These figures count people in areas with a dry signal: poor biomass for seasons that have ended or are under way, a dry SEAS5 forecast for those to come. They do not include conflict, displacement or economic drivers.</div>
     ${countryLinks(c)}
     ${tiles(c)}
     <h2>Month by month</h2>
@@ -1416,19 +1427,24 @@ function unitsTable(c) {
     const chips = u.seasons.map(s => {
       const sl = winBy[s.key];
       if (s.cat === "scenario") return `<span class="c-label lab-src">${esc(sl.label)} · ${s.phases.map(p => ({nino: "El Niño", neutral: "neutral", nina: "La Niña"}[p])).join(", ")}</span>`;
-      // the RP tops out at n+1 (46 with 45 years): that is "driest in the record", not a 1-in-46 estimate
-      return `<span class="c-label lab-warn">${esc(sl.label)}${s.cat === "observed" ? " (observed)" : ""} · ${s.rp >= 45 ? "driest on record" : `1-in-${Math.round(s.rp)} yr`}${c.era5_caveat && (s.cat === "observed" || s.cat === "ending") ? " · ERA5 ⚠" : ""}</span>`;
+      // the RP tops out at n+1 (46 with 45 years of ERA5, 26 with 25 of ASAP): that is "lowest in
+      // the record", not a 1-in-46 estimate
+      if (s.veg) {
+        const t = `<b>${esc(sl.label)}</b> · biomass (JRC ASAP zFPARc, ${s.lc === "range" ? "rangeland" : "cropland"} decides)<br>Value (z-score of the season's biomass so far): ${s.z != null ? (s.z > 0 ? "+" : "") + s.z : "—"} · departure from the unit's trend at this point of the season: ${s.dep != null ? (s.dep > 0 ? "+" : "") + s.dep : "—"}${s.trend != null ? ` (trend ${s.trend > 0 ? "+" : ""}${s.trend} per decade, removed before ranking)` : ""}<br>Rank of the departure: ${s.n && s.rp >= s.n + 0.99 ? "lowest on record" : `1-in-${Math.round(s.rp)}-year poor or worse`}, ${s.n ?? "—"} past years (dry needs this rank and a below-average value)`
+          + `<br>For reference: FAO ASI ${s.asi != null ? `${s.asi}% of the province's cropland stressed${s.asi_dekad ? ` at ${String(s.asi_dekad).slice(6)}/${String(s.asi_dekad).slice(4, 6)}` : ""}${s.asi_rp != null ? `, ${s.asi_n && s.asi_rp >= s.asi_n + 0.99 ? "most stressed on record" : `1-in-${Math.round(s.asi_rp)} yr`}` : ", not ranked under 10%"}` : "no province figure"} · ERA5 rainfall ${s.era5_rp ? `1-in-${Math.round(s.era5_rp)}-year dry` : "not ranked"}`;
+        return `<span class="c-label lab-warn" data-tip="${esc(t)}">${esc(sl.label)} · biomass${s.lc === "range" ? " (rangeland)" : ""}, ${s.n && s.rp >= s.n + 0.99 ? "lowest on record" : `1-in-${Math.round(s.rp)} yr`}${s.asi != null ? ` · ASI ${Math.round(s.asi)}%` : ""}</span>`;
+      }
+      return `<span class="c-label lab-warn">${esc(sl.label)} · SEAS5, ${s.rp >= 45 ? "driest on record" : `1-in-${Math.round(s.rp)} yr`}</span>`;
     }).join("");
     return `<tr><td>${esc(u.name)}${u.parent ? `<span class="sub">${esc(u.parent)}</span>` : ""}</td><td class="num">${fmt(u[w.key])}</td><td>${chips}</td></tr>`;
   }).join("");
   return `<h3>Admin units with a dry signal: the ${top.length} with the most people counted</h3>
-    <div class="tbl-wrap"><table><thead><tr><th>Admin unit</th><th class="num">${esc(w.pinOnly ? "PiN" : o.short)}</th><th>Dry seasons (orange: observed/forecast, return period; grey: ENSO scenario)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    <div class="tbl-wrap"><table><thead><tr><th>Admin unit</th><th class="num">${esc(w.pinOnly ? "PiN" : o.short)}</th><th>Dry seasons (orange: detrended biomass for seasons ended or under way, SEAS5 for the forecast, with return periods; hover for FAO ASI and ERA5 rainfall, shown for reference; grey: ENSO scenario)</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function countryNotes(c) {
   const n = [];
   const hx = c.exposure.hnrp, ix = c.exposure.ipc;
-  if (c.era5_caveat) n.push(`ERA5 overstated the 2026 rainy-season deficit across the Sahel belt (Chad: driest on record in ERA5, 64–70% of normal in CHIRPS). The season-ending figures here rely on ERA5 for their observed months and are likely too high.`);
   if (hx && hx.mode === "pin") n.push(`No HNRP severity split is published for ${esc(c.name)}; the HNRP counts use admin-level PiN (${hx.year ?? "year n/a"}), so the severity 3+ and 4+ options show total PiN.`);
   if (hx && hx.dropped) n.push(`${hx.dropped} of ${hx.units} HNRP admin units carry no ${hx.year} severity split and are not counted.`);
   if (hx && hx.pbs && c.hnrp && c.hnrp.in_need) {
@@ -1438,7 +1454,10 @@ function countryNotes(c) {
   const w = wsel(c);
   if (w && w.total) {
     const b1 = w.e.blind.seas5[w.key] / w.total, b2 = w.e.blind.scenario[w.key] / w.total;
-    if (b1 > 0.02) n.push(`${pct(b1)} of the people counted here (${fmt(w.e.blind.seas5[w.key])}) are in admin units with no SEAS5 forecast in the viewer's data, so they cannot show a season-ending or forecast signal.`);
+    if (b1 > 0.02) n.push(`${pct(b1)} of the people counted here (${fmt(w.e.blind.seas5[w.key])}) are in admin units with no SEAS5 forecast in the viewer's data, so they cannot show a forecast signal.`);
+    const b3 = (w.e.blind.veg || {})[w.key] / w.total;
+    if (c.veg_note) n.push(`No biomass signal for ${esc(c.name)}: ${esc(c.veg_note)}. Seasons that have ended or are under way show no dry signal here; the SEAS5 forecast still applies.`);
+    else if (b3 > 0.02) n.push(`${pct(b3)} of the people counted here (${fmt(w.e.blind.veg[w.key])}) are in admin units with no JRC ASAP biomass reading (no ASAP unit, or no cropland or rangeland in it), so they cannot show a signal for seasons that have ended or are under way.`);
     if (b2 > 0.02) n.push(`${pct(b2)} of the people counted here (${fmt(w.e.blind.scenario[w.key])}) are in admin units with no ERA5 history to match, so they cannot show an ENSO-scenario signal.`);
   }
   const shown = ipcShown(c);

@@ -15,7 +15,8 @@ RAINY_SHARE = 0.15  # trimester carries >= 15% of annual rain (ds-seas5-skill AP
 # ENSO scenarios for the part of the window SEAS5 does not reach
 ENSO_THRESH = 0.5  # RONI >= +0.5 El Nino, <= -0.5 La Nina
 # Last season_year of ERA5 the composites use. 2026 is excluded: its seasons are incomplete or
-# ERA5T, and ERA5 read the 2026 Sahel season as record-dry (see ERA5_DRY_2026). Including it
+# ERA5T, and ERA5 read the 2026 Sahel season as record-dry (Chad JAS 2026: 23% of normal against
+# CHIRPS's 64-70%). Including it
 # lifted ~20 Sahel/Sudan units over the El Nino dry test on its own. Raise it once a year,
 # when the year's ERA5 is final and has been checked against CHIRPS.
 OBS_LAST_YEAR = 2025
@@ -27,7 +28,7 @@ PHASES = ("nino", "neutral", "nina")
 
 OUTLOOK_MONTHS = 12  # the window runs from the issuance month for this many months
 SEAS5_MAX_LEAD = 4  # leads 0..4 are fully forecast; -2/-1 are in-season (partly observed)
-# Fully observed trimesters (ERA5) kept at the front of the window: the six ending in the six
+# Fully observed trimesters kept at the front of the window: the six ending in the six
 # months before the issuance month (leads -8..-3). Without them a rainy season that ended a month
 # ago drops out of the window before its harvest is in (Sudan's Jun-Sep season in the November
 # run); six keeps a main season assessed until about when the lean season it feeds begins.
@@ -103,15 +104,34 @@ IRI_PLUME = dict(
     ],
 )
 
-# Countries where ERA5 is known to overstate the 2026 season's deficit. The "season ending"
-# slots blend ERA5 (ERA5T at the time) for the observed months. Checked for Chad on
-# 2026-10-19: JAS 2026 ERA5 23% of normal (driest on record) vs CHIRPS v2/v3 64-70%. ERA5
-# dried the whole belt from Senegal to Sudan that season. Flag, don't drop.
-ERA5_DRY_2026 = {"SEN", "GMB", "MRT", "MLI", "BFA", "NER", "NGA", "TCD", "CMR", "SDN"}
 
 # Public HTTP sources
 FDW_POPULATION = "https://fdw.fews.net/api/ipcpopulationsize.csv"
 RONI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt"
+# JRC ASAP (Anomaly hot Spots of Agricultural Production): the vegetation signal for seasons
+# that have ended or are under way. Per admin-2 unit (ASAP's GAUL2 units) and dekad, the
+# cumulative FPAR anomaly since the start of the season (zFPARc, MODIS), cropland and rangeland
+# "during the growing cycle" -- the biomass indicator ASAP's own warnings use. Endpoint and
+# gotchas: KB infrastructure/datasets/jrc-asap.md; client pattern from ds-asap-trends.
+ASAP_BASE = "https://agricultural-production-hotspots.ec.europa.eu"
+ASAP_BIOMASS = dict(variable_id=240, classesset_id=1, sensor_id=3)  # zFPARc, in season, MODIS
+ASAP_CLASSES = {"crop": 1, "range": 2}
+VEG_FIRST_YEAR = 2001  # MODIS FPAR starts in 2001
+VEG_N_MIN = 10  # a unit needs this many past years at that dekad to be ranked
+# FAO GIEWS ASIS Agricultural Stress Index, per admin-1 unit (GAUL 2015) and dekad since 1984:
+# the share of cropland with mean VHI below 35 in the season so far. Shown for reference beside
+# the biomass rank, not used in the rule. Same file as the Afghanistan drought framework reads.
+FAO_ASI = ("https://www.fao.org/giews/earthobservation/asis/data/country/{iso3}/MAP_ASI/DATA/"
+           "ASI_Dekad_Season1_data.csv")
+ASI_FIRST_YEAR = 1984
+ASI_RANK_MIN = 10.0  # % of cropland stressed; below this no rank is shown
+
+# Countries whose ASAP units cannot stand for places: no biomass signal, with the reason shown
+ASAP_SKIP = {
+    "MMR": ("ASAP's admin-1 units for Myanmar are three groupings of the whole country (Region, "
+            "State, Union Territory), not places, so they cannot show where biomass is poor"),
+}
+
 # national population, latest year per country: the FEWS NET map layer's circle. FEWS NET
 # publishes no analysed population; its own percentages use its own population figures, which
 # can differ from these (Yemen: about 33M implied, against the World Bank's 42M), so the page shows
