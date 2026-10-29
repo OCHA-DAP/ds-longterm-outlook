@@ -173,8 +173,11 @@ def ipc_weights(rows: list[dict], today: date) -> tuple[dict, dict[str, dict]]:
             for e in r.get("ipc") or []:
                 if (e["a"], e["t"], e["s"], e["e"]) == (a, t, s0, e0) and e.get("p"):
                     p = [x or 0 for x in e["p"]]
+                    # a unit with no population in any phase has no figure for the period: its
+                    # population is not part of what the IPC/CH figures cover
                     weights[r["pcode"]] = dict(w4=p[3] + p[4], w3=p[2] + p[3] + p[4],
-                                               wall=e.get("tot") or sum(p), pb=p)
+                                               wall=(e.get("tot") or sum(p)) if sum(p) else 0,
+                                               pb=p)
                     label = label or dict(s=e["s"], e=e["e"], label=e["label"])
         if label:
             meta[iso3] = dict(analysis=a, period_type=t, **label)

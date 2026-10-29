@@ -8,6 +8,7 @@ sources before building the page.
 """
 
 import argparse
+import csv
 import json
 import logging
 import math
@@ -18,7 +19,7 @@ import numpy as np
 import pandas as pd
 import pycountry
 
-from outlook import calendar, config, enso, exposure, sources
+from outlook import calendar, config, enso, exposure, sources, zones
 
 log = logging.getLogger("build_data")
 
@@ -42,15 +43,37 @@ def iso3_of(iso2: str) -> str | None:
 # ---- other organisations' figures -----------------------------------------------------------
 
 
-def fews_tables(fdw: pd.DataFrame, today: date) -> tuple[dict, dict, dict]:
+def bin_low(label) -> float | None:
+    """Lower edge of a FEWS NET population bin, from its published label; None for shapes not
+    recognised (the Data Warehouse value is used for those)."""
+    s = str(label or "").strip().lower()
+    if m := re.match(r"^>=\s*([\d.]+)\s*million$", s):
+        return float(m[1]) * 1e6
+    if m := re.match(r"^([\d.]+)\s*-\s*[\d.]+\s*million$", s):
+        return float(m[1]) * 1e6
+    if m := re.match(r"^([\d,]+(?:\.\d+)?)\s*-\s*[\d,]+(?:\.\d+)?$", s):
+        v = float(m[1].replace(",", ""))
+        return v if v >= 1000 else None  # "2 - 2.49": millions without the word; keep the value
+    if re.match(r"^<\s*[\d,]+", s):
+        return 0.0
+    return None
+
+
+def fews_tables(fdw: pd.DataFrame, today: date, since: str) -> tuple[dict, dict, dict]:
     fdw = fdw.copy()
     fdw["iso3"] = fdw["country_code"].map(iso3_of)
     fdw = fdw[fdw["iso3"].notna()]
 
     def rng(r):
         hi = _num(r["high_value"])
-        return dict(low=_num(r["low_value"]), high=None if hi and hi >= 9e9 else hi,
-                    label=r["population_range"])
+        lo, edge = _num(r["low_value"]), bin_low(r["population_range"])
+        out = dict(low=lo if edge is None else edge, high=None if hi and hi >= 9e9 else hi,
+                   label=r["population_range"])
+        # the May 2026 brief stores point estimates inside its bins ("≥ 15 million" with
+        # 21,250,000): figures follow the published bin, the stored value is kept for the page
+        if edge is not None and lo is not None and abs(lo - edge) > 0.01 * max(edge, 1):
+            out["fdw"] = lo
+        return out
 
     peak = {}
     pn = fdw[(fdw["scenario"] == "PN")
@@ -62,6 +85,11 @@ def fews_tables(fdw: pd.DataFrame, today: date) -> tuple[dict, dict, dict]:
         peak[iso3] = dict(
             **rng(r), edition=[r["projection_start"][:7], r["projection_end"][:7]],
             pct=[_num(r["pct_population_min"]), _num(r["pct_population_max"])],
+            # FEWS NET splits only its peak estimate by phase: a bin per phase (Phase 3, 4 and 5
+            # separately) where it publishes one, and the percentage split of the Phase 3+ total
+            phases={f"p{k}": [_num(r[f"phase{k}_low_value"]), _num(r[f"phase{k}_high_value"])]
+                    for k in (3, 4, 5) if _num(r[f"phase{k}_low_value"]) is not None},
+            pct_phase=[_num(r[f"pct_phase{k}"]) for k in (3, 4, 5)],
             peak=[str(r["peak_start_date"])[:7], str(r["peak_end_date"])[:7]]
             if isinstance(r["peak_start_date"], str) else None,
             vs_last_year=r["comparison_to_one_year_ago"]
@@ -74,6 +102,16 @@ def fews_tables(fdw: pd.DataFrame, today: date) -> tuple[dict, dict, dict]:
     faob = {}
     fb = fdw[fdw["source_document"] == "Food Assistance Outlook Brief"]
     for iso3, g in fb.groupby("iso3"):
+        # one figure per month from all the briefs: each brief estimates its own month (CS)
+        # and projects six months ahead (ML). A current estimate beats a projection for the same
+        # month; among projections the latest brief wins.
+        by_month = {}
+        for scen, kind in (("ML", "projected"), ("CS", "current")):
+            for _, r in g[g["scenario"] == scen].sort_values("reporting_date").iterrows():
+                m = r["projection_start"][:7]
+                if m >= since:
+                    by_month[m] = dict(month=m, kind=kind, brief=r["reporting_date"][:7], **rng(r))
+        series = [by_month[m] for m in sorted(by_month)]
         rep = g["reporting_date"].max()
         g = g[g["reporting_date"] == rep]
         cs = g[g["scenario"] == "CS"].sort_values("projection_start")
@@ -85,6 +123,7 @@ def fews_tables(fdw: pd.DataFrame, today: date) -> tuple[dict, dict, dict]:
             current=dict(month=cs.iloc[-1]["projection_start"][:7], **rng(cs.iloc[-1]))
             if not cs.empty else None,
             projected=[dict(month=r["projection_start"][:7], **rng(r)) for _, r in ml.iterrows()],
+            series=series,
         )
     # FEWS NET's own pages for the two briefs (fews.net/global/<product>/<month>-<year>)
     def brief_url(product: str, ym_: str) -> str:
@@ -113,9 +152,21 @@ def ipc_table(nat: pd.DataFrame, today: date) -> dict:
         for (t, s, e), h in g.groupby(["period_type", "reference_period_start",
                                        "reference_period_end"]):
             ph = h.groupby("phase")["population"].sum()
+            # the people analysed: the phases' sum. The mirror's "all" row can be the whole
+            # country while the phases cover part of it (Sudan 2026-01 first projection: "all"
+            # 47.5M, phases 8.3M), so it is only the fallback
+            classified = sum(ph.get(k, 0) for k in "12345")
+            if classified and ph.get("all") and abs(ph["all"] - classified) > 0.02 * classified:
+                log.info("IPC %s %s %s: 'all' %.0f vs phases %.0f, using the phases", iso3, a[:7],
+                         t, ph["all"], classified)
+            analysed = classified or _num(ph.get("all"))
+            if not analysed:
+                log.warning("IPC %s %s %s %s..%s: no population in any phase, dropped", iso3,
+                            a[:7], t, s[:7], e[:7])
+                continue
             periods.append(dict(t=t, s=s[:7], e=e[:7], p3=_num(ph.get("3+")),
                                 p4=_num(ph.get("4", 0) + ph.get("5", 0)),
-                                p5=_num(ph.get("5")), all=_num(ph.get("all"))))
+                                p5=_num(ph.get("5")), all=_num(analysed)))
         periods.sort(key=lambda p: p["s"])
         entries = [dict(a=a[:7], t=p["t"], s=p["s"], e=p["e"], tot=p["all"]) for p in periods]
         shown = exposure.pick_ipc_period(entries, today)
@@ -304,7 +355,8 @@ def main():
     plans = sources.hnrp_plans(args.refresh)
     nat, ipc_gen = sources.ipc_national(args.refresh)
     fdw = sources.fdw_population(args.refresh)
-    peak, faob, fews_latest = fews_tables(fdw, today)
+    wb_pop = sources.wb_population(args.refresh)
+    peak, faob, fews_latest = fews_tables(fdw, today, win[0]["start"])
     ipc_nat = ipc_table(nat, today)
     hnrp = hnrp_table(plans["plans"], today.year)
 
@@ -319,8 +371,18 @@ def main():
         ipc_by.setdefault(r["iso3"], []).append(r)
 
     cals = calendar.load(config.ROOT / "data" / "fewsnet_calendars")
+    # locator maps of the calendar regions, from the SEAS5 site's boundaries of this issuance
+    adm1, adm2, ipc_areas = (
+        sources.seas5_payload(f"hnrp_{n}.geojson", tag, args.refresh)["features"]
+        for n in ("adm1", "adm2", "ipc"))
+    zone_maps = zones.zones_by_country(cals, adm1, adm2, ipc_areas)
     fews_pages = json.loads((config.ROOT / "data" / "fewsnet_pages.json").read_text())
     ipc_links = json.loads((config.ROOT / "data" / "ipc_links.json").read_text())
+
+    a0 = calendar.abs_month(win[0]["start"])
+    axis = (a0, a0 + config.AXIS_MONTHS - 1)
+    with open(config.ROOT / "data" / "country_points.csv") as fh:
+        points = {r["iso3"]: [float(r["lon"]), float(r["lat"])] for r in csv.DictReader(fh)}
 
     recent_ipc = {k for k, v in ipc_nat.items() if v["analysis"] >= "2024-01"}
     recent_hnrp = {k for k, v in hnrp.items() if v["year"] >= today.year - 1}
@@ -335,9 +397,14 @@ def main():
         # only a current plan (this year or last) is shown: the mirror holds every plan back
         # to 2004 and e.g. Senegal's latest HRP is from 2017
         plan = hnrp.get(iso3) if iso3 in recent_hnrp else None
-        rec = dict(iso3=iso3, name=name, hnrp=plan, ipc=ipc_nat.get(iso3),
+        if iso3 not in config.REGION_OF or iso3 not in points:
+            log.warning("%s has no region or map point: add it to config.REGIONS and re-run "
+                        "pipeline/fetch_geo.py", iso3)
+        rec = dict(iso3=iso3, name=name, region=config.REGION_OF.get(iso3, "Other"),
+                   hnrp=plan, ipc=ipc_nat.get(iso3),
                    fews_peak=peak.get(iso3), fews_faob=faob.get(iso3), exposure={},
-                   calendar=calendar_card(cals.get(iso3)),
+                   calendar=calendar_card(cals.get(iso3)), zones=zone_maps.get(iso3),
+                   population=wb_pop.get(iso3),
                    links=dict(fews=fews_pages.get(iso3),
                               ipc=ipc_link(ipc_links.get(iso3), ipc_nat.get(iso3))))
         cal = cals.get(iso3)
@@ -347,24 +414,57 @@ def main():
             for _, w, _, _ in e["units"]:
                 if w["pb"]:
                     pbs = [a + b for a, b in zip(pbs, w["pb"], strict=True)]
+            regions, monthly = (calendar.region_exposure(e["units"], win, cal, KEYS,
+                                                         config.PHASES, axis)
+                                if cal else (None, None))
             rec["exposure"]["hnrp"] = dict(
                 **hmeta[iso3], pbs=[_r(x) for x in pbs] if hmeta[iso3]["mode"] == "pbs" else None,
-                **summarise(e, win, ["w4", "w3", "wall"]),
-                regions=calendar.region_exposure(e["units"], win, cal, KEYS, config.PHASES)
-                if cal else None)
+                **summarise(e, win, ["w4", "w3", "wall"]), regions=regions, monthly=monthly,
+                zone_level=zones.unit_level(low_by[iso3], adm1))
         if iso3 in imeta:
             e = exposure.country_exposure(ipc_by[iso3], iw, win, comp, rainy, known, observed)
             # the SEAS5 payload can hold an older analysis than the IPC mirror today (AFG:
             # payload 2025-03, mirror 2026-09): the page says which one the exposure uses
+            regions, monthly = (calendar.region_exposure(e["units"], win, cal, KEYS,
+                                                         config.PHASES, axis)
+                                if cal else (None, None))
             rec["exposure"]["ipc"] = dict(**imeta[iso3], **summarise(e, win, ["w4", "w3", "wall"]),
-                                          regions=calendar.region_exposure(
-                                              e["units"], win, cal, KEYS, config.PHASES)
-                                          if cal else None,
+                                          regions=regions, monthly=monthly,
+                                          zone_level=zones.unit_level(ipc_by[iso3], adm1),
                                           older_than_national=bool(
                                               rec["ipc"] and imeta[iso3]["analysis"]
                                               < rec["ipc"]["analysis"]))
         rec["era5_caveat"] = iso3 in config.ERA5_DRY_2026
         countries.append(rec)
+
+    # trim the per-month series to the last month with people in an affected lean season
+    n_ax = 0
+    for c in countries:
+        for e in c["exposure"].values():
+            mo = e.get("monthly")
+            if not mo:
+                continue
+            scen = (a for d in mo["scen"].values() for a in d.values())
+            for arr in [*mo["known"].values(), *scen]:
+                nz = [i for i, v in enumerate(arr) if v]
+                if nz:
+                    n_ax = max(n_ax, nz[-1] + 1)
+            for R in (e.get("regions") or {}).values():
+                for im in R["imp"]:
+                    people = any(im["known"].values()) or any(
+                        any(v.values()) for v in im["scen"].values())
+                    if people and calendar.abs_month(im["e"]) > axis[1]:
+                        log.warning("%s: lean season %s %s..%s runs past the %s-month axis "
+                                    "(raise AXIS_MONTHS)", c["iso3"], im["name"], im["s"],
+                                    im["e"], config.AXIS_MONTHS)
+    for c in countries:
+        for e in c["exposure"].values():
+            mo = e.get("monthly")
+            if mo:
+                for d in [mo["known"], mo["obs"], *mo["scen"].values()]:
+                    for k in d:
+                        d[k] = d[k][:n_ax]
+    axis = (axis[0], axis[0] + n_ax - 1)
 
     lastr = rn.iloc[-1]
     iri_age = (today - date.fromisoformat(config.IRI_PLUME["published"])).days
@@ -375,6 +475,12 @@ def main():
             built=datetime.now(UTC).isoformat(timespec="minutes"),
             issuance=dict(label=low["issued_label"], year=iy, month=im, tag=tag),
             window=win,
+            # the per-month series (exposure.<src>.monthly) run over these months
+            months=[calendar.ym(t) for t in range(axis[0], axis[1] + 1)],
+            regions=list(config.REGIONS),
+            points=points,
+            # world-atlas 1:110m TopoJSON, the map's background (pipeline/fetch_geo.py)
+            world=json.loads((config.ROOT / "data" / "world-110m.json").read_text()),
             thresholds=dict(r_min=config.R_MIN, rp_min=config.RP_MIN,
                             rainy_share=config.RAINY_SHARE, enso=config.ENSO_THRESH,
                             scen_alpha=config.SCENARIO_ALPHA, scen_n=config.SCENARIO_N_MIN),
