@@ -345,7 +345,12 @@ def main():
     win = exposure.window(iy, im)
     payload_tris = set(low["trimesters"])
     seas5_slots = {s["tri"] for s in win if s["cat"] in ("ending", "forecast")}
-    assert seas5_slots == payload_tris, f"window {seas5_slots} != payload {payload_tris}"
+    # ds-seas5-skill also lists its fully observed trimester (lead -3, ERA5 only, "obs": true
+    # in the rows). Here that slot is "observed", judged on biomass like the other observed
+    # ones, so its SEAS5 payload values are never read; it may be listed or not.
+    observed_tri = {s["tri"] for s in win if s["lead"] == -3}
+    assert seas5_slots <= payload_tris <= seas5_slots | observed_tri, (
+        f"window {seas5_slots} (+ observed {observed_tri}) != payload {payload_tris}")
 
     rainy, comp, known, rn, obs_years, observed = era5_lookups(low["rows"] + ipcp["rows"], win,
                                                                args.refresh)
